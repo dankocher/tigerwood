@@ -1,0 +1,23 @@
+.header {
+  .h-content {
+    .h-left {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .logo {
+        max-height: 80px;
+        cursor: pointer;
+      }
+      .site-description {
+        margin-left: 30px;
+        font-family: "Nunito-Regular", sans-serif;
+        max-width: 298px;
+        font-size: 14px;
+        line-height: 19px;
+        font-style: normal;
+        font-weight: normal;
+        text-align: left;
+      }
+    }
+  }
+}
