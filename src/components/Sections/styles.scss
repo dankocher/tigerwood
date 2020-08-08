@@ -1,0 +1,20 @@
+@import "../../styles/theme";
+
+.sections {
+  padding-top: $header-height;
+  display: flex;
+  justify-content: center;
+  .content {
+    box-sizing: border-box;
+    padding: 20px 75px;
+    max-width: $max-body-width;
+    text-align: left;
+    line-height: 30px;
+    font-size: 16px;
+    font-family: $font-Nunito-Regular;
+    .temporal-div {
+      padding: 0 10px 20px;
+      background-color: aliceblue;
+    }
+  }
+}

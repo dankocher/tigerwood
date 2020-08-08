@@ -1,4 +1,10 @@
 {
   "site_name": "Tigerwood",
-  "site_description": "Производство и продажа детских спортивных комплексов в Беларуси и по всему миру"
+  "site_description": "Производство и продажа детских спортивных \nкомплексов в Беларуси и по всему миру",
+  "address": "г. Минск, ул. Притыцкого 29, \nТЦ \"Тивали\", 2-й этаж, пав. 202",
+  "phone_number": "+375 (29) 588-66-79",
+  "call_me": "Перезвоните мне",
+
+
+  "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 }

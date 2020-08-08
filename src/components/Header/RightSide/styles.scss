@@ -1,10 +1,73 @@
+@import "../../../styles/theme";
+
 .header {
   .h-content {
-    .h-left {
-
-      .logo {
-        max-height: 80px;
-        cursor: pointer;
+    .h-right {
+      justify-content: flex-end;
+      align-items: center;
+      .address {
+        display: flex;
+        //flex: 1;
+        justify-content: flex-end;
+        padding-right: 20px;
+        height: 44px;
+        .address-icon {
+          margin-right: 13px;
+          margin-top: 4px;
+        }
+        .address-text {
+          font-family: $font-Nunito-SemiBold;
+          text-align: left;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 22px;
+          width: 238px;
+          white-space: pre-line;
+        }
+      }
+      .phone {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        //flex: 1;
+        border-left: 2px solid rgba(0, 0, 0, 0.05);
+        height: 44px;
+        padding-left: 20px;
+        .h-p-top {
+          display: flex;
+          height: 25px;
+          .phone-icon {
+            padding-top: 4px;
+            margin-right: 10px;
+          }
+          .phone-number {
+            font-family: $font-Nunito-Bold;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 25px;
+            margin-right: 4px;
+          }
+          .mess {
+            margin-left: 9px;
+            cursor: pointer;
+          }
+        }
+        .h-p-bottom {
+          display: flex;
+          padding-left: 30px;
+          .h-call-me {
+            font-family: $font-Nunito-SemiBold;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+            text-decoration-line: underline;
+            color: #2F80ED;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
