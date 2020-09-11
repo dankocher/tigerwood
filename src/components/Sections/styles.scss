@@ -6,15 +6,31 @@
   justify-content: center;
   .content {
     box-sizing: border-box;
-    padding: 20px 75px;
+    padding: 0 75px;
     max-width: $max-body-width;
+    width: 100%;
     text-align: left;
     line-height: 30px;
     font-size: 16px;
     font-family: $font-Nunito-Regular;
-    .temporal-div {
+    .--temporal {
       padding: 0 0 20px;
       //background-color: aliceblue;
+    }
+    .section {
+      width: 100%;
+      //margin: 0 75px;
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-max-width) {
+  .sections {
+    .content {
+      padding: 0 20px;
+      .section {
+        //margin: 0 20px;
+      }
     }
   }
 }
