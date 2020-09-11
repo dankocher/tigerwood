@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.scss"
+import "./styles.scss";
 import formatText from "../../utils/formatText";
 
 import t from "../../translates";

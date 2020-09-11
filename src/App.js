@@ -5,12 +5,32 @@ import Grids from "./components/Grids";
 
 class App extends React.Component {
 
-  render() {
+    state = {
+        isMobile: false
+    }
 
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+
+    updateWindowDimensions = () => {
+        let width = window.innerWidth;
+        let isMobile = width < 960;
+        this.setState({isMobile})
+        // this.setState({ width: window.innerWidth, height: window.innerHeight });
+    }
+
+  render() {
+    const {isMobile} = this.state;
     return <div className={`App`}>
-        <Header/>
-        <Sections/>
-        <Grids/>
+        <Header isMobile={isMobile}/>
+        <Sections isMobile={isMobile}/>
+        {/*<Grids/>*/}
     </div>
   }
 }

@@ -26,3 +26,15 @@
     }
   }
 }
+
+@media only screen and (max-width: $mobile-max-width) {
+  .header {
+    height: $mobile-header-height;
+    .h-content {
+      padding: 10px $mobile-side-padding-page;
+      .h-right {
+        display: none;
+      }
+    }
+  }
+}

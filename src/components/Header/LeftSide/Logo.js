@@ -2,8 +2,11 @@ import React from 'react';
 
 class Logo extends React.Component {
     render() {
+        const {isMobile} = this.props;
+        let width = isMobile ? 77 : 110;
+        let height = isMobile ? 56 : 77;
         return (<div className="logo" onClick={() => window.location = "/"}>
-            <svg width="110" height="80" viewBox="0 0 110 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width={width} height={height} viewBox="0 0 110 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0)">
                     <path fillRule="evenodd" clipRule="evenodd" d="M28.9688 73.5362L30.0699 70.9507H42.2646L41.1635 73.5362H28.9688Z" fill="#1B1918"/>
                     <path fillRule="evenodd" clipRule="evenodd" d="M30.5254 69.8647L31.1366 68.4216C31.3161 68.0032 31.5586 67.6694 31.8642 67.4203C32.1746 67.1711 32.4996 67.0442 32.844 67.0442H42.8026C43.147 67.0442 43.3653 67.1711 43.4574 67.4203C43.5496 67.6694 43.5059 68.0032 43.3313 68.4216L42.7201 69.8647H39.4168H33.8287H30.5254Z" fill="#1B1918"/>

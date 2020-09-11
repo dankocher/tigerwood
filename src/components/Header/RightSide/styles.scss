@@ -3,6 +3,7 @@
 .header {
   .h-content {
     .h-right {
+      min-width: 608px;
       justify-content: flex-end;
       align-items: center;
       .address {
@@ -68,6 +69,16 @@
             cursor: pointer;
           }
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-max-width) {
+  .header {
+    .h-content {
+      .h-right {
+        display: none;
       }
     }
   }

@@ -6,6 +6,12 @@ import formatText from "../../../utils/formatText";
 
 class RightSide extends React.Component {
     render() {
+        const {isMobile} = this.props;
+        if (isMobile) {
+            return <div className="h-side h-right">
+
+            </div>
+        }
         return (
             <div className="h-side h-right">
                 <div className="address">
