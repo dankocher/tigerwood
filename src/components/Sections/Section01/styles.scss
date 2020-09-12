@@ -8,27 +8,22 @@
     background: url("./images/section1-bg.png") no-repeat right top;
     margin-top: 36px;
     background-size: auto auto;
+    z-index: 20;
     .-s01-header {
       padding-top: 44px;
       .header_1 {
         font-family: $font-Nunito-ExtraBold;
-        font-style: normal;
-        font-weight: 800;
         font-size: 30px;
         line-height: 41px;
       }
       .header_2 {
         font-family: $font-Nunito-Black;
-        font-style: normal;
-        font-weight: 900;
         font-size: 30px;
         line-height: 41px;
         color: #FF7A00;
       }
       .header_3 {
         font-family: $font-Nunito-Regular;
-        font-style: normal;
-        font-weight: normal;
         font-size: 18px;
         line-height: 25px;
         margin-top: 10px;
@@ -46,8 +41,6 @@
         width: 206px;
         .-i-t-icon {
           font-family: $font-Nunito-SemiBold;
-          font-style: normal;
-          font-weight: 600;
           font-size: 16px;
           line-height: 22px;
           text-align: center;
@@ -63,22 +56,18 @@
       border-radius: 35px;
       display: flex;
       flex-direction: column;
-      padding: 13px 32px;
+      padding: 13px 0 0 32px;
       box-sizing: border-box;
       user-select: none;
       cursor: pointer;
       .b-top-text {
         font-family: $font-Nunito-Bold;
-        font-style: normal;
-        font-weight: bold;
         font-size: 18px;
         line-height: 25px;
         color: #FFFFFF;
       }
       .b-bottom-text {
         font-family: $font-Nunito-Regular;
-        font-style: normal;
-        font-weight: normal;
         font-size: 14px;
         line-height: 19px;
         color: #FFFFFF;
@@ -107,8 +96,6 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         .b-t-text {
           margin-left: 10px;
-          font-style: normal;
-          font-weight: bold;
           font-size: 18px;
           line-height: 25px;
           font-family: $font-Nunito-Bold;
@@ -135,15 +122,11 @@
           margin-left: 10px;
           .b-t-text-2 {
             font-family: $font-Nunito-Bold;
-            font-style: normal;
-            font-weight: bold;
             font-size: 18px;
             line-height: 25px;
           }
           .b-t-text-2a {
             font-family: $font-Nunito-Regular;
-            font-style: normal;
-            font-weight: normal;
             font-size: 14px;
             line-height: 19px;
           }

@@ -8,20 +8,22 @@
     justify-content: center;
     display: flex;
     min-height: 770px;
-    margin-top: 50px;
-    //padding-top: 50px;
+    //margin-top: 50px;
+    padding-top: 50px;
+    z-index: 10;
     //overflow: hidden;
     &:after {
-      margin-top: 50px;
+      //margin-top: 50px;
       //padding-top: 50px;
       content: "";
       position: absolute;
-      width: 3336.92px;
-      height: 597.17px;
-      top: 0;
+      width: 10000px;
+      //height: 597.17px;
+      height: 1200px;
+      top: -200px;
 
       background: #FDF9FF;
-      transform: rotate(-3deg);
+      //transform: rotate(-3deg);
     }
     .--s_02-content {
       width: 100%;
@@ -32,15 +34,11 @@
         z-index: 25;
         .-s02-h-text1 {
           font-family: $font-Nunito-ExtraBold;
-          font-style: normal;
-          font-weight: 800;
           font-size: 30px;
           line-height: 41px;
         }
         .-s02-h-text2 {
           font-family: $font-Nunito-Black;
-          font-style: normal;
-          font-weight: 900;
           font-size: 30px;
           line-height: 41px;
           color: #921FED;
@@ -48,8 +46,6 @@
         .-s02-h-text3 {
           font-family: $font-Nunito-Regular;
           margin-top: 10px;
-          font-style: normal;
-          font-weight: normal;
           font-size: 18px;
           line-height: 25px;
         }
@@ -70,16 +66,12 @@
         user-select: none;
         .-b-text1 {
           font-family: $font-Nunito-Bold;
-          font-style: normal;
-          font-weight: bold;
           font-size: 18px;
           line-height: 25px;
           color: #FFFFFF;
         }
         .-b-text2 {
           font-family: $font-Nunito-Regular;
-          font-style: normal;
-          font-weight: normal;
           font-size: 14px;
           line-height: 19px;
           color: #FFFFFF;
@@ -102,18 +94,27 @@
       .-s02-picture {
         z-index: 21;
         position: absolute;
-        top: 0px;
+        top: 50px;
         left: 565px;
         height: 730px;
         //overflow: hidden;
         justify-content: center;
         display: flex;
+        &:before {
+          content: "";
+          position: absolute;
+          width: 10000px;
+          height: 500px;
+          top: -475px;
+          background-color: white;
+          transform: rotate(-3deg);
+        }
         &:after {
           content: "";
           position: absolute;
-          width: 3336.92px;
-          height: 100px;
-          bottom: 0;
+          width: 10000px;
+          height: 500px;
+          top: 635px;
           background-color: white;
           transform: rotate(-3deg);
         }
