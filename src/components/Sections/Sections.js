@@ -3,10 +3,11 @@ import "./styles.scss";
 import formatText from "../../utils/formatText";
 
 import Section01 from "./Section01";
+import Section02 from "./Section02";
 
 import t from "../../translates";
 
-const sections = [1];
+const sections = [1, 2];
 
 class Sections extends React.Component {
     //
@@ -29,6 +30,7 @@ class Sections extends React.Component {
     getSection = i => {
         switch (i) {
             case 1: return <Section01 key={`section-01`}/>
+            case 2: return <Section02 key={`section-02`}/>
             default: return formatText(this.getTestSection(100), "section --temporal")
         }
     }
