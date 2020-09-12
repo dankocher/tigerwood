@@ -19,6 +19,12 @@ body {
     //}
   }
 }
+body {
+  overflow-x: hidden;
+}
+#root, .App {
+  overflow: hidden;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
