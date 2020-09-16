@@ -5,11 +5,14 @@ import Icon01 from "./icons/Icon1";
 import Icon02 from "./icons/Icon2";
 import Icon03 from "./icons/Icon3";
 import formatText from "../../../utils/formatText";
+
+const SECTION_NUMBER = "01"
+
 export default class Section extends React.Component {
 
     render() {
         return (
-            <div className={`section --s_01`}>
+            <div className={`section --s_${SECTION_NUMBER}`}>
                 {S1header}
                 {Icons}
                 {Button}

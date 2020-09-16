@@ -4,12 +4,14 @@ import t from "./text.json";
 import formatText from "../../../utils/formatText";
 import picture from "./images/s2-bg.png"
 
+const SECTION_NUMBER = "02"
+
 export default class Section extends React.Component {
 
     render() {
         return (
-            <div className={`section --s_02`}>
-                <div className="--s_02-content">
+            <div className={`section --s_${SECTION_NUMBER}`}>
+                <div className={`--s_${SECTION_NUMBER}-content`}>
                     {S2Picture}
                     {S2Header}
                     {S2Button}
