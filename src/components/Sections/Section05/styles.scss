@@ -1,0 +1,17 @@
+@import "../../../styles/theme";
+
+$s04-min-height: 656px;
+
+.section {
+  &.--s_05 {
+    position: relative;
+    z-index: 40;
+    min-height: $s04-min-height;
+    height: $s04-min-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+
+  }
+}
