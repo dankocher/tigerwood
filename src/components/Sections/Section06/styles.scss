@@ -1,13 +1,13 @@
 @import "../../../styles/theme";
 
-$s04-min-height: 656px;
+$min-height: 656px;
 
 .section {
   &.--s_06 {
     position: relative;
     z-index: 40;
-    min-height: $s04-min-height;
-    height: $s04-min-height;
+    min-height: $min-height;
+    height: $min-height;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -3,7 +3,7 @@ import "./styles.scss";
 import t from "./text.json";
 import formatText from "../../../utils/formatText";
 
-const SECTION_NUMBER = "06"
+const SECTION_NUMBER = "05"
 
 export default class Section extends React.Component {
 
