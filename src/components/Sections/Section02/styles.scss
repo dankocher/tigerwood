@@ -7,7 +7,7 @@
     background-size: auto auto;
     justify-content: center;
     display: flex;
-    min-height: 770px;
+    min-height: 720px;
     //margin-top: 50px;
     padding-top: 50px;
     z-index: 10;
@@ -22,7 +22,8 @@
       height: 1200px;
       top: -200px;
 
-      background: #FDF9FF;
+      //background: #FDF9FF;
+      background: #F7E6FF;
       //transform: rotate(-3deg);
     }
     .--s_02-content {

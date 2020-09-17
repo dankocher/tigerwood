@@ -1,0 +1,27 @@
+@import "../../../../styles/theme";
+
+.-button {
+  margin-left: 21px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  //min-width: 175px;
+  min-height: 57px;
+  padding: 16px 32px;
+
+  background: #C9F6DC;
+  border-radius: 30px;
+  box-sizing: border-box;
+  font-family: $font-Nunito-SemiBold;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  user-select: none;
+  &.-selected {
+    background: linear-gradient(182.34deg, #24D26D 6.07%, #13C45D 98.04%);
+    color: #FFFFFF;
+  }
+}
