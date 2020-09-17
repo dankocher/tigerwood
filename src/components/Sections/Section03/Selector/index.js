@@ -1,8 +1,6 @@
 import React from "react";
 import "./styles.scss";
 import OutsideClick from "../../../OutsideClick";
-// import onClickOutside from 'react-onclickoutside'
-// import enhanceWithClickOutside from 'react-click-outside';
 
 class Selector extends React.Component {
 

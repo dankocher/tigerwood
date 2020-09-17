@@ -1,0 +1,190 @@
+@import "../../../styles/theme";
+
+$s04-min-height: 753px;
+
+.section {
+  &.--s_04 {
+    position: relative;
+    z-index: 40;
+    min-height: $s04-min-height;
+    height: $s04-min-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    min-width: 1212px;
+    &:before {
+      z-index: 41;
+      content: "";
+      position: absolute;
+      $size: 723px;
+      width: $size;
+      height: $size;
+      border-radius: $size / 2;
+
+      background: #F3FEFF;
+      box-shadow: 0 2px 25px #F3FEFF;
+    }
+    .--s_04-content {
+      z-index: 45;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .-s4-header {
+        margin-top: 50px;
+        font-family: $font-Nunito-Black;
+        font-size: 30px;
+        line-height: 41px;
+        text-align: center;
+
+        color: #07ACF2;
+      }
+      .-s4-picture-content {
+        z-index: 42;
+        height: 100%;
+        width: 100%;
+        background: url("./images/s4-picture.png") no-repeat;
+        background-size: contain;
+        background-position-x: 10px;
+        top: 0;
+        left: 0;
+        position: relative;
+        .-s4-p-feature {
+          position: absolute;
+          height: 50px;
+          background: #FFFFFF;
+          border-radius: 25px;
+          display: inline-flex;
+          box-sizing: border-box;
+          .-number {
+            width: 50px;
+            height: 50px;
+            margin-top: -2px;
+            margin-left: -2px;
+            border-radius: 25px;
+            color: #FFFFFF;
+            font-size: 24px;
+            line-height: 100%;
+            font-family: $font-Montserrat-Bold;
+            display: inline-flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+          }
+          .-tail {
+            position: absolute;
+          }
+          .-text {
+            width: calc(100% - 50px);
+            font-family: $font-Nunito-SemiBold;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 20px;
+            box-sizing: border-box;
+          }
+
+
+          &.-f1 {
+            border: 2px solid #FF7A00;
+            box-shadow: 0 8px 10px rgba(242, 153, 74, 0.1);
+            width: 366px;
+            top: 70px;
+            .-number {
+              background: #FF7A00;
+            }
+            .-tail {
+              left: 336px;
+              top: 46px;
+            }
+          }
+
+          &.-f2 {
+            border: 2px solid #921FED;
+            box-shadow: 0 8px 10px rgba(155, 81, 224, 0.1);
+            width: 280px;
+            top: 195px;
+            .-number {
+              background: #921FED;
+            }
+            .-tail {
+              left: 276px;
+              top: -16px;
+            }
+          }
+
+          &.-f3 {
+            border: 2px solid #F66030;
+            box-shadow: 0 8px 10px rgba(235, 87, 87, 0.1);
+            width: 345px;
+            top: 325px;
+            .-number {
+              background: #EB5757;
+            }
+            .-tail {
+              left: 152px;
+              top: 46px;
+            }
+          }
+
+          $left: 777px;
+          &.-f4 {
+            border: 2px solid #24D26D;
+            box-shadow: 0 8px 10px rgba(111, 207, 151, 0.1);
+            width: 301px;
+            top: 70px;
+            left: $left;
+            .-number {
+              background: #24D26D;
+            }
+            .-tail {
+              left:-188px;
+              top: 0;
+            }
+          }
+
+          &.-f5 {
+            border: 2px solid #FFC531;
+            box-shadow: 0 8px 10px rgba(243, 195, 54, 0.1);
+            width: 325px;
+            top: 195px;
+            left: $left;
+            .-number {
+              background: #FFC531;
+            }
+            .-tail {
+              left: -190px;
+              top: 20px;
+            }
+          }
+
+          &.-f6 {
+            border: 2px solid #07ACF2;
+            box-shadow: 0 8px 10px rgba(22, 194, 240, 0.1);
+            width: 325px;
+            top: 325px;
+            left: $left;
+            .-number {
+              background: #07ACF2;
+            }
+            .-tail {
+              left: -242px;
+              top: 46px;
+            }
+          }
+
+
+
+        }
+      }
+    }
+  }
+}
