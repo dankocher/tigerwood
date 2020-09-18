@@ -62,6 +62,17 @@ $min-height: 656px;
           height: 523px;
           border-radius: 15px;
           overflow: hidden;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          .-play-button {
+            width: 90px;
+            height: 90px;
+            border-radius: 45px;
+            left: 897px;
+            top: 3858px;
+            background: rgba(255, 255, 255, 0.5);
+          }
         }
       }
     }

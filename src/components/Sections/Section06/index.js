@@ -19,7 +19,7 @@ export default class Section extends React.Component {
                     </div>
                     <div className="-s5-video">
                         <div className="-video-content">
-
+                            <div className="-play-button"></div>
                         </div>
                     </div>
                 </div>
