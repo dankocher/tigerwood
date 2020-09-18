@@ -5,13 +5,65 @@ $min-height: 656px;
 .section {
   &.--s_06 {
     position: relative;
-    z-index: 40;
+    z-index: 60;
     min-height: $min-height;
     height: $min-height;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
+    &:before {
+      z-index: 61;
+      content: "";
+      position: absolute;
+      width: 803.33px;
+      height: 75px;
+      left: -515px;
+      top: 411px;
+      background-color: rgba(246, 96, 48, 0.2);
+      transform: rotate(-31.81deg);
+    }
+    &:after {
+      z-index: 62;
+      content: "";
+      position: absolute;
+      width: 803.33px;
+      height: 75px;
+      left: 383px;
+      top: 195px;
+      background-color: rgba(246, 96, 48, 0.2);
+      transform: rotate(30deg);
+    }
+    .--s_06-content {
+      z-index: 65;
+      width: 100%;
+      height: 100%;
+      padding-top: 60px;
+      display: inline-flex;
+      .-s06-header {
+        .-s06-header-1, .-s06-header-2 {
+          font-family: $font-Nunito-ExtraBold;
+          font-size: 30px;
+          line-height: 41px;
+          color: #000000;
+        }
 
+        .-s06-header-2 {
+          color: #F76030;
+        }
+      }
+      .-s5-video {
+        height: 100%;
+        margin-left: 40px;
+        .-video-content {
+          display: flex;
+          background: #C4C4C4 url("./images/s5-video.jpg") no-repeat;
+          width: 701px;
+          height: 523px;
+          border-radius: 15px;
+          overflow: hidden;
+        }
+      }
+    }
   }
 }
