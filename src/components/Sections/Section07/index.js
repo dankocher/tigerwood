@@ -42,7 +42,7 @@ export default class Section extends React.Component {
                     <div className="-form">
                         {/*<input type="text" className="-text-input --phone" name={"phone"}/>*/}
                         <InputMask className="-text-input --phone" name={"phone"} onChange={this.onChange} value={phone} type={"tel"} placeholder={t.placeholder_phone} mask="+375 (99) 999 99 99" maskChar=" "/>
-                        <input className="-text-input --name" name={"name"} onChange={this.onChange} value={name} type={"text"} placeholder={t.placeholder_name}/>
+                        <input className="-text-input --name" name={"name"} onChange={this.onChange} value={name} type={"text"} placeholder={t.placeholder_name} autoComplete={"off"} autoCorrect={"off"}/>
                         <Button onClick={this.send}/>
                         <div className="-description">
                             {formatText(t.description)}
