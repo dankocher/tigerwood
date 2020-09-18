@@ -49,6 +49,12 @@ $s03-min-height: 650px;
             box-sizing: border-box;
             padding-top: 18px;
             cursor: pointer;
+            &.slick-disabled {
+              cursor: default;
+              pointer-events: none;
+              filter: grayscale(1);
+              opacity: .3;
+            }
             &:hover {
               background: url("./icons/icon-bg.svg") no-repeat;
             }
@@ -57,11 +63,11 @@ $s03-min-height: 650px;
             }
 
             &.slick-prev {
-              margin-left: calc(50% - #{$arrowSize});
+              margin-left: calc(50% - (#{$arrowSize} - 4px));
               padding-left: 18px;
             }
             &.slick-next {
-              margin-right: calc(50% - #{$arrowSize});
+              margin-right: calc(50% - (#{$arrowSize} - 4px));
               padding-left: 22px;
             }
           }

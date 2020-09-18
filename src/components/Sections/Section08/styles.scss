@@ -1,6 +1,6 @@
 @import "../../../styles/theme";
 
-$min-height: 656px;
+$min-height: 840px;
 
 .section {
   &.--s_08 {
@@ -12,6 +12,80 @@ $min-height: 656px;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
+    .--s_08-content {
+      width: 100%;
+      height: 100%;
+      .-s8-header {
+        margin-top: 74px;
+        .-header_1, .-header_2 {
+          font-family: $font-Nunito-Black;
+          font-size: 30px;
+          line-height: 41px;
+          text-align: center;
+          color: black;
+        }
+
+        .-header_2 {
+          color: #9B51E0;
+        }
+
+        .slick-slide {
+          padding: 0 0 15px;
+        }
+      }
+      .slick-slider {
+        $arrowSize: 54px;
+        margin-top: 46px;
+        .slick-list {
+          .-picture {
+            .-picture-content {
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+              img {
+                width: 270px;
+                height: 480px;
+                border: 2px solid rgba(0, 0, 0, 0.25);
+                border-radius: 10px;
+              }
+            }
+          }
+        }
+        .slick-arrow {
+          position: absolute;
+          margin-top: 280px;
+          color: black;
+          width: $arrowSize;
+          height: $arrowSize;
+          box-sizing: border-box;
+          padding-top: 18px;
+          cursor: pointer;
+          &.slick-disabled {
+            cursor: default;
+            pointer-events: none;
+            filter: grayscale(1);
+            opacity: .3;
+          }
+          &:hover {
+            background: url("./icons/icon-bg.svg") no-repeat;
+          }
+          &:before {
+            content: "";
+          }
+
+          &.slick-prev {
+            margin-left: calc(50% - (#{$arrowSize} - 4px));
+            padding-left: 18px;
+          }
+          &.slick-next {
+            margin-right: calc(50% - (#{$arrowSize} - 4px));
+            padding-left: 22px;
+          }
+        }
+      }
+    }
 
   }
 }
