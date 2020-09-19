@@ -27,7 +27,7 @@ export default class Section extends React.Component {
         };
         return (
             <div className={`section --s_${SECTION_NUMBER}`}>
-                <div className={`--s_${SECTION_NUMBER}-content`}>
+                <div className={`---content`}>
                     <div className="-s8-header">
                         <div className="-header_1">{formatText(t.header_1)}</div>
                         <div className="-header_2">{formatText(t.header_2)}</div>

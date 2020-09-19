@@ -6,7 +6,7 @@ $s03-min-height: 650px;
   &.--s_03 {
     position: relative;
     z-index: 30;
-    .--s_03-content {
+    .---content {
       min-height: $s03-min-height;
       .-s03-text-header-1 {
         font-family: $font-Nunito-ExtraBold;
