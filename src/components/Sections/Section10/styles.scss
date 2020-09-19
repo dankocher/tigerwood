@@ -5,7 +5,7 @@ $min-height: 656px;
 .section {
   &.--s_10 {
     position: relative;
-    z-index: 40;
+    z-index: 100;
     min-height: $min-height;
     height: $min-height;
     display: flex;
@@ -14,7 +14,131 @@ $min-height: 656px;
     margin-bottom: 50px;
 
     .---content {
+      width: 100%;
+      height: 100%;
+      padding-top: 35px;
+      .-header-1, .-header-2 {
+        font-family: $font-Nunito-ExtraBold;
+        font-size: 30px;
+        line-height: 41px;
+        color: #000000;
+      }
+      .-header-2 {
+         color: #07ACF2;
+      }
+      .-gallery {
+        margin-top: 30px;
+        width: 100%;
+        height: 456px;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        box-sizing: border-box;
+        .-pictures {
+          z-index: 115;
+          .-pictures-container {
+            position: absolute;
+            display: inline-flex;
+            left: 0;
+            transition: left 500ms ease-in-out;
+            img {
+            }
+          }
+        }
+        .-info {
+          position: absolute;
+          z-index: 116;
+          width: calc(100% - 40px);
+          height: 80px;
+          bottom: 0;
+          background-color: white;
+          margin: 0 20px 20px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+          border-radius: 10px;
+          user-select: none;
+          .-info-content {
+            width: 100%;
+            height: 100%;
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            .-complex {
+              margin-left: 37px;
+              width: 177px + 72px;
 
+              .--title, .--c-name {
+                font-family: $font-Nunito-Regular;
+                font-size: 18px;
+                line-height: 25px;
+                color: #000000;
+              }
+
+              .--c-name {
+                color: #07ACF2;
+              }
+            }
+
+            .-features {
+              text-align: left;
+              white-space: pre;
+              font-size: 18px;
+              line-height: 25px;
+              width: 300px;
+              margin-right: 40px;
+            }
+
+            .-button-want {
+              width: 198px;
+              height: 80px;
+              background: #07ACF2;
+              font-family: $font-Nunito-Bold;
+              font-size: 24px;
+              line-height: 33px;
+              color: #FFFFFF;
+              cursor: pointer;
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              user-select: none;
+
+              &:hover {
+                text-decoration-line: underline;
+              }
+            }
+
+            .-gallery-buttons {
+              position: absolute;
+              right: 13px;
+              height: 100%;
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              font-family: $font-Nunito-Regular;
+              font-size: 18px;
+              line-height: 25px;
+              color: #000000;
+              .-g-button {
+                width: 50px;
+                height: 50px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                margin: 0 13px;
+                opacity: 1;
+                &.-disabled {
+                  opacity: .5;
+                  filter: grayscale(1);
+                  cursor: default;
+                }
+              }
+              .-g-name {
+                user-select: none;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
