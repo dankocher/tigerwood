@@ -65,7 +65,7 @@ export default class Section extends React.Component {
                             <div className="-pictures-container" style={{left}}>
                                 {
                                     products.map((p, i) => (
-                                        <img src={picture_wide} alt={""}/>
+                                        <img key={i} src={picture_wide} alt={""}/>
                                     ))
                                 }
                             </div>
