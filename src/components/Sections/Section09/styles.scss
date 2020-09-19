@@ -3,9 +3,9 @@
 $min-height: 656px;
 
 .section {
-  &.--s_095 {
+  &.--s_09 {
     position: relative;
-    z-index: 40;
+    z-index: 90;
     min-height: $min-height;
     height: $min-height;
     display: flex;
@@ -13,5 +13,70 @@ $min-height: 656px;
     align-items: center;
     margin-bottom: 50px;
 
+    &:before {
+      position: absolute;
+      content: "";
+      background: url("./images/bg.svg") no-repeat;
+      width: 560px;
+      height: 818.71px;
+      left: 732px;
+      //right: -75px;
+      top: -50px;
+      z-index: 91;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      background: url("./images/s9-bg.png") no-repeat;
+      background-size: contain;
+      width: 1266px;
+      height: 843px;
+      left: 164px;
+      top: -144px;
+      z-index: 92;
+    }
+
+    .--s_09-content {
+      width: 100%;
+      height: 100%;
+      z-index: 95;
+
+      .-s9-text {
+        width: 100%;
+        height: 100%;
+        max-width: 435px;
+        margin-top: 10px;
+        .-header-1, .-header-2 {
+          font-family: $font-Nunito-ExtraBold;
+          font-size: 30px;
+          line-height: 41px;
+          color: #000000;
+        }
+        .-header-2 {
+          color: #24D26D;
+        }
+        .delivery-text {
+          font-size: 18px;
+          line-height: 25px;
+          color: #000000;
+          margin-top: 20px;
+          font-family: $font-Nunito-Regular;
+          .delivery-title {
+            font-family: $font-Nunito-Bold;
+          }
+          ul.delivery-features {
+            margin: 0;
+            padding-left: 0;
+            list-style: none;
+            li.-f {
+            }
+          }
+
+          .-pickup, .--russia {
+            margin-top: 25px;
+          }
+        }
+      }
+    }
   }
 }
