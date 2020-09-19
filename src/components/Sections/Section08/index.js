@@ -26,7 +26,7 @@ export default class Section extends React.Component {
             prevArrow: <PrevArrow />
         };
         return (
-            <div className={`section --s_${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER}`}>
                 <div className={`---content`}>
                     <div className="-s8-header">
                         <div className="-header_1">{formatText(t.header_1)}</div>

@@ -12,7 +12,7 @@ export default class Section extends React.Component {
 
     render() {
         return (
-            <div className={`section --s_${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER}`}>
                 {S1header}
                 {Icons}
                 {Button}

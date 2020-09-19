@@ -32,7 +32,7 @@ export default class Section extends React.Component {
         const {phone, name} = this.state;
 
         return (
-            <div className={`section --s_${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER}`}>
                 <div className={`---content`}>
                     <div className="-s7-header">
                         <div className="-header-1">{t.header_1}</div>

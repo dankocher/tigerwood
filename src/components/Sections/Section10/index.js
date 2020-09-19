@@ -56,7 +56,7 @@ export default class Section extends React.Component {
         const product = products[current];
 
         return (
-            <div className={`section --s_${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER}`}>
                 <div className={`---content`}>
                     <div className="-header-1">{t.header_1}</div>
                     <div className="-header-2">{t.header_2}</div>
