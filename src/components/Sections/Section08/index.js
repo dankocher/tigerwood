@@ -34,7 +34,7 @@ export default class Section extends React.Component {
                     </div>
                     <Slider {...settings}>
                         {reviews.map((r, i) => (
-                            <div className="-picture">
+                            <div key={i} className="-picture">
                                 <div className="-picture-content">
                                     <img src={image} alt=""/>
                                 </div>
