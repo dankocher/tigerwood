@@ -15,9 +15,6 @@ import products from "./data/products.json"
 import Product from "./Product";
 import Slider from "react-slick";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 const SECTION_NUMBER = "03"
 
 const options = [
