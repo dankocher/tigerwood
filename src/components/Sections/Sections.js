@@ -38,17 +38,17 @@ class Sections extends React.Component {
 
     getSection = i => {
         switch (i) {
-            case 1: return <Section01 key={`section-01`}/>
-            case 2: return <Section02 key={`section-02`}/>
-            case 3: return <Section03 key={`section-03`}/>
-            case 4: return <Section04 key={`section-04`}/>
-            case 5: return <Section05 key={`section-05`}/>
-            case 6: return <Section06 key={`section-06`}/>
-            case 7: return <Section07 key={`section-07`}/>
-            case 8: return <Section08 key={`section-08`}/>
-            case 9: return <Section09 key={`section-09`}/>
-            case 10: return <Section10 key={`section-10`}/>
-            case 11: return <Section11 key={`section-11`}/>
+            case 1: return <Section01 key={`section-01`} {...this.props}/>
+            case 2: return <Section02 key={`section-02`} {...this.props}/>
+            case 3: return <Section03 key={`section-03`} {...this.props}/>
+            case 4: return <Section04 key={`section-04`} {...this.props}/>
+            case 5: return <Section05 key={`section-05`} {...this.props}/>
+            case 6: return <Section06 key={`section-06`} {...this.props}/>
+            case 7: return <Section07 key={`section-07`} {...this.props}/>
+            case 8: return <Section08 key={`section-08`} {...this.props}/>
+            case 9: return <Section09 key={`section-09`} {...this.props}/>
+            case 10: return <Section10 key={`section-10`} {...this.props}/>
+            case 11: return <Section11 key={`section-11`} {...this.props}/>
             default: return formatText(this.getTestSection(100), "section --temporal")
         }
     }

@@ -19,11 +19,16 @@ body {
     //}
   }
 }
+html {
+  min-width: 320px;
+}
 body {
   overflow-x: hidden;
+  min-width: 320px;
 }
 #root, .App {
   overflow: hidden;
+  min-width: 320px;
 }
 
 code {

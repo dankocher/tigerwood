@@ -5,7 +5,7 @@ export default class Icon2 extends React.Component {
         const {isMobile} = this.props;
         let width = isMobile ? 48 : 72;
         let height = isMobile ? 48 : 72;
-        return (<div>
+        return (<div className={"-svg-icon"}>
             <svg width={width} height={height} viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7.17188 1.40625H13.7812V70.5938H7.17188V1.40625Z" fill="#921FED" fillOpacity="0.25"/>
                 <path d="M13.7812 63.6047H70.5938V70.5938H13.7812V63.6047Z" fill="#921FED" fillOpacity="0.25"/>

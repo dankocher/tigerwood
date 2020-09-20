@@ -6,7 +6,8 @@ import {Header, Sections} from "./components";
 class App extends React.Component {
 
     state = {
-        isMobile: false
+        isMobile: false,
+        width: 0
     }
 
     componentDidMount() {
@@ -21,7 +22,7 @@ class App extends React.Component {
     updateWindowDimensions = () => {
         let width = window.innerWidth;
         let isMobile = width < 960;
-        this.setState({isMobile})
+        this.setState({isMobile, width})
         // this.setState({ width: window.innerWidth, height: window.innerHeight });
     }
 
