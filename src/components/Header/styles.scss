@@ -28,13 +28,21 @@
   }
 }
 
-@media only screen and (max-width: $mobile-max-width) {
+@media only screen and (max-width: 1216px) {
+  .header {
+    .h-content {
+      padding: 10px $mobile-side-padding-page;
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) {
   .header {
     height: $mobile-header-height;
     .h-content {
-      padding: 10px $mobile-side-padding-page;
+      //padding: 10px $mobile-side-padding-page;
       .h-right {
-        display: none;
+        //display: none;
       }
     }
   }

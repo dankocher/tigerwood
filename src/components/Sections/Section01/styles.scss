@@ -136,27 +136,41 @@
   }
 }
 
-@media only screen and (max-width: $mobile-max-width) {
+@media only screen and  (max-width: 1200px) {
+  .section {
+    &.--s01 {
+      .-s01-header {
+        .header_1, .header_2 {
+          font-size: calc(0.8em + 1vw);
+          line-height: calc(1em + 1vw);
+        }
+        .header_3 {
+          font-size: calc(0.3em + 1vw);
+          line-height: calc(0.8em + 1vw);
+        }
+      }
+
+      .-s01-icons {
+        .qual-icon {
+          margin-right: 10px;
+        }
+      }
+
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) {
   .section {
     &.--s01 {
       min-height: unset;
       padding-bottom: 100px;
-      //background-size: 280px 204px;
       margin-top: 20px !important;
       margin-bottom: 0;
-      //background-position-x: 60px;
-      //margin-right: 0;
 
       .-s01-header {
         padding-top: 0;
-        .header_1, .header_2 {
-          font-size: 18px;
-          line-height: 25px;
-        }
-        .header_3 {
-          font-size: 14px;
-          line-height: 19px;
-        }
+
       }
       .-s01-icons {
         display: flex;
@@ -202,6 +216,26 @@
           font-size: 14px;
           line-height: 19px;
           margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 700px) {
+  .section {
+    &.--s01 {
+      padding-bottom: 0;
+      background-size: 70vw auto;
+      .-s01-header {
+        .header_1, .header_2 {
+          font-size: 18px;
+          line-height: 25px;
+        }
+        .header_3 {
+          font-size: 14px;
+          line-height: 19px;
         }
       }
 
@@ -253,25 +287,6 @@
 }
 
 
-@media only screen and (max-width: 700px) {
-  .section {
-    &.--s01 {
-      padding-bottom: 0;
-      background-size: 70vw auto;
-      //.-s01-box {
-      //  position: relative;
-      //  width: 100%;
-      //  height: 133px;
-      //  right: unset;
-      //  bottom: unset;
-      //  margin-top: 30px;
-      //
-      //}
-    }
-  }
-}
-
-
 @media only screen and (max-width: 650px) {
   .section {
     &.--s01 {
@@ -284,6 +299,7 @@
         right: unset;
         bottom: unset;
         margin-top: 30px;
+        border-radius: 15px;
 
       }
     }

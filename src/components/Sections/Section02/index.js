@@ -13,7 +13,7 @@ export default class Section extends React.Component {
             <div className={`section --s${SECTION_NUMBER}`}>
                 <div className={`---content`}>
                     {S2Picture}
-                    {S2Header}
+                    <S2Header {...this.props}/>
                     {S2Button}
                 </div>
             </div>
@@ -25,11 +25,11 @@ const S2Picture = <div className="-s02-picture">
     <img src={picture} alt=""/>
 </div>
 
-const S2Header = <div className="-s02-header">
-    <div className="-s02-h-text1">{formatText(t.text_header_1)}</div>
-    <div className="-s02-h-text2">{formatText(t.text_header_2)}</div>
-    <div className="-s02-h-text3">{formatText(t.text_header_3)}</div>
-</div>
+const S2Header = props => ( <div className="-s02-header">
+    <div className="-s02-h-text1">{props.width < 800 ? t.m_text_header_1 : t.text_header_1}</div>
+    <div className="-s02-h-text2">{props.width < 800 ? t.m_text_header_2 : t.text_header_2}</div>
+    <div className="-s02-h-text3">{props.width < 800 ? t.m_text_header_3 : t.text_header_3}</div>
+</div>)
 
 const S2Button = <div className="-s02-button">
     <div className="-b-text1">{t.button_text_1}</div>

@@ -11,8 +11,8 @@ class RightSide extends React.Component {
     }
 
     render() {
-        const {isMobile} = this.props;
-        if (isMobile) {
+        const {width} = this.props;
+        if (width <= 780) {
             return <div className="h-side h-right-mobile">
                 <div className="h-button-menu" onClick={this.showMenu}>
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -7,10 +7,10 @@ import formatText from "../../../utils/formatText";
 
 class LeftSide extends React.Component {
     render() {
-        const {isMobile} = this.props;
+        const {isMobile, width} = this.props;
         return (
             <div className="h-side h-left">
-                <Logo isMobile={isMobile}/>
+                <Logo isMobile={width <= 960}/>
                 <div className="site-description">
                     {formatText(t.site_description)}
                 </div>

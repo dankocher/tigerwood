@@ -69,6 +69,7 @@
     .h-right-mobile {
       justify-content: flex-end;
       align-items: center;
+      max-width: 66px;
       .h-button-menu {
         @include flex-center;
         width: 66px;
@@ -79,12 +80,33 @@
   }
 }
 
-@media only screen and (max-width: $mobile-max-width) {
+@media only screen and (max-width: 1110px) {
+  .header {
+    .h-content {
+      //padding: 10px 0 10px 20px;
+      .h-right {
+        min-width: 300px;
+        max-width: 300px;
+        flex: unset;
+        .address {
+          display: none;
+        }
+        .phone {
+          border-left: none;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 780px) {
   .header {
     .h-content {
       padding: 10px 0 10px 20px;
       .h-right {
-
+        //max-width: 66px;
+        //flex: unset;
       }
     }
   }

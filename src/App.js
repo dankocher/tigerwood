@@ -27,10 +27,10 @@ class App extends React.Component {
     }
 
   render() {
-    const {isMobile} = this.state;
+    const {isMobile, width} = this.state;
     return <div className={`App`}>
-        <Header isMobile={isMobile}/>
-        <Sections isMobile={isMobile}/>
+        <Header isMobile={isMobile} width={width}/>
+        <Sections isMobile={isMobile} width={width}/>
         {/*<Grids/>*/}
     </div>
   }

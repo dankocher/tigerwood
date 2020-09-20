@@ -6,12 +6,12 @@ import RightSide from "./RightSide/RightSide";
 class Header extends React.Component {
 
     render() {
-        const {isMobile} = this.props;
+
         return (
             <div className={`header`}>
                 <div className="h-content">
-                    <LeftSide isMobile={isMobile}/>
-                    <RightSide isMobile={isMobile}/>
+                    <LeftSide {...this.props}/>
+                    <RightSide {...this.props}/>
                 </div>
             </div>
         );
