@@ -12,7 +12,8 @@
     "react-scripts": "3.4.1",
     "react-slick": "^0.27.11",
     "slick-carousel": "^1.8.1",
-    "react-input-mask": "^2.0.4"
+    "react-input-mask": "^2.0.4",
+    "react-google-maps": "^9.4.5"
   },
   "devDependencies": {
     "node-sass": "^4.14.1",
