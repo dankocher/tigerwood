@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/App.scss';
 import {Header, Sections} from "./components";
-import Grids from "./components/Grids";
+// import Grids from "./components/Grids";
 
 class App extends React.Component {
 
@@ -30,7 +30,7 @@ class App extends React.Component {
     return <div className={`App`}>
         <Header isMobile={isMobile}/>
         <Sections isMobile={isMobile}/>
-        <Grids/>
+        {/*<Grids/>*/}
     </div>
   }
 }

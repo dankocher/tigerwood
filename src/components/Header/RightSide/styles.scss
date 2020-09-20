@@ -65,14 +65,26 @@
         }
       }
     }
+
+    .h-right-mobile {
+      justify-content: flex-end;
+      align-items: center;
+      .h-button-menu {
+        @include flex-center;
+        width: 66px;
+        height: 66px;
+        cursor: pointer;
+      }
+    }
   }
 }
 
 @media only screen and (max-width: $mobile-max-width) {
   .header {
     .h-content {
+      padding: 10px 0 10px 20px;
       .h-right {
-        display: none;
+
       }
     }
   }
