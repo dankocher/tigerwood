@@ -7,7 +7,7 @@
   align-items: center;
 
   //min-width: 175px;
-  min-height: 57px;
+  height: 57px;
   padding: 16px 32px;
 
   background: #C9F6DC;
@@ -20,8 +20,23 @@
   color: rgba(0, 0, 0, 0.7);
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
   &.-selected {
     background: linear-gradient(182.34deg, #24D26D 6.07%, #13C45D 98.04%);
     color: #FFFFFF;
+  }
+}
+@media only screen and (max-width: 880px) {
+
+  .-button {
+    height: 51px;
+    padding: 16px 18px;
+    font-size: 14px;
+    line-height: 19px;
+    margin-left: 10px;
+    .-icon {
+      margin-left: 12.5px;
+      margin-top: -3px;
+    }
   }
 }

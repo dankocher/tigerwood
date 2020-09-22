@@ -15,6 +15,8 @@ $product-image: $product-height - $product-name - $product-button - 10px;
   margin-right: 10px;
   font-family: $font-Nunito-SemiBold;
   cursor: pointer;
+  width: 100%;
+  max-width: 285px;
 
   &:hover {
     box-shadow: 0px 4px 10px rgba(36, 210, 109, 0.35);

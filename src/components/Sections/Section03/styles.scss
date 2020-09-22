@@ -5,7 +5,7 @@ $s03-min-height: 650px;
 .section {
   &.--s03 {
     position: relative;
-    z-index: 30;
+    z-index: 50;
     .---content {
       min-height: $s03-min-height;
       .-s03-text-header-1 {
@@ -37,6 +37,10 @@ $s03-min-height: 650px;
         //overflow-x: scroll;
         .slick-slide {
           padding: 0 0 15px;
+          > div {
+            display: flex;
+            justify-content: center;
+          }
         }
         .slick-slider {
           $arrowSize: 54px;
@@ -55,7 +59,7 @@ $s03-min-height: 650px;
               filter: grayscale(1);
               opacity: .3;
             }
-            &:hover {
+            &:active {
               background: url("./icons/icon-bg.svg") no-repeat;
             }
             &:before {
@@ -71,6 +75,84 @@ $s03-min-height: 650px;
               padding-left: 22px;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1216px) {
+
+  .section {
+    &.--s03 {
+      margin: 0 !important;
+      padding: {
+        right: 20px;
+        left: 20px;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 880px) {
+
+  .section {
+    &.--s03 {
+      .---content {
+        .-s03-text-header-1, .-s03-text-header-2 {
+          font-size: 18px;
+          line-height: 25px;
+        }
+        .-s03-filters {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 639px) {
+
+  .section {
+    &.--s03 {
+      .---content {
+        .-s03-products {
+          margin-top: 19px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 619px) {
+
+  .section {
+    &.--s03 {
+      .---content {
+        .-s03-filters {
+          .-f-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .-button {
+              margin-top: 9px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .section {
+    &.--s03 {
+      .---content {
+        .-s03-text-header-1, .-s03-text-header-2  {
+          white-space: pre;
         }
       }
     }

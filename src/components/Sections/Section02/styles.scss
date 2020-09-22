@@ -164,6 +164,9 @@
     &.--s02 {
       //margin-top: -70px !important;
       min-height: 500px;
+      &:after {
+        height: 800px;
+      }
       .---content {
         .-s02-header {
           margin-top: 70px;

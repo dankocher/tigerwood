@@ -6,14 +6,12 @@ import formatText from "../../../utils/formatText";
 import Selector from "./Selector";
 import Button from "./Button";
 
-// import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-// import 'pure-react-carousel/dist/react-carousel.es.css';
-
-
-
 import products from "./data/products.json"
 import Product from "./Product";
 import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const SECTION_NUMBER = "03"
 
@@ -42,27 +40,31 @@ export default class Section extends React.Component {
 
     render() {
         const {selected, selectedModule} = this.state;
-
+        const {width} = this.props;
+        let section_width = width > (1216) ? 1216 : width - 40;
+        let slides = parseInt(section_width / 300)
         const settings = {
             dots: false,
             infinite: false,
             speed: 500,
-            slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToShow: slides,
+            slidesToScroll: slides,
             nextArrow: <NextArrow />,
             prevArrow: <PrevArrow />
         };
         return (
             <div className={`section --s${SECTION_NUMBER}`}>
                 <div className={`---content`}>
-                    <div className="-s03-text-header-1">{formatText(t.text_header_1, "text")}</div>
-                    <div className="-s03-text-header-2">{formatText(t.text_header_2, "text")}</div>
+                    <div className="-s03-text-header-1">{t.text_header_1}</div>
+                    <div className="-s03-text-header-2">{t.text_header_2}</div>
 
                     <div className="-s03-filters">
                         <Selector selected={selected} options={options} onSelect={this.select} />
-                        <Button name={t.button_1_module} selected={selectedModule === 1} onClick={() => this.selectModule(1)}/>
-                        <Button name={t.button_2_module} selected={selectedModule === 2} onClick={() => this.selectModule(2)}/>
-                        <Button name={t.button_3_module} selected={selectedModule === 3} onClick={() => this.selectModule(3)}/>
+                        <span className={"-f-buttons"}>
+                            <Button name={t.button_1_module} selected={selectedModule === 1} onClick={() => this.selectModule(1)}/>
+                            <Button name={t.button_2_module} selected={selectedModule === 2} onClick={() => this.selectModule(2)}/>
+                            <Button name={t.button_3_module} selected={selectedModule === 3} onClick={() => this.selectModule(3)}/>
+                        </span>
                     </div>
                     <div className="-s03-products">
                     <Slider {...settings}>

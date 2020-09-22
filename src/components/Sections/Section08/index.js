@@ -4,6 +4,9 @@ import t from "./text.json";
 import formatText from "../../../utils/formatText";
 import Slider from "react-slick";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import reviews from "./data/reviews.json";
 import image from "./images/review-1.jpg";
 

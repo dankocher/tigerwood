@@ -13,15 +13,32 @@
   align-items: center;
   user-select: none;
   cursor: pointer;
+  white-space: nowrap;
   .-name {
     font-family: $font-Nunito-SemiBold;
     font-size: 18px;
     line-height: 25px;
     text-align: center;
     color: #000000;
+    white-space: nowrap;
   }
   .-icon {
     margin-left: 12.5px;
     margin-top: -3px;
+  }
+}
+@media only screen and (max-width: 880px) {
+
+  .-selector {
+    height: 51px;
+    padding: 16px 18px;
+    .-name {
+      font-size: 14px;
+      line-height: 19px;
+    }
+    .-icon {
+      margin-left: 12.5px;
+      margin-top: -3px;
+    }
   }
 }
