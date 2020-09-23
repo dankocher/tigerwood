@@ -3,4 +3,14 @@
 .App {
   text-align: center;
   width: 100%;
+  .screen-size {
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    left: calc(50% - 30px);
+    color: red;
+    font-size: 10px;
+    font-family: monospace;
+
+  }
 }
