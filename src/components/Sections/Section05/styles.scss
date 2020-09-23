@@ -71,6 +71,7 @@ $min-height: 656px;
             font-size: 18px;
             line-height: 25px;
             color: #000000;
+            white-space: pre;
           }
         }
       }
@@ -117,5 +118,82 @@ $min-height: 656px;
       }
     }
 
+  }
+}
+
+
+@media only screen and (max-width: 960px) {
+  .section {
+    $height: 440px;
+    &.--s05 {
+      min-height: $height;
+      height: $height;
+      &:before {
+        height: $height;
+      }
+      &:after {
+        height: $height;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/s4-bg.png") no-repeat;
+        background-blend-mode: multiply, normal;
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+
+        //background-position-x: -250px;
+        background-position-x: 30px;
+        background-size: auto 440px;
+      }
+      .---content {
+        height: $height;
+        .-s5-header-1, .-s5-header-2 {
+          //font-family: $font-Nunito-Regular;
+          font-style: normal;
+          font-weight: 900;
+          font-size: 18px;
+          line-height: 25px;
+          white-space: pre;
+        }
+        .-s5-header-3 {
+          //font-family: $font-Nunito-Regular;
+          color: white;
+          font-size: 14px;
+          line-height: 19px;
+          margin-top: 10px;
+        }
+        .-s5-header-2 {
+          color: white;
+        }
+        .-s5-header-1 {
+          margin-top: 30px;
+        }
+        .-s5-icons {
+          margin-top: 24px;
+          .-s5-icon {
+            margin-bottom: 7px;
+            .-i-text {
+              font-size: 14px;
+              line-height: 19px;
+              white-space: pre;
+              color: white;
+            }
+          }
+        }
+        .-s05-button {
+          margin-top: 30px;
+          width: calc(100% - 40px);
+          height: 64px;
+          .-b-text1 {
+            font-size: 14px;
+            line-height: 19px;
+          }
+          .-b-text2 {
+            font-size: 14px;
+            line-height: 19px;
+          }
+          .b-right-circle {
+            width: 64px;
+            height: 64px;
+          }
+        }
+      }
+    }
   }
 }
