@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles.scss";
 import t from "./text.json";
-import formatText from "../../../utils/formatText";
 
 import Selector from "./Selector";
 import Button from "./Button";
@@ -67,11 +66,11 @@ export default class Section extends React.Component {
                         </span>
                     </div>
                     <div className="-s03-products">
-                    <Slider {...settings}>
-                        {
-                            products.map((product, i) => <Product key={`product-${i}`} product={product} index={i}/>)
-                        }
-                    </Slider>
+                        <Slider {...settings}>
+                            {
+                                products.map((product, i) => <Product key={`product-${i}`} product={product} index={i}/>)
+                            }
+                        </Slider>
                     </div>
                 </div>
             </div>

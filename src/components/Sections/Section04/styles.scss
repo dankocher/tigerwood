@@ -188,3 +188,34 @@ $min-height: 753px;
     }
   }
 }
+
+
+@media only screen and (max-width: 1216px) {
+
+  .section {
+    &.--s04 {
+      min-width: unset;
+      width: 100%;
+      padding-right: 20px;
+      padding-left: 20px;
+      //margin: 115px 0 0 !important;
+      margin: 0 !important;
+      height: auto;
+      min-height: unset;
+      padding-top: 40px;
+      &:before {
+        content: none;
+      }
+      .---content {
+        //justify-content: flex-start;
+        //align-items: center;
+        .-s4-header {
+          font-size: 18px;
+          line-height: 25px;
+          margin-top: 0;
+          white-space: pre;
+        }
+      }
+    }
+  }
+}

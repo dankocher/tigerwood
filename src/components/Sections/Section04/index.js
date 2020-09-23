@@ -2,22 +2,23 @@ import React from "react";
 import "./styles.scss";
 import t from "./text.json";
 import formatText from "../../../utils/formatText";
+import Mobile from "./Mobile";
 
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 
 const SECTION_NUMBER = "04"
 
 export default class Section extends React.Component {
 
     render() {
-
+        const {width} = this.props;
         return (
             <div className={`section --s${SECTION_NUMBER}`}>
                 <div className={`---content`}>
-                    <div className="-s4-header">{t.header}</div>
-                    {picture}
+                        <div className="-s4-header">{t.header}</div>
+                    {
+                        width <= 1216 ? <Mobile /> :
+                            <Picture/>
+                    }
                 </div>
             </div>
         );
@@ -47,14 +48,14 @@ const Tail6 = <svg width="381" height="78" viewBox="0 0 381 78" fill="none" xmln
 
 
 
-const picture = <div className="-s4-picture-content">
+const Picture = () => (<div className="-s4-picture-content">
     <Feature _class={"-f1"} number={"01"} name={t.feature_1} tail={Tail1}/>
     <Feature _class={"-f2"} number={"02"} name={t.feature_2} tail={Tail2}/>
     <Feature _class={"-f3"} number={"03"} name={t.feature_3} tail={Tail3}/>
     <Feature _class={"-f4"} number={"04"} name={t.feature_4} tail={Tail4}/>
     <Feature _class={"-f5"} number={"05"} name={t.feature_5} tail={Tail5}/>
     <Feature _class={"-f6"} number={"06"} name={t.feature_6} tail={Tail6}/>
-</div>;
+</div>);
 
 function Feature(props) {
     const {tail, _class, number, name} = props;

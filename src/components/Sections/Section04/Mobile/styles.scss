@@ -1,0 +1,72 @@
+@import "../../../../styles/theme";
+
+.section {
+  &.--s04 {
+    .---content {
+      .--mobile {
+        width: 100%;
+        margin: {
+          top: 15px;
+          bottom: 84px;
+        };
+        .slick-slide {
+          padding: 0 0 15px;
+          > div {
+            display: flex;
+            justify-content: center;
+          }
+        }
+        .-f-slide {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 200px;
+          .-f-title {
+            font-family: $font-Nunito-SemiBold;
+            font-size: 16px;
+            line-height: 20px;
+            height: 40px;
+            white-space: pre;
+            text-align: center;
+            margin-top: 15px;
+          }
+        }
+        .slick-slider {
+          $arrowSize: 54px;
+          .slick-arrow {
+            position: absolute;
+            margin-top: 136px;
+            width: $arrowSize;
+            height: $arrowSize;
+            box-sizing: border-box;
+            padding-top: 18px;
+            cursor: pointer;
+            &.slick-disabled {
+              cursor: default;
+              pointer-events: none;
+              filter: grayscale(1);
+              opacity: .3;
+            }
+            &:active {
+              background: url("./icons/icon-bg.svg") no-repeat;
+            }
+            &:before {
+              content: "";
+            }
+
+            &.slick-prev {
+              margin-left: calc(50% - (#{$arrowSize} - 4px));
+              padding-left: 18px;
+            }
+            &.slick-next {
+              margin-right: calc(50% - (#{$arrowSize} - 4px));
+              padding-left: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
