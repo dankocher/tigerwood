@@ -23,32 +23,34 @@ $min-height: 840px;
           line-height: 41px;
           text-align: center;
           color: black;
+          white-space: pre;
         }
 
-        .-header_2 {
+        .-header_1 {
           color: #9B51E0;
         }
 
-        .slick-slide {
-          padding: 0 0 15px;
-        }
       }
       .slick-slider {
         $arrowSize: 54px;
-        margin-top: 46px;
+        margin-top: 25px;
         .slick-list {
-          .-picture {
-            .-picture-content {
-              display: inline-flex;
-              justify-content: center;
-              align-items: center;
-              width: 100%;
-              height: 100%;
-              img {
-                width: 270px;
-                height: 480px;
-                border: 2px solid rgba(0, 0, 0, 0.25);
-                border-radius: 10px;
+          .slick-slide {
+            padding: 0 0 15px;
+            .-picture {
+              .-picture-content {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+
+                img {
+                  width: 270px;
+                  height: 480px;
+                  border: 2px solid rgba(0, 0, 0, 0.25);
+                  border-radius: 10px;
+                }
               }
             }
           }
@@ -86,6 +88,46 @@ $min-height: 840px;
         }
       }
     }
+  }
+}
+@media only screen and (max-width: 1216px) {
 
+  .section {
+    &.--s08 {
+      margin: 0 0 60px !important;
+      padding: {
+        right: 20px;
+        left: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .section {
+    &.--s08 {
+      margin: 0 0 60px !important;
+      height: auto;
+      min-height: auto;
+      padding: {
+        right: 20px;
+        left: 20px;
+      }
+      .---content {
+
+        .-s8-header {
+          margin-top: 40px;
+
+          .-header_1, .-header_2 {
+            font-size: 18px;
+            line-height: 25px;
+          }
+        }
+        .slick-slide {
+          padding: 0 0 15px;
+        }
+      }
+    }
   }
 }

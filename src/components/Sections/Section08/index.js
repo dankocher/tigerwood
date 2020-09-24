@@ -15,13 +15,18 @@ const SECTION_NUMBER = "08"
 export default class Section extends React.Component {
 
     render() {
-
+        const {width} = this.props;
+        const min_size = 1260;
+        const min_slide_size = min_size / 4;
+        let section_width = width > (min_size) ? min_size : width - 40;
+        let slides = parseInt(section_width / min_slide_size);
+        const isMobile = width <= 500;
         const settings = {
             dots: false,
             infinite: false,
             speed: 500,
-            slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToShow: slides,
+            slidesToScroll: slides,
             nextArrow: <NextArrow />,
             prevArrow: <PrevArrow />
         };
@@ -29,8 +34,8 @@ export default class Section extends React.Component {
             <div className={`section --s${SECTION_NUMBER}`}>
                 <div className={`---content`}>
                     <div className="-s8-header">
-                        <div className="-header_1">{formatText(t.header_1)}</div>
-                        <div className="-header_2">{formatText(t.header_2)}</div>
+                        <div className="-header_1">{isMobile ? t.m_header_1 : t.header_1}</div>
+                        <div className="-header_2">{isMobile ? t.m_header_2 : t.header_2}</div>
                     </div>
                     <Slider {...settings}>
                         {reviews.map((r, i) => (
