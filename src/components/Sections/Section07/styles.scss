@@ -107,9 +107,57 @@ $height: 550px;
           text-align: center;
           margin-top: 10px;
           color: rgba(0, 0, 0, 0.7);
+          white-space: pre;
         }
       }
     }
+  }
+}
 
+@media only screen and (max-width: 500px) {
+  .section {
+    &.--s07 {
+      width: calc(100% - 40px);
+      margin-left: 0 !important;
+      padding: 0 20px;
+      .---content {
+        .-s7-header {
+          .-header-1, .-header-2 {
+            font-size: 18px;
+            line-height: 25px;
+            white-space: pre;
+          }
+        }
+        .-form {
+          .-text-input {
+            width: 100%;
+            font-size: 14px;
+            line-height: 19px;
+          }
+          .-s07-button {
+            display: inline-flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            .b-top-text, .b-bottom-text {
+              font-size: 14px;
+              line-height: 19px;
+            }
+            .b-bottom-text {
+              padding-left: 4px;
+            }
+            .arrow {
+              display: none;
+            }
+          }
+          .-description {
+            font-size: 13px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
   }
 }

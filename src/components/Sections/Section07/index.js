@@ -2,7 +2,6 @@ import React from "react";
 import InputMask from "react-input-mask";
 import "./styles.scss";
 import t from "./text.json";
-import formatText from "../../../utils/formatText";
 
 const SECTION_NUMBER = "07"
 
@@ -45,7 +44,7 @@ export default class Section extends React.Component {
                         <input className="-text-input --name" name={"name"} onChange={this.onChange} value={name} type={"text"} placeholder={t.placeholder_name} autoComplete={"off"} autoCorrect={"off"}/>
                         <Button onClick={this.send}/>
                         <div className="-description">
-                            {formatText(t.description)}
+                            {t.description}
                         </div>
                     </div>
                 </div>
