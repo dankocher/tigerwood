@@ -4,10 +4,13 @@
   text-align: center;
   width: 100%;
   .screen-size {
+    $width: 100px;
+    $half_width: $width / 2;
     position: fixed;
     z-index: 100000;
+    width: $width;
     top: 0;
-    left: calc(50% - 30px);
+    left: calc(50% - #{$half_width});
     color: red;
     font-size: 10px;
     font-family: monospace;
