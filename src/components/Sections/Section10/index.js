@@ -56,8 +56,6 @@ export default class Section extends React.Component {
         const product = products[current];
         const isMobile = width <= 500;
 
-        let pictureWidth = "auto";
-
         return (
             <div className={`section --s${SECTION_NUMBER}`}>
                 <div className={`---content`}>
@@ -68,7 +66,7 @@ export default class Section extends React.Component {
                             <div className="-pictures-container" style={{left}}>
                                 {
                                     products.map((p, i) => (
-                                        <div className={"picture-container"}>
+                                        <div key={i} className={"picture-container"}>
                                             <img key={i} src={isMobile ? picture : picture_wide} alt={""}/>
                                         </div>
                                     ))
