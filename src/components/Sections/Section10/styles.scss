@@ -41,7 +41,9 @@ $min-height: 656px;
             display: inline-flex;
             left: 0;
             transition: left 500ms ease-in-out;
-            img {
+            .picture-container {
+              img {
+              }
             }
           }
         }
@@ -134,6 +136,125 @@ $min-height: 656px;
               }
               .-g-name {
                 user-select: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1216px) {
+
+  .section {
+    &.--s10 {
+      margin: 0 0 60px !important;
+      padding: {
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .section {
+    &.--s10 {
+      height: auto;
+      min-height: auto;
+      &:before {
+        content: none;
+      }
+      &:after {
+        width: 305px;
+        height: 202px;
+        left: unset;
+        top: -70px;
+        right: -160px;
+      }
+      .---content {
+        .-header-1, .-header-2 {
+          font-size: 18px;
+          line-height: 25px;
+          white-space: pre;
+          padding: 0 20px;
+        }
+        .delivery-text {
+          font-size: 14px;
+          line-height: 19px;
+        }
+        .-gallery {
+          height: auto;
+          .-pictures {
+            z-index: 117;
+            height: 200px;
+            margin: 0 20px;
+            width: calc(100% - 40px);
+            position: relative;
+            overflow: hidden;
+            .-pictures-container {
+              height: 200px;
+              .picture-container {
+                height: 200px;
+                width: calc(100vw - 40px);
+                overflow: hidden;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                background: #f5f5f5;
+                img {
+                  height: 100%;
+                }
+              }
+            }
+          }
+          .-info {
+            position: relative;
+            margin: 0;
+            border-radius: 0 0 15px 15px;
+            height: auto;
+            margin: {
+              left: 20px;
+              right: 20px;
+              bottom: 20px;
+            };
+            .-info-content {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              width: 100%;
+              position: relative;
+              .-complex {
+                position: relative;
+                margin: 0;
+                padding: 20px 0 10px 20px;
+                box-sizing: content-box;
+                .--title, .--c-name {
+                  font-size: 14px;
+                  line-height: 19px;
+                }
+              }
+              .-features {
+                font-size: 14px;
+                line-height: 19px;
+                padding: 0 20px 10px;
+              }
+              .-button-want {
+                position: relative;
+                height: 50px;
+                width: 100%;
+                font-size: 18px;
+                line-height: 25px;
+              }
+              .-gallery-buttons {
+                position: relative;
+                height: 64px;
+                font-size: 14px;
+                line-height: 19px;
+                width: 100%;
+                right: unset;
               }
             }
           }

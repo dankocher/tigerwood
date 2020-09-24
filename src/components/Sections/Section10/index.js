@@ -1,10 +1,9 @@
 import React from "react";
 import "./styles.scss";
 import t from "./text.json";
-import formatText from "../../../utils/formatText";
 import picture_wide from "./images/product-wide-1.jpg"
+import picture from "./images/product-1.png"
 import products from "./data/products.json";
-import LeftSide from "../../Header/LeftSide/LeftSide";
 
 const SECTION_NUMBER = "10"
 
@@ -52,20 +51,26 @@ export default class Section extends React.Component {
 
     render() {
         const {current, left} = this.state;
+        const {width} = this.props;
 
         const product = products[current];
+        const isMobile = width <= 500;
+
+        let pictureWidth = "auto";
 
         return (
             <div className={`section --s${SECTION_NUMBER}`}>
                 <div className={`---content`}>
-                    <div className="-header-1">{t.header_1}</div>
-                    <div className="-header-2">{t.header_2}</div>
+                    <div className="-header-1">{isMobile ? t.m_header_1 : t.header_1}</div>
+                    <div className="-header-2">{isMobile ? t.m_header_2 : t.header_2}</div>
                     <div className="-gallery">
                         <div className="-pictures" ref={gallery => this.gallery = gallery }>
                             <div className="-pictures-container" style={{left}}>
                                 {
                                     products.map((p, i) => (
-                                        <img key={i} src={picture_wide} alt={""}/>
+                                        <div className={"picture-container"}>
+                                            <img key={i} src={isMobile ? picture : picture_wide} alt={""}/>
+                                        </div>
                                     ))
                                 }
                             </div>
