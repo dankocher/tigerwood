@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/tigerwood/static/css/main.20cd9d9a.chunk.css",
+    "main.css": "/tigerwood/static/css/main.94db327c.chunk.css",
     "main.js": "/tigerwood/static/js/main.918ddf81.chunk.js",
     "main.js.map": "/tigerwood/static/js/main.918ddf81.chunk.js.map",
     "runtime-main.js": "/tigerwood/static/js/runtime-main.338527c1.js",
@@ -9,10 +9,10 @@
     "static/js/2.081b18a5.chunk.js": "/tigerwood/static/js/2.081b18a5.chunk.js",
     "static/js/2.081b18a5.chunk.js.map": "/tigerwood/static/js/2.081b18a5.chunk.js.map",
     "index.html": "/tigerwood/index.html",
-    "precache-manifest.cd7dcbe997b044a8191c8d29c4f10ec1.js": "/tigerwood/precache-manifest.cd7dcbe997b044a8191c8d29c4f10ec1.js",
+    "precache-manifest.68ba9e0a4df2c1177d082b62b09405d5.js": "/tigerwood/precache-manifest.68ba9e0a4df2c1177d082b62b09405d5.js",
     "service-worker.js": "/tigerwood/service-worker.js",
     "static/css/2.1925a4ac.chunk.css.map": "/tigerwood/static/css/2.1925a4ac.chunk.css.map",
-    "static/css/main.20cd9d9a.chunk.css.map": "/tigerwood/static/css/main.20cd9d9a.chunk.css.map",
+    "static/css/main.94db327c.chunk.css.map": "/tigerwood/static/css/main.94db327c.chunk.css.map",
     "static/js/2.081b18a5.chunk.js.LICENSE.txt": "/tigerwood/static/js/2.081b18a5.chunk.js.LICENSE.txt",
     "static/media/styles.scss": "/tigerwood/static/media/section1-bg.ce546803.png",
     "static/media/product-01.png": "/tigerwood/static/media/product-01.26d1276c.png",
@@ -27,7 +27,7 @@
     "static/js/runtime-main.338527c1.js",
     "static/css/2.1925a4ac.chunk.css",
     "static/js/2.081b18a5.chunk.js",
-    "static/css/main.20cd9d9a.chunk.css",
+    "static/css/main.94db327c.chunk.css",
     "static/js/main.918ddf81.chunk.js"
   ]
 }
