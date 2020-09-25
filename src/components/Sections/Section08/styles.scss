@@ -70,7 +70,7 @@ $min-height: 840px;
             filter: grayscale(1);
             opacity: .3;
           }
-          &:hover {
+          &:active {
             background: url("./icons/icon-bg.svg") no-repeat;
           }
           &:before {
