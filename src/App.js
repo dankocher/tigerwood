@@ -31,7 +31,7 @@ class App extends React.Component {
   render() {
     const {isMobile, width, height} = this.state;
     return <div className={`App`}>
-        <div className="screen-size">{`${width}x${height}`}</div>
+        {/*<div className="screen-size">{`${width}x${height}`}</div>*/}
         <Header isMobile={isMobile} width={width}/>
         <Sections isMobile={isMobile} width={width}/>
         {/*<Grids/>*/}
