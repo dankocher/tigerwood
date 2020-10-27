@@ -8,7 +8,7 @@ import formatText from "../../../../utils/formatText";
 export default class Product extends React.Component {
 
     render() {
-        const {product, index} = this.props;
+        const {product, index, className} = this.props;
         let position = (index+1) % 4;
 
         let side = ""
@@ -20,7 +20,7 @@ export default class Product extends React.Component {
         }
 
         return (
-            <div className={`-s03-product --${side}`}>
+            <div className={`-s03-product --${side} ${className}`}>
                 <div className="-product-top">
                     <div className="-product-picture">
                         <img src={image} alt={product.name}/>

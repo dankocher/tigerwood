@@ -4,6 +4,7 @@
   padding-top: $header-height;
   display: flex;
   justify-content: center;
+
   .content {
     box-sizing: border-box;
     padding: 0 75px;
@@ -20,6 +21,11 @@
     .section {
       width: 100%;
       //margin: 0 75px;
+      opacity: 1;
+      transition: opacity 250ms ease-in-out;
+      &:not(.animated) {
+        opacity: 0;
+      }
     }
   }
 }

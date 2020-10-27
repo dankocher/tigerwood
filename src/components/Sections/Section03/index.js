@@ -11,22 +11,21 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import handleViewport from "react-in-viewport";
 
 const SECTION_NUMBER = "03"
 
 const options = [
     {id: 0, value: t.select_natural_color},
-    {id: 1, value: "Другой цвет"},
-    {id: 2, value: "Цветной"},
-    {id: 3, value: "Синий цвет"},
-    {id: 4, value: "Красный цвет"},
+    {id: 1, value: "Цветной яркий"}
 ]
 
-export default class Section extends React.Component {
+class Section extends React.Component {
 
     state = {
         selected: 0,
-        selectedModule: 1
+        selectedModule: 1,
+        animated: ""
     }
 
     select = selected => {
@@ -35,6 +34,20 @@ export default class Section extends React.Component {
 
     selectModule = selectedModule => {
         this.setState({selectedModule})
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const { enterCount, leaveCount } = this.props;
+        console.log(enterCount, leaveCount)
+        if (enterCount !== prevProps.enterCount) {
+            this.setState({animated: "animated"});
+        }
+        if (leaveCount !== prevProps.leaveCount) {
+            this.setState({animated: ""});
+        }
+    }
+
+    onEnterViewport() {
+        console.log("onEnterViewport")
     }
 
     render() {
@@ -52,23 +65,23 @@ export default class Section extends React.Component {
             prevArrow: <PrevArrow />
         };
         return (
-            <div className={`section --s${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.state.animated}`}>
                 <div className={`---content`}>
-                    <div className="-s03-text-header-1">{t.text_header_1}</div>
-                    <div className="-s03-text-header-2">{t.text_header_2}</div>
+                    <div className="-s03-text-header-1 slideInDown delay1">{t.text_header_1}</div>
+                    <div className="-s03-text-header-2 slideInDown delay2">{t.text_header_2}</div>
 
                     <div className="-s03-filters">
-                        <Selector selected={selected} options={options} onSelect={this.select} />
+                        <Selector className="slideInDown delay2" selected={selected} options={options} onSelect={this.select} />
                         <span className={"-f-buttons"}>
-                            <Button name={t.button_1_module} selected={selectedModule === 1} onClick={() => this.selectModule(1)}/>
-                            <Button name={t.button_2_module} selected={selectedModule === 2} onClick={() => this.selectModule(2)}/>
-                            <Button name={t.button_3_module} selected={selectedModule === 3} onClick={() => this.selectModule(3)}/>
+                            <Button className={"slideInDown delay3"} name={t.button_1_module} selected={selectedModule === 1} onClick={() => this.selectModule(1)}/>
+                            <Button className={"slideInDown delay3"} name={t.button_2_module} selected={selectedModule === 2} onClick={() => this.selectModule(2)}/>
+                            <Button className={"slideInDown delay4"} name={t.button_3_module} selected={selectedModule === 3} onClick={() => this.selectModule(3)}/>
                         </span>
                     </div>
                     <div className="-s03-products">
                         <Slider {...settings}>
                             {
-                                products.map((product, i) => <Product key={`product-${i}`} product={product} index={i}/>)
+                                products.map((product, i) => <Product className={`slideInDown delay${3+i}`} key={`product-${i}`} product={product} index={i}/>)
                             }
                         </Slider>
                     </div>
@@ -77,6 +90,8 @@ export default class Section extends React.Component {
         );
     }
 }
+
+export default handleViewport(Section, { rootMargin: '-100px' });
 
 function PrevArrow(props) {
     const { className, style, onClick } = props;
