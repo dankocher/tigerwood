@@ -1,37 +1,57 @@
 import React from "react";
 import "./styles.scss";
 import t from "./text.json";
-import formatText from "../../../utils/formatText";
 import picture from "./images/s2-bg.png"
+import handleViewport from "react-in-viewport";
 
 const SECTION_NUMBER = "02"
 
-export default class Section extends React.Component {
+class Section extends React.Component {
+
+    state = {
+        animated: ""
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const { enterCount, leaveCount } = this.props;
+        console.log(enterCount, leaveCount)
+        if (enterCount !== prevProps.enterCount) {
+            this.setState({animated: "animated"});
+        }
+        if (leaveCount !== prevProps.leaveCount) {
+            this.setState({animated: ""});
+        }
+    }
+
+    onEnterViewport() {
+        console.log("onEnterViewport")
+    }
 
     render() {
         return (
-            <div className={`section --s${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.state.animated}`}>
                 <div className={`---content`}>
                     {S2Picture}
                     <S2Header {...this.props}/>
-                    {S2Button}
+                    <S2Button/>
                 </div>
             </div>
         );
     }
 }
+export default handleViewport(Section, { rootMargin: '-100px' });
 
-const S2Picture = <div className="-s02-picture">
+const S2Picture = <div className="-s02-picture slideInRight">
     <img src={picture} alt=""/>
 </div>
 
 const S2Header = props => ( <div className="-s02-header">
-    <div className="-s02-h-text1">{props.width < 800 ? t.m_text_header_1 : t.text_header_1}</div>
-    <div className="-s02-h-text2">{props.width < 800 ? t.m_text_header_2 : t.text_header_2}</div>
-    <div className="-s02-h-text3">{props.width < 800 ? t.m_text_header_3 : t.text_header_3}</div>
+    <div className="-s02-h-text1 slideInDown delay1">{props.width < 800 ? t.m_text_header_1 : t.text_header_1}</div>
+    <div className="-s02-h-text2 slideInDown delay2">{props.width < 800 ? t.m_text_header_2 : t.text_header_2}</div>
+    <div className="-s02-h-text3 slideInDown delay3">{props.width < 800 ? t.m_text_header_3 : t.text_header_3}</div>
 </div>)
 
-const S2Button = <div className="-s02-button">
+const S2Button = props => <div className="-s02-button slideInDown delay4">
     <div className="-b-text1">{t.button_text_1}</div>
     <div className="-b-text2">{t.button_text_2}</div>
 

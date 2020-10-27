@@ -1,14 +1,24 @@
 @import "../../../styles/theme";
+@import "../../../styles/tanimate";
 
 .section {
   &.--s01 {
     position: relative;
     margin-bottom: 12px;
     min-height: 521px;
-    background: url("./images/section1-bg.png") no-repeat right top;
     margin-top: 36px;
-    background-size: auto auto;
     z-index: 20;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: url("./images/section1-bg.png") no-repeat right top;
+      background-size: auto auto;
+      pointer-events: none;
+    }
     .-s01-header {
       padding-top: 44px;
       .header_1 {
@@ -48,6 +58,7 @@
       }
     }
     .-s01-button {
+      z-index: 28;
       margin-top: 60px;
       width: 378px;
       height: 70px;
@@ -72,12 +83,21 @@
         line-height: 19px;
         color: #FFFFFF;
         margin-top: -2px;
+        display: inline-flex;
+        align-items: center;
         .arrow {
           margin-left: 5px;
         }
       }
+      &:hover {
+        .arrow {
+          margin-left: 5px;
+          @include shakeX;
+        }
+      }
     }
     .-s01-box {
+      z-index: 26;
       position: absolute;
       width: 360px;
       height: 160px;
@@ -136,6 +156,16 @@
   }
 }
 
+@media only screen and  (max-width: 1216px) {
+  .section {
+    &.--s01 {
+      .-s01-box {
+        right: 20px;
+        margin-right: 20px;
+      }
+    }
+  }
+}
 @media only screen and  (max-width: 1200px) {
   .section {
     &.--s01 {
@@ -310,15 +340,19 @@
 @media only screen and (max-width: 500px) {
   .section {
     &.--s01 {
-      background-size: 280px 204px;
+      &:before {
+        background-size: 280px 204px;
+      }
       .-s01-header {
         white-space: pre;
       }
       .-s01-box, .-s01-button {
+        z-index: 28;
         max-width: calc(100% - 40px);
       }
 
       .-s01-box {
+        z-index: 26;
         position: relative;
         width: 100%;
         height: 133px;

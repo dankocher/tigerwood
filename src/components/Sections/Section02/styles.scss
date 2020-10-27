@@ -90,6 +90,13 @@
           justify-content: center;
           align-items: center;
         }
+        &:hover {
+          .b-right-circle {
+            svg {
+              @include swing;
+            }
+          }
+        }
       }
       .-s02-picture {
         z-index: 21;
@@ -119,8 +126,9 @@
           transform: rotate(-3deg);
         }
         img {
-          width: 725px;
-          height: 710px;
+          //width: 725px;
+          width: auto;
+          height: 950px;
         }
       }
     }
@@ -205,7 +213,7 @@
           position: absolute;
           top: 50px;
           height: 388px;
-          right: -274px;
+          right: -425px;
 
           &:before {
             content: "";
@@ -226,8 +234,9 @@
             transform: rotate(-3deg);
           }
           img {
-            margin-top: 50px;
-            width: 397px;
+            margin-top: 100px;
+            //width: 397px;
+            width: auto;
             height: 388px;
           }
         }
