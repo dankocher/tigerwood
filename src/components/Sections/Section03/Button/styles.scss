@@ -10,7 +10,7 @@
   height: 57px;
   padding: 16px 32px;
 
-  background: #C9F6DC;
+  border: 1px solid #C9F6DC;
   border-radius: 30px;
   box-sizing: border-box;
   font-family: $font-Nunito-SemiBold;
@@ -23,7 +23,12 @@
   white-space: nowrap;
   &.-selected {
     background: linear-gradient(182.34deg, #24D26D 6.07%, #13C45D 98.04%);
+    border: 1px solid linear-gradient(182.34deg, #24D26D 6.07%, #13C45D 98.04%);
     color: #FFFFFF;
+  }
+  &:hover:not(.-selected) {
+    background: #C9F6DC;
+    border: 1px solid #C9F6DC;
   }
 }
 @media only screen and (max-width: 880px) {
