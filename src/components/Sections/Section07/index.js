@@ -31,19 +31,19 @@ export default class Section extends React.Component {
         const {phone, name} = this.state;
 
         return (
-            <div className={`section --s${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
                     <div className="-s7-header">
-                        <div className="-header-1">{t.header_1}</div>
-                        <div className="-header-2">{t.header_2}</div>
-                        <div className="-header-2">{t.header_3}</div>
+                        <div className="-header-1 slideInDown delay1">{t.header_1}</div>
+                        <div className="-header-2 slideInDown delay2">{t.header_2}</div>
+                        <div className="-header-2 slideInDown delay3">{t.header_3}</div>
                     </div>
                     <div className="-form">
                         {/*<input type="text" className="-text-input --phone" name={"phone"}/>*/}
-                        <InputMask className="-text-input --phone" name={"phone"} onChange={this.onChange} value={phone} type={"tel"} placeholder={t.placeholder_phone} mask="+375 (99) 999 99 99" maskChar=" "/>
-                        <input className="-text-input --name" name={"name"} onChange={this.onChange} value={name} type={"text"} placeholder={t.placeholder_name} autoComplete={"off"} autoCorrect={"off"}/>
-                        <Button onClick={this.send}/>
-                        <div className="-description">
+                        <InputMask className="-text-input --phone slideInDown delay4" name={"phone"} onChange={this.onChange} value={phone} type={"tel"} placeholder={t.placeholder_phone} mask="+375 (99) 999 99 99" maskChar=" "/>
+                        <input className="-text-input --name slideInDown delay5" name={"name"} onChange={this.onChange} value={name} type={"text"} placeholder={t.placeholder_name} autoComplete={"off"} autoCorrect={"off"}/>
+                        <Button className={"slideInDown delay6"} onClick={this.send}/>
+                        <div className="-description slideInDown delay7">
                             {t.description}
                         </div>
                     </div>
@@ -60,7 +60,7 @@ const arrow = <span className={"arrow"}><svg width="48" height="8" viewBox="0 0 
 
 function Button(props) {
     return (
-    <div className="-s07-button" onClick={props.onClick}>
+    <div className={`-s07-button ${props.className}`} onClick={props.onClick}>
         <div className="b-top-text">{t.button_text_1}</div>
         <div className="b-bottom-text">{t.button_text_2}{arrow}</div>
     </div>

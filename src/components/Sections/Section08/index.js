@@ -31,7 +31,7 @@ export default class Section extends React.Component {
             prevArrow: <PrevArrow />
         };
         return (
-            <div className={`section --s${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
                     <div className="-s8-header">
                         <div className="-header_1">{isMobile ? t.m_header_1 : t.header_1}</div>

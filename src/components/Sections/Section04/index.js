@@ -12,9 +12,9 @@ export default class Section extends React.Component {
     render() {
         const {width} = this.props;
         return (
-            <div className={`section --s${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
-                        <div className="-s4-header">{t.header}</div>
+                        <div className="-s4-header slideInDown delay1">{t.header}</div>
                     {
                         width <= 1216 ? <Mobile /> :
                             <Picture/>
@@ -49,12 +49,12 @@ const Tail6 = <svg width="381" height="78" viewBox="0 0 381 78" fill="none" xmln
 
 
 const Picture = () => (<div className="-s4-picture-content">
-    <Feature _class={"-f1"} number={"01"} name={t.feature_1} tail={Tail1}/>
-    <Feature _class={"-f2"} number={"02"} name={t.feature_2} tail={Tail2}/>
-    <Feature _class={"-f3"} number={"03"} name={t.feature_3} tail={Tail3}/>
-    <Feature _class={"-f4"} number={"04"} name={t.feature_4} tail={Tail4}/>
-    <Feature _class={"-f5"} number={"05"} name={t.feature_5} tail={Tail5}/>
-    <Feature _class={"-f6"} number={"06"} name={t.feature_6} tail={Tail6}/>
+    <Feature _class={"-f1 slideInDown delay1"} number={"01"} name={t.feature_1} tail={Tail1}/>
+    <Feature _class={"-f2 slideInDown delay2"} number={"02"} name={t.feature_2} tail={Tail2}/>
+    <Feature _class={"-f3 slideInDown delay3"} number={"03"} name={t.feature_3} tail={Tail3}/>
+    <Feature _class={"-f4 slideInDown delay4"} number={"04"} name={t.feature_4} tail={Tail4}/>
+    <Feature _class={"-f5 slideInDown delay5"} number={"05"} name={t.feature_5} tail={Tail5}/>
+    <Feature _class={"-f6 slideInDown delay6"} number={"06"} name={t.feature_6} tail={Tail6}/>
 </div>);
 
 function Feature(props) {

@@ -16,23 +16,23 @@ $min-height: 656px;
       z-index: 61;
       content: "";
       position: absolute;
-      width: 803.33px;
+      width: 408px;
       height: 75px;
-      left: -515px;
-      top: 411px;
+      left: -145px;
+      top: 311px;
       background-color: rgba(246, 96, 48, 0.2);
-      transform: rotate(-31.81deg);
+      transform: rotate(-30.92deg);
     }
     &:after {
       z-index: 62;
       content: "";
       position: absolute;
-      width: 803.33px;
+      width: 1017px;
       height: 75px;
-      left: 383px;
-      top: 195px;
+      left: 345px;
+      top: 250px;
       background-color: rgba(246, 96, 48, 0.2);
-      transform: rotate(30deg);
+      transform: rotate(31deg);
     }
     .---content {
       z-index: 65;
@@ -41,6 +41,7 @@ $min-height: 656px;
       padding-top: 60px;
       display: inline-flex;
       .-s06-header {
+        //min-width: 472px;
         .-s06-header-1, .-s06-header-2, .-s06-header-3 {
           font-family: $font-Nunito-ExtraBold;
           font-size: 30px;
@@ -66,30 +67,37 @@ $min-height: 656px;
           justify-content: center;
           align-items: center;
           cursor: pointer;
-          img {
-            width: 100%;
-            height: auto;
-          }
-          .-play-button {
-            position: absolute;
-            z-index: 65;
-            width: 90px;
-            height: 90px;
-            border-radius: 45px;
-            background: rgba(255, 255, 255, 0.5);
-            display: inline-flex;
+          .--video {
+            display: flex;
             justify-content: center;
             align-items: center;
-            &:before {
-              content: url("./icons/play.svg");
-              display: flex;
+            img {
+              width: 100%;
+              height: auto;
+            }
+
+            .-play-button {
+              position: absolute;
+              z-index: 65;
+              width: 90px;
+              height: 90px;
+              border-radius: 45px;
+              background: rgba(255, 255, 255, 0.5);
+              display: inline-flex;
               justify-content: center;
               align-items: center;
-              //background: url("./icons/play.svg") no-repeat;
-              margin-left: 5px;
-              margin-top: 12px;
-              width: 36px;
-              height: 36px;
+
+              &:before {
+                content: url("./icons/play.svg");
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                //background: url("./icons/play.svg") no-repeat;
+                margin-left: 5px;
+                margin-top: 12px;
+                width: 36px;
+                height: 36px;
+              }
             }
           }
         }

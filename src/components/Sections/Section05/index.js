@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles.scss";
 import t from "./text.json";
-import formatText from "../../../utils/formatText";
 
 const SECTION_NUMBER = "05"
 
@@ -10,11 +9,11 @@ export default class Section extends React.Component {
     render() {
 
         return (
-            <div className={`section --s${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated} slideInRightAfter`}>
                 <div className={`---content`}>
-                    <div className="-s5-header-1">{t.header_1}</div>
-                    <div className="-s5-header-2">{t.header_2}</div>
-                    <div className="-s5-header-3">{t.header_3}</div>
+                    <div className="-s5-header-1 slideInDown delay1">{t.header_1}</div>
+                    <div className="-s5-header-2 slideInDown delay2">{t.header_2}</div>
+                    <div className="-s5-header-3 slideInDown delay3">{t.header_3}</div>
                     <div className="-s5-icons">
                         <Icon1 {...this.props}/>
                         <Icon2 {...this.props}/>
@@ -30,7 +29,7 @@ export default class Section extends React.Component {
 const Icon1 = props => {
     const size  = props.isMobile ? 48 : 72;
     return (
-        <div className="-s5-icon">
+        <div className="-s5-icon  slideInDown delay4">
         <svg width={size} height={size} viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0)">
                 <path d="M21.2905 6.94668L20.5733 7.04512C19.4765 7.18574 18.703 8.19824 18.8437 9.29512L26.8312 70.8889H31.6827L23.5265 8.67637C23.3858 7.57949 22.3874 6.80606 21.2905 6.94668Z" fill="#996459"/>
@@ -59,7 +58,7 @@ const Icon1 = props => {
 const Icon2 = props => {
     const size  = props.isMobile ? 48 : 72;
     return (
-        <div className="-s5-icon">
+        <div className="-s5-icon slideInDown delay5">
             <svg width={size} height={size} viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0)">
                     <path d="M67.055 15.8994H5.67708L0 19.6475V62.4306C0 64.8947 1.99742 66.8906 4.46148 66.8906H67.5385C70.0026 66.8906 72 64.8947 72 62.4306V19.6475L67.055 15.8994Z" fill="#F9F7F8"/>
@@ -101,7 +100,7 @@ const Icon2 = props => {
 const Icon3 = props => {
     const size  = props.isMobile ? 48 : 72;
     return (
-        <div className="-s5-icon">
+        <div className="-s5-icon slideInDown delay6">
             <svg width={size} height={size} viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20.25 17.4375V8.4375C20.25 7.19438 21.2569 6.1875 22.5 6.1875C27.4703 6.1875 31.5 10.2172 31.5 15.1875V17.4375H20.25Z" fill="#DB9E68"/>
             <path d="M4.5 37.6875H9V26.4375H4.5C3.25688 26.4375 2.25 27.4444 2.25 28.6875V35.4375C2.25 36.6806 3.25688 37.6875 4.5 37.6875Z" fill="#DB9E68"/>
@@ -126,7 +125,7 @@ const Icon3 = props => {
     )
 }
 
-const S5Button = <div className="-s05-button">
+const S5Button = <div className="-s05-button slideInDown delay7">
     <div className="-b-text1">{t.button_1}</div>
     <div className="-b-text2">{t.button_2}</div>
 

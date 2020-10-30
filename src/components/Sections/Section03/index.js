@@ -79,7 +79,7 @@ function PrevArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
-            className={className}
+            className={`${className} slideInDown delay5`}
             style={{ ...style, display: "block" }}
             onClick={onClick}>
             <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +93,7 @@ function NextArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
-            className={className}
+            className={`${className} slideInDown delay6`}
             style={{ ...style, display: "block" }}
             onClick={onClick}>
             <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">

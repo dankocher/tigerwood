@@ -207,7 +207,7 @@
         -webkit-animation-name: slideInLeft;
         animation-name: slideInLeft;
     }
-    .slideInRight, &.slideInRightBefore:before {
+    .slideInRight, &.slideInRightBefore:before, &.slideInRightAfter:after {
         @include animated;
         -webkit-animation-name: slideInRight;
         animation-name: slideInRight;

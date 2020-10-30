@@ -42,7 +42,7 @@ export default class Section extends React.Component {
         let zoom = isMobile ? 12 : 14;
         let iconImageOffset = isMobile ? [-40, -99] : [-70, -160]
         return (
-            <div className={`section --s${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
 
                     <YMaps

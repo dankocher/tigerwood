@@ -27,7 +27,7 @@ export default class Mobile extends React.Component {
             <div className={"--mobile"}>
                 <Slider {...settings} >
                     {
-                        screens.map((s, i) => <Slide key={i} {...this.props} slide={s}/>)
+                        screens.map((s, i) => <Slide key={i} {...this.props} index={i} slide={s}/>)
                     }
                 </Slider>
             </div>
@@ -37,7 +37,7 @@ export default class Mobile extends React.Component {
 
 const Slide = props => {
 
-    return <div className="-f-slide">
+    return <div className={`-f-slide slideInDown delay${props.index}`}>
             <SlideIcon slide={props.slide}/>
             <div className="-f-title">{t[`feature_${props.slide}`]}</div>
     </div>
@@ -48,7 +48,7 @@ function PrevArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
-            className={className}
+            className={`${className} slideInDown delay2`}
             style={{ ...style, display: "block" }}
             onClick={onClick}>
             <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +62,7 @@ function NextArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
-            className={className}
+            className={`${className} slideInDown delay3`}
             style={{ ...style, display: "block" }}
             onClick={onClick}>
             <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">

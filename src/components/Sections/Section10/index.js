@@ -57,7 +57,7 @@ export default class Section extends React.Component {
         const isMobile = width <= 500;
 
         return (
-            <div className={`section --s${SECTION_NUMBER}`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
                     <div className="-header-1">{isMobile ? t.m_header_1 : t.header_1}</div>
                     <div className="-header-2">{isMobile ? t.m_header_2 : t.header_2}</div>
