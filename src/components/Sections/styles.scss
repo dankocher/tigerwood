@@ -26,6 +26,9 @@
       &:not(.animated) {
         opacity: 0;
       }
+      &.not-animated {
+        opacity: 1;
+      }
     }
   }
 }

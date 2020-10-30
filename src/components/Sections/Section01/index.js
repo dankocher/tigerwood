@@ -1,5 +1,4 @@
 import React from "react";
-import handleViewport from 'react-in-viewport';
 import "./styles.scss";
 import t from "./text.json";
 import Icon01 from "./icons/Icon1";
@@ -9,29 +8,11 @@ import formatText from "../../../utils/formatText";
 
 const SECTION_NUMBER = "01"
 
-class Section extends React.Component {
-
-    state = {
-        animated: ""
-    }
-
-    componentDidMount() {
-        this.setState({animated: "animated"})
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        const { enterCount, leaveCount } = this.props;
-        if (enterCount !== prevProps.enterCount) {
-            this.setState({animated: "animated"});
-        }
-        if (leaveCount !== prevProps.leaveCount) {
-            this.setState({animated: ""});
-        }
-    }
+export default class Section extends React.Component {
 
     render() {
         return (
-            <div className={`section --s${SECTION_NUMBER} ${this.state.animated} slideInRightBefore`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated} slideInRightBefore`}>
                 {S1header}
                 <Icons {...this.props}/>
                 <Button/>
@@ -40,8 +21,6 @@ class Section extends React.Component {
         );
     }
 }
-
-export default handleViewport(Section, { rootMargin: '-100px' });
 
 const S1header = <div className="-s01-header">
         <div className="header_1 slideInDown delay1">

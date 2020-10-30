@@ -11,7 +11,6 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import handleViewport from "react-in-viewport";
 
 const SECTION_NUMBER = "03"
 
@@ -20,12 +19,11 @@ const options = [
     {id: 1, value: "Цветной яркий"}
 ]
 
-class Section extends React.Component {
+export default class Section extends React.Component {
 
     state = {
         selected: 0,
         selectedModule: 1,
-        animated: ""
     }
 
     select = selected => {
@@ -34,20 +32,6 @@ class Section extends React.Component {
 
     selectModule = selectedModule => {
         this.setState({selectedModule})
-    }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        const { enterCount, leaveCount } = this.props;
-        console.log(enterCount, leaveCount)
-        if (enterCount !== prevProps.enterCount) {
-            this.setState({animated: "animated"});
-        }
-        if (leaveCount !== prevProps.leaveCount) {
-            this.setState({animated: ""});
-        }
-    }
-
-    onEnterViewport() {
-        console.log("onEnterViewport")
     }
 
     render() {
@@ -65,7 +49,7 @@ class Section extends React.Component {
             prevArrow: <PrevArrow />
         };
         return (
-            <div className={`section --s${SECTION_NUMBER} ${this.state.animated}`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
                     <div className="-s03-text-header-1 slideInDown delay1">{t.text_header_1}</div>
                     <div className="-s03-text-header-2 slideInDown delay2">{t.text_header_2}</div>
@@ -90,8 +74,6 @@ class Section extends React.Component {
         );
     }
 }
-
-export default handleViewport(Section, { rootMargin: '-100px' });
 
 function PrevArrow(props) {
     const { className, style, onClick } = props;

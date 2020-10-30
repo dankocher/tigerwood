@@ -2,34 +2,14 @@ import React from "react";
 import "./styles.scss";
 import t from "./text.json";
 import picture from "./images/s2-bg.png"
-import handleViewport from "react-in-viewport";
 
 const SECTION_NUMBER = "02"
 
-class Section extends React.Component {
-
-    state = {
-        animated: ""
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        const { enterCount, leaveCount } = this.props;
-        console.log(enterCount, leaveCount)
-        if (enterCount !== prevProps.enterCount) {
-            this.setState({animated: "animated"});
-        }
-        if (leaveCount !== prevProps.leaveCount) {
-            this.setState({animated: ""});
-        }
-    }
-
-    onEnterViewport() {
-        console.log("onEnterViewport")
-    }
+export default class Section extends React.Component {
 
     render() {
         return (
-            <div className={`section --s${SECTION_NUMBER} ${this.state.animated}`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
                     {S2Picture}
                     <S2Header {...this.props}/>
@@ -39,7 +19,6 @@ class Section extends React.Component {
         );
     }
 }
-export default handleViewport(Section, { rootMargin: '-100px' });
 
 const S2Picture = <div className="-s02-picture slideInRight">
     <img src={picture} alt=""/>
