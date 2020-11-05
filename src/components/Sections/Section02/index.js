@@ -25,9 +25,9 @@ const S2Picture = <div className="-s02-picture slideInRight">
 </div>
 
 const S2Header = props => ( <div className="-s02-header">
-    <div className="-s02-h-text1 slideInDown delay1">{props.width < 800 ? t.m_text_header_1 : t.text_header_1}</div>
-    <div className="-s02-h-text2 slideInDown delay2">{props.width < 800 ? t.m_text_header_2 : t.text_header_2}</div>
-    <div className="-s02-h-text3 slideInDown delay3">{props.width < 800 ? t.m_text_header_3 : t.text_header_3}</div>
+    <div className="-s02-h-text1 slideInDown delay1">{props.width <= 800 ? t.m_text_header_1 : t.text_header_1}</div>
+    <div className="-s02-h-text2 slideInDown delay2">{props.width <= 800 ? t.m_text_header_2 : t.text_header_2}</div>
+    <div className="-s02-h-text3 slideInDown delay3">{props.width <= 800 ? t.m_text_header_3 : t.text_header_3}</div>
 </div>)
 
 const S2Button = props => <div className="-s02-button slideInDown delay4">
