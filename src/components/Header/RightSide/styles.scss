@@ -45,10 +45,11 @@
             font-size: 18px;
             line-height: 25px;
             margin-right: 4px;
+            cursor: pointer;
           }
           .mess {
             margin-left: 9px;
-            cursor: pointer;
+            // cursor: pointer;
           }
         }
         .h-p-bottom {
@@ -74,7 +75,7 @@
         @include flex-center;
         width: 66px;
         height: 66px;
-        cursor: pointer;
+        // cursor: pointer;
       }
     }
   }

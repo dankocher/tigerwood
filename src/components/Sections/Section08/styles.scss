@@ -63,7 +63,7 @@ $min-height: 840px;
           height: $arrowSize;
           box-sizing: border-box;
           padding-top: 18px;
-          cursor: pointer;
+          // cursor: pointer;
           &.slick-disabled {
             cursor: default;
             pointer-events: none;

@@ -97,7 +97,7 @@ $min-height: 656px;
               font-size: 24px;
               line-height: 33px;
               color: #FFFFFF;
-              cursor: pointer;
+              // cursor: pointer;
               display: inline-flex;
               justify-content: center;
               align-items: center;
@@ -125,7 +125,7 @@ $min-height: 656px;
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
-                cursor: pointer;
+                // cursor: pointer;
                 margin: 0 13px;
                 opacity: 1;
                 &.-disabled {
