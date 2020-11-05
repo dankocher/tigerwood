@@ -1,5 +1,4 @@
 import React from "react";
-import t from "../Sections/Section01/text.json";
 import "./styles.scss";
 
 export default class ButtonArrow extends React.Component {

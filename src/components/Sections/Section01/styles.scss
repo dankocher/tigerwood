@@ -8,8 +8,8 @@
     min-height: 521px;
     margin-top: 36px;
     z-index: 20;
-    &:before {
-      content: "";
+    .-s01-bg {
+      z-index: 20;
       position: absolute;
       width: 100%;
       height: 100%;
@@ -18,8 +18,12 @@
       background: url("./images/section1-bg.png") no-repeat right top;
       background-size: auto auto;
       pointer-events: none;
+      color: rebeccapurple;
+      font-size: 48px;
     }
     .-s01-header {
+      position: relative;
+      z-index: 21;
       padding-top: 44px;
       .header_1 {
         font-family: $font-Nunito-ExtraBold;
@@ -40,8 +44,11 @@
       }
     }
     .-s01-icons {
+
+      z-index: 21;
       display: inline-flex;
       margin-top: 40px;
+      position: relative;
       .qual-icon {
         display: flex;
         flex-direction: column;
@@ -197,7 +204,10 @@
   .section {
     &.--s01 {
       padding-bottom: 0;
-      background-size: 70vw auto;
+
+      .-s01-bg {
+        background-size: 70vw auto;
+      }
       .-s01-header {
         .header_1, .header_2 {
           font-size: 18px;
@@ -261,7 +271,9 @@
   .section {
     &.--s01 {
 
-      background-size: 70vw auto;
+      .-s01-bg {
+        //background-size: 280px 204px;
+      }
       .-s01-box {
         position: relative;
         width: 100%;
@@ -280,7 +292,7 @@
 @media only screen and (max-width: 500px) {
   .section {
     &.--s01 {
-      &:before {
+      .-s01-bg {
         background-size: 280px 204px;
       }
       .-s01-header {

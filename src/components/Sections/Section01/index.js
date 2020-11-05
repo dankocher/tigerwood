@@ -13,7 +13,8 @@ export default class Section extends React.Component {
 
     render() {
         return (
-            <div className={`section --s${SECTION_NUMBER} ${this.props.animated} slideInRightBefore`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
+                <div className="-s01-bg slideInRight"/>
                 {S1header}
                 <Icons {...this.props}/>
                 <ButtonArrow className={"-s01-button slideInDown delay4"}
