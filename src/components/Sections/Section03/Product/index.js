@@ -40,7 +40,7 @@ export default class Product extends React.Component {
                     </div>
                 </div>
                 <div className="-product-button">
-                    {t.button_order}
+                    <span>{t.button_order}</span>
                 </div>
             </div>
         );

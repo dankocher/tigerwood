@@ -36,7 +36,7 @@
   &:hover {
     .arrow {
       margin-left: 5px;
-      @include shakeX;
+      @include shakeArrow;
     }
   }
 }

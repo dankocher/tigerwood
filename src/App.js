@@ -54,6 +54,8 @@ class App extends React.Component {
     const animateFromBottom = false;
     return <div className={`App`}>
         {/*<div className="screen-size">{`${width}x${height}`}</div>*/}
+
+
         <Header isMobile={isMobile} width={width}/>
         <Sections isMobile={isMobile} width={width}
                   animate={animate}
@@ -61,6 +63,9 @@ class App extends React.Component {
                   animateFromBottom={animateFromBottom}
                   scrollDirection={scrollDirection}
         />
+        {/*<div className="test">*/}
+        {/*    <div className="element">TEST</div>*/}
+        {/*</div>*/}
         {/*<Grids/>*/}
     </div>
   }

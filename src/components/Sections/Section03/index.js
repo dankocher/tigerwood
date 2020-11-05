@@ -63,11 +63,13 @@ export default class Section extends React.Component {
                         </span>
                     </div>
                     <div className="-s03-products">
-                        <Slider {...settings}>
-                            {
-                                products.map((product, i) => <Product className={`slideInDown delay${3+i}`} key={`product-${i}`} product={product} index={i}/>)
-                            }
-                        </Slider>
+                        <div className="products-content" style={{width: slides === 1 ? '100%' : slides * 300}}>
+                            <Slider {...settings}>
+                                {
+                                    products.map((product, i) => <Product className={`slideInDown delay${3+i}`} key={`product-${i}`} product={product} index={i}/>)
+                                }
+                            </Slider>
+                        </div>
                     </div>
                 </div>
             </div>

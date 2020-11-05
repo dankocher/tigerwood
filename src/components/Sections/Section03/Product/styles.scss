@@ -17,12 +17,14 @@ $product-image: $product-height - $product-name - $product-button - 10px;
   cursor: pointer;
   width: 100%;
   max-width: 285px;
+  overflow: hidden;
 
   &:hover {
     box-shadow: 0px 4px 10px rgba(36, 210, 109, 0.35);
     .-product-top {
       .-product-description {
-        display: block;
+        //display: block;
+        top: 0;
       }
       .-product-name {
         opacity: 0;
@@ -33,6 +35,7 @@ $product-image: $product-height - $product-name - $product-button - 10px;
     height: calc(100% - #{$product-button});
     position: relative;
     .-product-picture {
+      width: 100%;
       width: 100%;
       height: $product-image;
       display: flex;
@@ -73,14 +76,15 @@ $product-image: $product-height - $product-name - $product-button - 10px;
       }
     }
     .-product-description {
-      display: none;
+      //display: none;
       position: absolute;
       width: 100%;
       height: 100%;
       background: rgba(36, 210, 109, 0.6);
       border-radius: 13px 13px 0 0;
-      top: 0;
+      top: -100%;
       left: 0;
+      transition: all 250ms ease-in-out;
       .-p-d-name {
         margin: 20px 0 0 20px;
         font-size: 18px;
@@ -116,5 +120,12 @@ $product-image: $product-height - $product-name - $product-button - 10px;
     line-height: 33px;
     color: white;
     user-select: none;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        span {
+          @include shakeX;
+        }
+      }
+    }
   }
 }
