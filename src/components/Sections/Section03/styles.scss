@@ -66,6 +66,8 @@ $s03-min-height: 650px;
             display: flex;
             justify-content: center;
             align-items: center;
+
+
             $animationTime: 250ms;
             transition: all $animationTime ease-in-out;
             $activeBgSize: 80%;
