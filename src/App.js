@@ -49,7 +49,7 @@ class App extends React.Component {
 
   render() {
     const {isMobile, width, height, scrollDirection} = this.state;
-    const animate = false;
+    const animate = true;
     const animateOnlyFirstTime = false;
     const animateFromBottom = false;
     return <div className={`App`}>

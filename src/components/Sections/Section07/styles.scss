@@ -9,11 +9,10 @@ $height: 550px;
     background-size: auto auto;
     justify-content: center;
     display: flex;
-    min-height: $height;
-    //margin-top: 50px;
-    //padding-top: 50px;
+    /* min-height: 550px; */
+    height: auto;
     z-index: 60;
-    //overflow: hidden;
+    padding-bottom: 60px;
     &:before {
       //margin-top: 50px;
       //padding-top: 50px;
@@ -21,7 +20,7 @@ $height: 550px;
       position: absolute;
       width: 10000px;
       //height: 597.17px;
-      height: 550px;
+      height: 100%;
       //top: -200px;
 
       //background: #FDF9FF;
@@ -130,7 +129,7 @@ $height: 550px;
     &.--s07 {
       width: calc(100% - 40px);
       margin-left: 0 !important;
-      padding: 0 20px;
+      padding: 0 20px 60px;
       .---content {
         margin-right: 0;
         .-s7-header {
