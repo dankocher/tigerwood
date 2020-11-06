@@ -143,6 +143,7 @@ $min-height: 656px;
   .section {
     $height: 440px;
     &.--s05 {
+      opacity: 1 !important;
       min-height: $height;
       height: $height;
       &:before {
@@ -159,6 +160,8 @@ $min-height: 656px;
         //background-position-x: -250px;
         background-position-x: -70px;
         background-size: auto 440px;
+        animation-name: unset !important;
+        animation-fill-mode: none !important;
       }
       .---content {
         height: $height;
