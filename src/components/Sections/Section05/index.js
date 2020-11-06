@@ -9,7 +9,7 @@ export default class Section extends React.Component {
     render() {
 
         return (
-            <div className={`section --s${SECTION_NUMBER} ${this.props.animated} slideInRightAfter`}>
+            <div className={`section --s${SECTION_NUMBER} ${this.props.animated} `}>
                 <div className={`---content`}>
                     <div className="-s5-header-1 slideInDown delay1">{t.header_1}</div>
                     <div className="-s5-header-2 slideInDown delay2">{t.header_2}</div>
