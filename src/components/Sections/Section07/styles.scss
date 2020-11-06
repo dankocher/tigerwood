@@ -114,6 +114,17 @@ $height: 550px;
   }
 }
 
+@media only screen and (max-width: 1216px) {
+
+  .section {
+    &.--s07 {
+      .---content {
+        margin-right: 40px;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .section {
     &.--s07 {
@@ -121,6 +132,7 @@ $height: 550px;
       margin-left: 0 !important;
       padding: 0 20px;
       .---content {
+        margin-right: 0;
         .-s7-header {
           .-header-1, .-header-2 {
             font-size: 18px;

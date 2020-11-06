@@ -17,8 +17,6 @@ import Section11 from "./Section11";
 import t from "../../translates";
 import handleViewport from "react-in-viewport";
 
-const sections = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-
 class Section extends React.Component {
 
     state = {

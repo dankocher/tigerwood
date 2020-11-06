@@ -27,7 +27,7 @@ class App extends React.Component {
     updateWindowDimensions = () => {
         let width = window.innerWidth;
         let height = window.innerHeight;
-        let isMobile = width < 960;
+        let isMobile = width <= 960;
         this.setState({isMobile, width, height})
         // this.setState({ width: window.innerWidth, height: window.innerHeight });
     }
