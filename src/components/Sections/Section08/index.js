@@ -34,18 +34,22 @@ export default class Section extends React.Component {
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
                     <div className="-s8-header">
-                        <div className="-header_1">{isMobile ? t.m_header_1 : t.header_1}</div>
-                        <div className="-header_2">{isMobile ? t.m_header_2 : t.header_2}</div>
+                        <div className="-header_1 slideInDown delay1">{isMobile ? t.m_header_1 : t.header_1}</div>
+                        <div className="-header_2 slideInDown delay2">{isMobile ? t.m_header_2 : t.header_2}</div>
                     </div>
-                    <Slider {...settings}>
-                        {reviews.map((r, i) => (
-                            <div key={i} className="-picture">
-                                <div className="-picture-content">
-                                    <img src={image} alt=""/>
-                                </div>
-                            </div>
-                        ))}
-                    </Slider>
+                    <div className="-s08-overviews">
+                        <div className="-s08-overviews-content" style={{width: slides === 1 ? '100%' : slides * 300}}>
+                            <Slider {...settings}>
+                                {reviews.map((r, i) => (
+                                    <div key={i} className={`-picture slideInDown delay${3+i}`}>
+                                        <div className="-picture-content">
+                                            <img src={image} alt=""/>
+                                        </div>
+                                    </div>
+                                ))}
+                            </Slider>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
@@ -56,7 +60,7 @@ function PrevArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
-            className={className}
+            className={`${className} slideInDown delay5`}
             style={{ ...style, display: "block" }}
             onClick={onClick}>
             <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +74,7 @@ function NextArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
-            className={className}
+            className={`${className} slideInDown delay6`}
             style={{ ...style, display: "block" }}
             onClick={onClick}>
             <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
