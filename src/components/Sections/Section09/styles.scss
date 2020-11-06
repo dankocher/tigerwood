@@ -17,7 +17,7 @@ $min-height: 656px;
       position: absolute;
       content: "";
       background: url("./images/bg.svg") no-repeat;
-      width: 560px;
+      width: 1354px;
       height: 818.71px;
       left: 732px;
       //right: -75px;
@@ -93,7 +93,7 @@ $min-height: 656px;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
 
   .section {
     &.--s09 {

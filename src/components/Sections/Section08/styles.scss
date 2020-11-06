@@ -36,7 +36,10 @@ $min-height: 840px;
         justify-content: center;
         align-items: center;
         width: 100%;
+        max-height: 534px;
         .-s08-overviews-content {
+          max-height: 534px;
+          width: 100%;
           .slick-slider {
             $arrowSize: 54px;
             margin-top: 25px;
