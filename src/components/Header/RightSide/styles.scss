@@ -2,50 +2,41 @@
 
 .header {
   .h-content {
+    @media only screen and (max-width: 480px) {
+      padding: 10px 0 10px 20px;
+    }
     .h-right {
       min-width: 608px;
+      @media only screen and (max-width: 740px) {
+        min-width: 320px;
+      }
+
+      @media only screen and (max-width: 480px) {
+        max-width: 66px;
+      }
       justify-content: flex-end;
       align-items: center;
       .address {
-        display: flex;
-        //flex: 1;
-        justify-content: flex-end;
+        @media only screen and (max-width: 740px) {
+          display: none;
+        }
+        border-right: 2px solid rgba(0, 0, 0, 0.05);
         padding-right: 20px;
         height: 44px;
-        .address-icon {
-          margin-right: 13px;
-          margin-top: 4px;
-        }
-        .address-text {
-          font-family: $font-Nunito-SemiBold;
-          text-align: left;
-          font-size: 16px;
-          line-height: 22px;
-          width: 238px;
-          white-space: pre-line;
-        }
       }
       .phone {
         display: flex;
         flex-direction: column;
         justify-content: center;
         //flex: 1;
-        border-left: 2px solid rgba(0, 0, 0, 0.05);
         height: 44px;
         padding-left: 20px;
         .h-p-top {
           display: flex;
           height: 25px;
           .phone-icon {
-            padding-top: 4px;
-            margin-right: 10px;
           }
           .phone-number {
-            font-family: $font-Nunito-Bold;
-            font-size: 18px;
-            line-height: 25px;
-            margin-right: 4px;
-            cursor: pointer;
           }
           .mess {
             margin-left: 9px;
@@ -56,12 +47,7 @@
           display: flex;
           padding-left: 30px;
           .h-call-me {
-            font-family: $font-Nunito-SemiBold;
-            font-size: 16px;
-            line-height: 22px;
-            text-decoration-line: underline;
-            color: #2F80ED;
-            cursor: pointer;
+
           }
         }
       }
@@ -77,38 +63,127 @@
         height: 66px;
         // cursor: pointer;
       }
-    }
-  }
-}
-//
-//@media only screen and (max-width: 1110px) {
-//  .header {
-//    .h-content {
-//      //padding: 10px 0 10px 20px;
-//      .h-right {
-//        min-width: 300px;
-//        max-width: 300px;
-//        flex: unset;
-//        .address {
-//          display: none;
-//        }
-//        .phone {
-//          border-left: none;
-//        }
-//      }
-//    }
-//  }
-//}
+      $menuHeight: 80px;
+      .-m-menu-container {
 
+        &.-open {
+          .-m-menu {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .-m-menu {
+          transform: scale(0);
+          opacity: 0;
+          transform-origin: 100% 0;
+          position: fixed;
+          width: 100%;
+          height: 410px - $menuHeight;
+          transition: all .25s ease;
+          top: $menuHeight;
+          right: 0;
+          background-color: white;
+          border-radius: 0 0 0 120px;
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+          z-index: 1001;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 20px;
+          .address {
+            margin-bottom: 23px;
+          }
+          .-m-phone {
+            display: inline-flex;
+            margin-bottom: 8px;
+            .phone-icon {
+              svg path {
+                fill: #2F80ED;
+              }
+            }
+            .phone-number {
+              color: #2F80ED;
+              text-decoration: underline;
+            }
+          }
+          .-or {
+            margin-left: 30px;
+            font-size: 14px;
+            line-height: 19px;
+            font-family: $font-Nunito-Regular;
+            color: #000000;
+            margin-bottom: 8px;
+          }
+          .h-call-me {
+             margin-left: 30px;
+          }
 
-@media only screen and (max-width: 780px) {
-  .header {
-    .h-content {
-      padding: 10px 0 10px 20px;
-      .h-right {
-        //max-width: 66px;
-        //flex: unset;
+          .-messengers {
+            display: inline-flex;
+            margin-top: 43px;
+            margin-left: 30 - 16px;
+            .mess {
+              margin-left: 16px;
+              // cursor: pointer;
+              svg {
+                width: 35px;
+                height: 35px;
+              }
+            }
+          }
+        }
+        .-overlay {
+          background-color: rgba(0, 0, 0, 0.5);
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          top: $menuHeight;
+          left: 0;
+          z-index: 1000;
+        }
       }
+    }
+
+    .address {
+      display: flex;
+      //flex: 1;
+      justify-content: flex-end;
+      padding-right: 20px;
+      height: 44px;
+      .address-icon {
+        margin-right: 13px;
+        margin-top: 4px;
+      }
+      .address-text {
+        font-family: $font-Nunito-SemiBold;
+        text-align: left;
+        font-size: 16px;
+        line-height: 22px;
+        width: 238px;
+        white-space: pre-line;
+      }
+    }
+
+    .phone-icon {
+      padding-top: 4px;
+      margin-right: 10px;
+    }
+    .phone-number {
+      font-family: $font-Nunito-Bold;
+      font-size: 18px;
+      line-height: 25px;
+      margin-right: 4px;
+      cursor: pointer;
+    }
+
+    .h-call-me {
+      font-family: $font-Nunito-SemiBold;
+      font-size: 16px;
+      line-height: 22px;
+      text-decoration-line: underline;
+      color: #2F80ED;
+      cursor: pointer;
     }
   }
 }
