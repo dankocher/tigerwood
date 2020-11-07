@@ -7,7 +7,7 @@ import formatText from "../../../utils/formatText";
 class RightSide extends React.Component {
 
     state = {
-        showMenu: true
+        showMenu: false
     }
 
     showMenu = () => {
