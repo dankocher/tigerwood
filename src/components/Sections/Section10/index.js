@@ -54,14 +54,14 @@ export default class Section extends React.Component {
         const {width} = this.props;
 
         const product = products[current];
-        const isMobile = width <= 500;
+        const isMobile = width <= 1100;
 
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
-                    <div className="-header-1">{isMobile ? t.m_header_1 : t.header_1}</div>
-                    <div className="-header-2">{isMobile ? t.m_header_2 : t.header_2}</div>
-                    <div className="-gallery">
+                    <div className="-header-1 slideInDown delay1">{isMobile ? t.m_header_1 : t.header_1}</div>
+                    <div className="-header-2 slideInDown delay2">{isMobile ? t.m_header_2 : t.header_2}</div>
+                    <div className="-gallery slideInDown delay3">
                         <div className="-pictures" ref={gallery => this.gallery = gallery }>
                             <div className="-pictures-container" style={{left}}>
                                 {

@@ -16,7 +16,8 @@ export default class Section extends React.Component {
 
     render() {
         const {width} = this.props;
-        const min_size = 280 * 4;
+        const minWidth = width < 360 ? 280 : 310;
+        const min_size = minWidth * 4;
         const min_slide_size = min_size / 4;
         let section_width = width > (min_size) ? min_size : width - 40;
         let slides = parseInt(section_width / min_slide_size);
@@ -38,7 +39,7 @@ export default class Section extends React.Component {
                         <div className="-header_2 slideInDown delay2">{isMobile ? t.m_header_2 : t.header_2}</div>
                     </div>
                     <div className="-s08-overviews">
-                        <div className="-s08-overviews-content" style={{width: slides <= 1 ? '100%' : slides * 280}}>
+                        <div className="-s08-overviews-content" style={{width: slides <= 1 ? '100%' : slides * minWidth}}>
                             <Slider {...settings}>
                                 {reviews.map((r, i) => (
                                     <div key={i} className={`-picture slideInDown delay${3+i}`}>
