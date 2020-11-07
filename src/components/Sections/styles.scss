@@ -23,7 +23,7 @@
       //margin: 0 75px;
       opacity: 1;
       transition: opacity 250ms ease-in-out;
-      &:not(.animated) {
+      &:not(.animated):not(.--s11) {
         opacity: 0;
       }
       &.not-animated {
