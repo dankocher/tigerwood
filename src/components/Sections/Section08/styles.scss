@@ -103,7 +103,7 @@ $min-height: 840px;
                   background-size: 100% 100%;
                 }
                 &:active,  {
-                  animation: _bgActive $animationTime 1;
+                  //animation: _bgActive $animationTime 1;
                   background-size: $activeBgSize $activeBgSize;
                 }
               }

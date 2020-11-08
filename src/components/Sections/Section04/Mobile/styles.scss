@@ -7,7 +7,7 @@
         width: 100%;
         margin: {
           top: 15px;
-          bottom: 54px;
+          bottom: 84px;
         };
         .slick-slide {
           padding: 0 0 15px;
@@ -37,7 +37,7 @@
           $arrowSize: 54px;
           .slick-arrow {
             position: absolute;
-            margin-top: 76px;
+            margin-top: 106px;
             width: $arrowSize;
             height: $arrowSize;
             box-sizing: border-box;
@@ -67,7 +67,7 @@
                 background-size: 100% 100%;
               }
               &:active,  {
-                animation: _bgActive $animationTime 1;
+                //animation: _bgActive $animationTime 1;
                 background-size: $activeBgSize $activeBgSize;
               }
             }
