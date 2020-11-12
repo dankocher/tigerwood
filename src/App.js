@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/App.scss';
 import {Header, Sections} from "./components";
+import Test from "./Test";
 // import Grids from "./components/Grids";
 
 class App extends React.Component {
@@ -53,7 +54,7 @@ class App extends React.Component {
     const animateOnlyFirstTime = false;
     const animateFromBottom = false;
     return <div className={`App`}>
-        {/*<div className="screen-size">{`${width}x${height}`}</div>*/}
+        <div className="screen-size">{`${width}x${height}`}</div>
 
 
         <Header isMobile={isMobile} width={width}/>
@@ -63,9 +64,8 @@ class App extends React.Component {
                   animateFromBottom={animateFromBottom}
                   scrollDirection={scrollDirection}
         />
-        {/*<div className="test">*/}
-        {/*    <div className="element">TEST</div>*/}
-        {/*</div>*/}
+        {/*<Test/>*/}
+
         {/*<Grids/>*/}
     </div>
   }

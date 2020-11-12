@@ -1,0 +1,89 @@
+
+$time: 1s;
+
+.menu {
+  background: #8e44ad;
+  width: 50px;
+  height: 50px;
+  border-radius:50%;
+  transition: .6s .4s all;
+  -webkit-animation: radioOut $time 1;
+  -moz-animation: radioOut $time 1;
+  -o-animation: radioOut $time 1;
+  animation: radioOut $time 1;
+  margin: 20px;
+}
+
+.menu .burger-icon {
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+}
+
+.menu .burger-icon .fa{
+  transition: .6s .4s all;
+}
+
+.menu .lista-menu {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  transition: .6s .4s all;
+}
+
+.menu .lista-menu li {
+  width:100%;
+  line-height:40px;
+  font-size: 1em;
+  color: #fff;
+  list-style-type: none;
+
+}
+
+.menu-abierto {
+  width: 200px;
+  height: 300px;
+  border-radius:0;
+  -webkit-animation: radio $time 1;
+  -moz-animation: radio $time 1;
+  -o-animation: radio $time 1;
+  animation: radio $time 1;
+}
+
+.lista-abierta {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: inherit;
+}
+
+@keyframes radio{
+  0%{
+    border-radius: 50%;
+  }
+  50%{
+    border-radius:50%;
+  }
+  75%{
+    border-radius:0 0 100% 0;
+  }
+  100%{
+    border-radius: 0 0 0 0;
+  }
+}
+@-webkit-keyframes radio{
+  0%{
+    border-radius: 50%;
+  }
+  50%{
+    border-radius:50%;
+  }
+  75%{
+    border-radius:0 0 100% 0;
+  }
+  100%{
+    border-radius: 0 0 0 0;
+  }
+}

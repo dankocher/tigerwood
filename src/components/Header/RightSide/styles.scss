@@ -1,5 +1,6 @@
 @import "../../../styles/theme";
 
+$menuHeight: 80px;
 .header {
   .h-content {
     @media only screen and (max-width: 480px) {
@@ -63,84 +64,105 @@
         height: 66px;
         // cursor: pointer;
       }
-      $menuHeight: 80px;
+      $animationTime: 600ms;
       .-m-menu-container {
-
         &.-open {
           .-m-menu {
-            opacity: 1;
-            transform: scale(1);
+            width: 100%;
+            height: 410px - $menuHeight;
+
+            border-radius: 0 0 0 120px;
+
+            -webkit-animation: openMenuAnimation $animationTime 1;
+            -moz-animation: openMenuAnimation $animationTime 1;
+            -o-animation: openMenuAnimation $animationTime 1;
+            animation: openMenuAnimation $animationTime 1;
+          }
+          .-overlay {
+            display: block;
           }
         }
         .-m-menu {
-          transform: scale(0);
-          opacity: 0;
-          transform-origin: 100% 0;
+          box-sizing: border-box;
+          overflow: hidden;
           position: fixed;
-          width: 100%;
-          height: 410px - $menuHeight;
-          transition: all .25s ease;
+          width: 0;
+          height: 0;
           top: $menuHeight;
           right: 0;
           background-color: white;
-          border-radius: 0 0 0 120px;
-          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+          border-radius: 0 0 0 100%;
+          box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.15);
           z-index: 1001;
-          display: flex;
-          justify-content: flex-start;
-          align-items: flex-start;
-          flex-direction: column;
-          padding: 20px;
-          .address {
-            margin-bottom: 23px;
-          }
-          .-m-phone {
-            display: inline-flex;
-            margin-bottom: 8px;
-            .phone-icon {
-              svg path {
-                fill: #2F80ED;
+          animation-timing-function: linear;
+          -webkit-animation: openMenuAnimationClose $animationTime 1;
+          -moz-animation: openMenuAnimationClose $animationTime 1;
+          -o-animation: openMenuAnimationClose $animationTime 1;
+          animation: openMenuAnimationClose $animationTime 1;
+
+          .-m-menu-content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            margin: 20px;
+            box-sizing: border-box;
+            height: 100%;
+            width: calc(100vw - 40px);
+            position: absolute;
+            right: 0;
+            .address {
+              margin-bottom: 23px;
+            }
+            .-m-phone {
+              display: inline-flex;
+              margin-bottom: 8px;
+              .phone-icon {
+                svg path {
+                  fill: #2F80ED;
+                }
+              }
+              .phone-number {
+                color: #2F80ED;
+                text-decoration: underline;
               }
             }
-            .phone-number {
-              color: #2F80ED;
-              text-decoration: underline;
+            .-or {
+              margin-left: 30px;
+              font-size: 14px;
+              line-height: 19px;
+              font-family: $font-Nunito-Regular;
+              color: #000000;
+              margin-bottom: 8px;
             }
-          }
-          .-or {
-            margin-left: 30px;
-            font-size: 14px;
-            line-height: 19px;
-            font-family: $font-Nunito-Regular;
-            color: #000000;
-            margin-bottom: 8px;
-          }
-          .h-call-me {
-             margin-left: 30px;
-          }
+            .h-call-me {
+              margin-left: 30px;
+            }
 
-          .-messengers {
-            display: inline-flex;
-            margin-top: 43px;
-            margin-left: 30 - 16px;
-            .mess {
-              margin-left: 16px;
-              // cursor: pointer;
-              svg {
-                width: 35px;
-                height: 35px;
+            .-messengers {
+              display: inline-flex;
+              margin-top: 43px;
+              margin-left: 30 - 16px;
+              .mess {
+                margin-left: 16px;
+                // cursor: pointer;
+                svg {
+                  width: 35px;
+                  height: 35px;
+                }
               }
             }
           }
         }
         .-overlay {
-          background-color: rgba(0, 0, 0, 0.5);
+          background-color: rgba(0, 0, 0, 0.0);
           position: fixed;
           width: 100%;
           height: 100%;
-          top: $menuHeight;
+          top: 0;
           left: 0;
           z-index: 1000;
+          display: none;
         }
       }
     }
@@ -187,3 +209,53 @@
     }
   }
 }
+
+@keyframes openMenuAnimation {
+  0%{
+    border-radius: 0 0 0 100%;
+    width: 0;
+    height: 0;
+  }
+  75%{
+    //border-radius:0 0 0 100%;
+    height: 410px - $menuHeight;
+    width: 100%;
+  }
+  100%{
+    border-radius: 0 0 0 120px;
+    width: 100%;
+    height: 410px - $menuHeight;
+  }
+}
+
+@keyframes openMenuAnimationClose {
+  0%{
+    border-radius: 0 0 0 120px;
+    width: 100%;
+    height: 410px - $menuHeight;
+  }
+  25%{
+    //border-radius:0 0 0 100%;
+    width: 100%;
+    height: 410px - $menuHeight;
+  }
+  100%{
+    border-radius:0 0 0 100%;
+    width: 0;
+    height: 0;
+  }
+}
+//@-webkit-keyframes openMenuAnimation {
+//  0%{
+//    border-radius: 50%;
+//  }
+//  50%{
+//    border-radius:50%;
+//  }
+//  75%{
+//    border-radius:0 0 100% 0;
+//  }
+//  100%{
+//    border-radius: 0 0 0 0;
+//  }
+//}

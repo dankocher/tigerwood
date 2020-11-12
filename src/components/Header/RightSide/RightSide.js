@@ -3,22 +3,45 @@ import "./styles.scss";
 import Icon from "../../Icon";
 import t from "../../../translates";
 import formatText from "../../../utils/formatText";
+import {instanceOf} from "prop-types";
 
 class RightSide extends React.Component {
 
     state = {
-        showMenu: false
+        showMenu: false,
+        completeOpen: false
     }
 
-    showMenu = () => {
+    componentDidMount() {
+        window.document.addEventListener("scroll", this.scrollEvent)
+    }
+
+    componentWillUnmount() {
+        window.document.removeEventListener("scroll", this.scrollEvent)
+    }
+    scrollEvent = () => {
+        this.showMenu(false);
+    }
+
+    showMenu = (status) => {
         const {showMenu} = this.state;
-        // window.document.body.style.overflowX = !showMenu ? "visible" : "hidden";
-        this.setState({showMenu: !showMenu})
+        let newStatus = status;
+        if (status !== true && status !== false) {
+            newStatus = !showMenu
+        }
+        if (newStatus !== showMenu) {
+            this.setState({showMenu: newStatus})
+        }
+    }
+
+    onScrollMenu = (e) => {
+        e.preventDefault();
+        return false;
     }
 
     render() {
         const {width} = this.props;
-        const {showMenu} = this.state;
+        const {showMenu, completeOpen} = this.state;
         if (width <= 480) {
             return <div className="h-side h-right-mobile">
                 <div className="h-button-menu" onClick={this.showMenu}>
@@ -31,19 +54,21 @@ class RightSide extends React.Component {
                         </svg>
                     }
                 </div>
-                <div className={`-m-menu-container${showMenu ? " -open" : ""}`}>
+                <div className={`-m-menu-container${showMenu ? " -open" : ""}${completeOpen ? " -complete-open" : ""}`} onScroll={this.onScrollMenu}>
                     <div className={`-m-menu`}>
-                        <Address/>
-                        <div className="-m-phone">
-                            <PhoneNumber number={t.phone_number}/>
-                        </div>
-                        <div className="-or">или</div>
-                        <CallMe/>
-                        <div className="-messengers">
-                            <Messengers/>
+                        <div className="-m-menu-content">
+                            <Address/>
+                            <div className="-m-phone">
+                                <PhoneNumber number={t.phone_number}/>
+                            </div>
+                            <div className="-or">или</div>
+                            <CallMe/>
+                            <div className="-messengers">
+                                <Messengers/>
+                            </div>
                         </div>
                     </div>
-                    {/*<div className="-overlay"/>*/}
+                    <div className="-overlay" onMouseDown={() => this.showMenu(false)}/>
                 </div>
             </div>
         }
