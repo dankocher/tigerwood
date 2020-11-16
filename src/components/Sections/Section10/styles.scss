@@ -139,6 +139,31 @@ $min-height: 656px;
                 margin: 0 13px;
                 opacity: 1;
 
+                background: url("./icons/icon-bg.svg") no-repeat center;
+                background-size: 0 0;
+                $animationTime: 100ms;
+                transition: all $animationTime ease-in-out;
+                $activeBgSize: 80%;
+
+                &:active {
+                  background-size: 100% 100%;
+                }
+
+                @media(hover: hover) and (pointer: fine) {
+                  @keyframes _bgActive {
+                    from { background-size: 100% 100% }
+                    to { background-size: $activeBgSize $activeBgSize; }
+                  }
+
+                  &:hover, &:focus {
+                    background-size: 100% 100%;
+                  }
+                  &:active,  {
+                    //animation: _bgActive $animationTime 1;
+                    background-size: $activeBgSize $activeBgSize;
+                  }
+                }
+
                 @media (hover: hover) and (pointer: fine) {
                   cursor: pointer;
                 }
