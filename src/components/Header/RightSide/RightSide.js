@@ -24,7 +24,10 @@ class RightSide extends React.Component {
                 <div className="phone">
                     <div className="h-p-top">
                         <PhoneNumber number={t.phone_number}/>
-                        <Messengers/>
+                        <Messengers
+                            whatsapp={"375295886679"}
+                            telegram={"tigerwood"}
+                        />
                     </div>
                     <div className="h-p-bottom">
                         <CallMe/>
@@ -46,7 +49,7 @@ const PhoneNumber = props => <>
     <div className="phone-number">{props.number}</div>
 </>;
 const Messengers = props => (<>
-        <div className="mess whatsapp-icon"><Icon name={"whatsapp"}/></div>
-        <div className="mess telegram-icon"><Icon name={"telegram"}/></div>
+        <a href={`https://wa.me/${props.whatsapp}`} _target={"blank"} className="mess whatsapp-icon"><Icon name={"whatsapp"}/></a>
+        <a href={`https://t.me/${props.telegram}`} _target={"blank"} className="mess telegram-icon"><Icon name={"telegram"}/></a>
 </>);
 const CallMe = props => <div className="h-call-me">{t.call_me}</div>;

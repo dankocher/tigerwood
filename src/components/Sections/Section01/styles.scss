@@ -106,6 +106,9 @@
           padding-left: 5px;
           padding-top: 2px;
           box-sizing: border-box;
+          @media (hover: hover) and (pointer: fine) {
+            cursor: pointer;
+          }
         }
         .b-t-2 {
           margin-left: 10px;

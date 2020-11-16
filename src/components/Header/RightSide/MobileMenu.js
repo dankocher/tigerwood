@@ -56,13 +56,16 @@ class MobileMenu extends React.Component {
                     <div className={`-m-menu${firstTime}`}>
                         <div className="-m-menu-content">
                             <Address/>
-                            <div className="-m-phone">
+                            <a href={`tel:${t.phone_number}`} className="-m-phone">
                                 <PhoneNumber number={t.phone_number}/>
-                            </div>
+                            </a>
                             <div className="-or">или</div>
                             <CallMe/>
                             <div className="-messengers">
-                                <Messengers/>
+                                <Messengers
+                                    whatsapp={"375295886679"}
+                                    telegram={"tigerwood"}
+                                />
                             </div>
                         </div>
                     </div>

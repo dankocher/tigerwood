@@ -90,6 +90,10 @@ $min-height: 656px;
         padding-top: 13px;
         box-sizing: border-box;
         user-select: none;
+
+        @media (hover: hover) and (pointer: fine) {
+          cursor: pointer;
+        }
         &:hover {
           .b-right-circle svg {
             @include swing;

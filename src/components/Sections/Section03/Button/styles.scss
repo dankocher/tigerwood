@@ -22,6 +22,9 @@
   // cursor: pointer;
   user-select: none;
   white-space: nowrap;
+  @media (hover: hover) and (pointer: fine) {
+    cursor: pointer;
+  }
   &.-selected {
     background: linear-gradient(182.34deg, #24D26D 6.07%, #13C45D 98.04%);
     border: 1px solid linear-gradient(182.34deg, #24D26D 6.07%, #13C45D 98.04%);

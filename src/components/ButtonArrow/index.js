@@ -4,10 +4,10 @@ import "./styles.scss";
 export default class ButtonArrow extends React.Component {
 
     render() {
-        const {className, topText, bottomText, width} = this.props;
+        const {className, topText, bottomText, width, onClick} = this.props;
         const arrowWidth = this.props.arrowWidth || 86;
 
-        return ( <div className={`-arrow-button ${className}`} style={{width}}>
+        return ( <div className={`-arrow-button ${className}`} style={{width}} onClick={onClick}>
             <div className="b-top-text">{topText}</div>
             <div className="b-bottom-text">{bottomText}
                 <div className={"arrow"}>
