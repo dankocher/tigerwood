@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.scss";
-import t from "./text.json";
 
 import image from "./images/s5-video.jpg";
 
@@ -9,7 +8,7 @@ const SECTION_NUMBER = "06"
 export default class Section extends React.Component {
 
     render() {
-
+        const {t} = this.props;
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
@@ -21,7 +20,7 @@ export default class Section extends React.Component {
                     <div className="-s5-video">
                         <div className="-video-content slideInRight">
                             <div className="--video ">
-                                <img src={image} alt=""/>
+                                <img src={image} alt={""}/>
                                 <div className="-play-button"/>
                             </div>
                         </div>

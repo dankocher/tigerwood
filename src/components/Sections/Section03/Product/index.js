@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.scss";
-import t from "../text.json";
 
 import image from "../images/product-01.png"
 import formatText from "../../../../utils/formatText";
@@ -8,7 +7,7 @@ import formatText from "../../../../utils/formatText";
 export default class Product extends React.Component {
 
     render() {
-        const {product, index, className} = this.props;
+        const {product, index, className, t} = this.props;
         let position = (index+1) % 4;
 
         let side = ""

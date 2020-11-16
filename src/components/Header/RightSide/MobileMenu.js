@@ -1,5 +1,4 @@
 import React from "react";
-import t from "../../../translates";
 
 class MobileMenu extends React.Component {
 
@@ -38,7 +37,7 @@ class MobileMenu extends React.Component {
     render() {
         const {showMenu, firstTime} = this.state;
 
-        const {Address, PhoneNumber, CallMe, Messengers} = this.props;
+        const {Address, PhoneNumber, CallMe, Messengers, t} = this.props;
 
         return (
             <div className="h-side h-right-mobile">
@@ -55,16 +54,16 @@ class MobileMenu extends React.Component {
                 <div className={`-m-menu-container${showMenu ? " -open" : ""}`} onScroll={this.onScrollMenu}>
                     <div className={`-m-menu${firstTime}`}>
                         <div className="-m-menu-content">
-                            <Address/>
+                            <Address address={t.address}/>
                             <a href={`tel:${t.phone_number}`} className="-m-phone">
                                 <PhoneNumber number={t.phone_number}/>
                             </a>
-                            <div className="-or">или</div>
-                            <CallMe/>
+                            <div className="-or">{t.or}</div>
+                            <CallMe call_me={t.call_me}/>
                             <div className="-messengers">
                                 <Messengers
-                                    whatsapp={"375295886679"}
-                                    telegram={"tigerwood"}
+                                    whatsapp={t.whatsapp}
+                                    telegram={t.telegram}
                                 />
                             </div>
                         </div>

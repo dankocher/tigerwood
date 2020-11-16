@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.scss";
-import t from "./text.json";
 import formatText from "../../../utils/formatText";
 
 const SECTION_NUMBER = "09"
@@ -8,6 +7,7 @@ const SECTION_NUMBER = "09"
 export default class Section extends React.Component {
 
     render() {
+        const {t} = this.props;
 
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated} slideInRightAfter`}>

@@ -1,13 +1,12 @@
 import React from "react";
 import "./styles.scss";
-import t from "./text.json";
 
 const SECTION_NUMBER = "05"
 
 export default class Section extends React.Component {
 
     render() {
-
+        const {t} = this.props
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated} slideInRightAfter`}>
                 <div className={`---content`}>
@@ -27,6 +26,7 @@ export default class Section extends React.Component {
 }
 
 const Icon1 = props => {
+    const {t} = props;
     const size  = props.isMobile ? 48 : 72;
     return (
         <div className="-s5-icon  slideInDown delay4">
@@ -56,6 +56,7 @@ const Icon1 = props => {
 }
 
 const Icon2 = props => {
+    const {t} = props;
     const size  = props.isMobile ? 48 : 72;
     return (
         <div className="-s5-icon slideInDown delay5">
@@ -98,6 +99,7 @@ const Icon2 = props => {
 }
 
 const Icon3 = props => {
+    const {t} = props;
     const size  = props.isMobile ? 48 : 72;
     return (
         <div className="-s5-icon slideInDown delay6">
@@ -125,9 +127,9 @@ const Icon3 = props => {
     )
 }
 
-const S5Button = <div className="-s05-button slideInDown delay7">
-    <div className="-b-text1">{t.button_1}</div>
-    <div className="-b-text2">{t.button_2}</div>
+const S5Button = props => <div className="-s05-button slideInDown delay7">
+    <div className="-b-text1">{props.t.button_1}</div>
+    <div className="-b-text2">{props.t.button_2}</div>
 
     <div className="b-right-circle">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

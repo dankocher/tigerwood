@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.scss";
-import t from "./text.json";
 import picture from "./images/s2-bg.png"
 
 const SECTION_NUMBER = "02"
@@ -11,28 +10,28 @@ export default class Section extends React.Component {
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
-                    {S2Picture}
+                    <S2Picture {...this.props}/>
                     <S2Header {...this.props}/>
-                    <S2Button/>
+                    <S2Button {...this.props}/>
                 </div>
             </div>
         );
     }
 }
 
-const S2Picture = <div className="-s02-picture slideInRight">
-    <img src={picture} alt=""/>
+const S2Picture = props => <div className="-s02-picture slideInRight">
+    <img src={picture} alt={props.t.picture_alt || ""}/>
 </div>
 
 const S2Header = props => ( <div className="-s02-header">
-    <div className="-s02-h-text1 slideInDown delay1">{props.width <= 800 ? t.m_text_header_1 : t.text_header_1}</div>
-    <div className="-s02-h-text2 slideInDown delay2">{props.width <= 800 ? t.m_text_header_2 : t.text_header_2}</div>
-    <div className="-s02-h-text3 slideInDown delay3">{props.width <= 800 ? t.m_text_header_3 : t.text_header_3}</div>
+    <div className="-s02-h-text1 slideInDown delay1">{props.width <= 800 ? props.t.m_text_header_1 : props.t.text_header_1}</div>
+    <div className="-s02-h-text2 slideInDown delay2">{props.width <= 800 ? props.t.m_text_header_2 : props.t.text_header_2}</div>
+    <div className="-s02-h-text3 slideInDown delay3">{props.width <= 800 ? props.t.m_text_header_3 : props.t.text_header_3}</div>
 </div>)
 
 const S2Button = props => <div className="-s02-button slideInDown delay4">
-    <div className="-b-text1">{t.button_text_1}</div>
-    <div className="-b-text2">{t.button_text_2}</div>
+    <div className="-b-text1">{props.t.button_text_1}</div>
+    <div className="-b-text2">{props.t.button_text_2}</div>
 
     <div className="b-right-circle">
         <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">

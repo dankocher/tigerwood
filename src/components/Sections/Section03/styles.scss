@@ -97,7 +97,7 @@ $s03-min-height: 650px;
               pointer-events: none;
               filter: grayscale(1);
               background-size: 0 0;
-              opacity: .3;
+              opacity: .3 !important;
             }
 
             &:before {

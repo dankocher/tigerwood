@@ -2,8 +2,6 @@ import React from "react";
 // import { GoogleMap, Marker, withGoogleMap, withScriptjs } from "react-google-maps"
 import {YMaps, Map, Placemark} from 'react-yandex-maps';
 import "./styles.scss";
-import t from "./text.json";
-import formatText from "../../../utils/formatText";
 // import Map from "./Map";
 
 const SECTION_NUMBER = "11"
@@ -16,6 +14,7 @@ export default class Section extends React.Component {
         template: null
     }
     createTemplateLayoutFactory = ymaps => {
+        const {t} = this.props;
 
         const svgSize = this.props.isMobile ? 50 : 70;
         if (ymaps && !this.state.template) {
@@ -37,7 +36,7 @@ export default class Section extends React.Component {
         }
     };
     render() {
-        const {isMobile} = this.props;
+        const {isMobile, t} = this.props;
         let center = isMobile ? [53.9242684, 27.524621] : coordinates;
         let zoom = isMobile ? 12 : 14;
         let iconImageOffset = isMobile ? [-40, -99] : [-70, -160]

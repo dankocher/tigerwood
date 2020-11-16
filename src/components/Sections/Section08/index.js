@@ -1,7 +1,5 @@
 import React from "react";
 import "./styles.scss";
-import t from "./text.json";
-import formatText from "../../../utils/formatText";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -15,7 +13,7 @@ const SECTION_NUMBER = "08"
 export default class Section extends React.Component {
 
     render() {
-        const {width} = this.props;
+        const {width, t} = this.props;
         const minWidth = width < 360 ? 280 : 310;
         const min_size = minWidth * 4;
         const min_slide_size = min_size / 4;

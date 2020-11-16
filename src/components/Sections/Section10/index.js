@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.scss";
-import t from "./text.json";
 import picture_wide from "./images/product-wide-1.jpg"
 import picture from "./images/product-1.png"
 import products from "./data/products.json";
@@ -51,7 +50,7 @@ export default class Section extends React.Component {
 
     render() {
         const {current, left} = this.state;
-        const {width} = this.props;
+        const {width, t} = this.props;
 
         const product = products[current];
         const isMobile = width <= 1100;

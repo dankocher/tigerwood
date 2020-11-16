@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.scss";
-import t from "./text.json";
 
 import Selector from "./Selector";
 import Button from "./Button";
@@ -14,16 +13,19 @@ import "slick-carousel/slick/slick-theme.css";
 
 const SECTION_NUMBER = "03"
 
-const options = [
-    {id: 0, value: t.select_natural_color},
-    {id: 1, value: "Цветной яркий"}
-]
 
 export default class Section extends React.Component {
 
-    state = {
-        selected: 0,
-        selectedModule: 1,
+    constructor(props) {
+        super(props);
+        let options = this.props.t.options.map((value, id) => (
+            {id, value}
+        ))
+        this.state = {
+            selected: 0,
+            selectedModule: 1,
+            options
+        }
     }
 
     select = selected => {
@@ -35,8 +37,8 @@ export default class Section extends React.Component {
     }
 
     render() {
-        const {selected, selectedModule} = this.state;
-        const {width} = this.props;
+        const {selected, selectedModule, options} = this.state;
+        const {width, t} = this.props;
         let section_width = width > (1216) ? 1216 : width - 40;
         let slides = parseInt(section_width / 300)
         const settings = {
@@ -66,7 +68,7 @@ export default class Section extends React.Component {
                         <div className="products-content" style={{width: slides === 1 ? '100%' : slides * 300}}>
                             <Slider {...settings}>
                                 {
-                                    products.map((product, i) => <Product className={`slideInDown delay${3+i}`} key={`product-${i}`} product={product} index={i}/>)
+                                    products.map((product, i) => <Product className={`slideInDown delay${3+i}`} key={`product-${i}`} product={product} index={i} t={t}/>)
                                 }
                             </Slider>
                         </div>

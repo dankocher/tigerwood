@@ -6,7 +6,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import SlideIcon from "./icons/SlideIcon";
-import t from "../text.json";
 
 const screens = [1, 2, 3, 4, 5, 6];
 
@@ -23,11 +22,12 @@ export default class Mobile extends React.Component {
             prevArrow: <PrevArrow />,
 
         };
+        const {t} = this.props;
         return (
             <div className={"--mobile"}>
                 <Slider {...settings} >
                     {
-                        screens.map((s, i) => <Slide key={i} {...this.props} index={i} slide={s}/>)
+                        screens.map((s, i) => <Slide key={i} {...this.props} index={i} slide={s} t={t}/>)
                     }
                 </Slider>
             </div>
@@ -39,7 +39,7 @@ const Slide = props => {
 
     return <div className={`-f-slide slideInDown delay${props.index}`}>
             <SlideIcon slide={props.slide}/>
-            <div className="-f-title">{t[`feature_${props.slide}`]}</div>
+            <div className="-f-title">{props.t[`feature_${props.slide}`]}</div>
     </div>
 }
 

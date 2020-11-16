@@ -1,16 +1,15 @@
 import React from "react";
 import "./styles.scss";
 import Icon from "../../Icon";
-import t from "../../../translates";
-import formatText from "../../../utils/formatText";
 import MobileMenu from "./MobileMenu";
 
 class RightSide extends React.Component {
 
     render() {
-        const {width} = this.props;
+        const {width, t} = this.props;
         if (width <= 480) {
             return <MobileMenu
+                t={t}
                 Address={Address}
                 PhoneNumber={PhoneNumber}
                 CallMe={CallMe}
@@ -20,17 +19,17 @@ class RightSide extends React.Component {
         return (
             <div className="h-side h-right">
 
-                <Address/>
+                <Address address={t.address}/>
                 <div className="phone">
                     <div className="h-p-top">
                         <PhoneNumber number={t.phone_number}/>
                         <Messengers
-                            whatsapp={"375295886679"}
-                            telegram={"tigerwood"}
+                            whatsapp={t.whatsapp}
+                            telegram={t.telegram}
                         />
                     </div>
                     <div className="h-p-bottom">
-                        <CallMe/>
+                        <CallMe call_me={t.call_me}/>
                     </div>
                 </div>
             </div>
@@ -42,7 +41,7 @@ export default RightSide;
 
 const Address = props => <div className="address">
     <div className="address-icon"><Icon name={"address"}/></div>
-    <div className="address-text">{formatText(t.address)}</div>
+    <div className="address-text">{props.address}</div>
 </div>;
 const PhoneNumber = props => <>
     <div className="phone-icon"><Icon name={"phone"}/></div>
@@ -52,4 +51,4 @@ const Messengers = props => (<>
         <a href={`https://wa.me/${props.whatsapp}`} _target={"blank"} className="mess whatsapp-icon"><Icon name={"whatsapp"}/></a>
         <a href={`https://t.me/${props.telegram}`} _target={"blank"} className="mess telegram-icon"><Icon name={"telegram"}/></a>
 </>);
-const CallMe = props => <div className="h-call-me">{t.call_me}</div>;
+const CallMe = props => <div className="h-call-me">{props.call_me}</div>;

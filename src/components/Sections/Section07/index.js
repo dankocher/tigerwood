@@ -1,7 +1,6 @@
 import React from "react";
 import InputMask from "react-input-mask";
 import "./styles.scss";
-import t from "./text.json";
 import ButtonArrow from "../../ButtonArrow";
 
 const SECTION_NUMBER = "07"
@@ -30,6 +29,7 @@ export default class Section extends React.Component {
 
     render() {
         const {phone, name} = this.state;
+        const {t} = this.props;
 
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>

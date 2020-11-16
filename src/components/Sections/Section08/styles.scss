@@ -77,7 +77,7 @@ $min-height: 840px;
                 cursor: default;
                 pointer-events: none;
                 filter: grayscale(1);
-                opacity: .3;
+                opacity: .3 !important;
               }
 
               background: url("./icons/icon-bg.svg") no-repeat center;
