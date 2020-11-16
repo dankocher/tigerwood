@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/tigerwood/static/css/main.03ef07d5.chunk.css",
-    "main.js": "/tigerwood/static/js/main.8f2fb718.chunk.js",
-    "main.js.map": "/tigerwood/static/js/main.8f2fb718.chunk.js.map",
+    "main.js": "/tigerwood/static/js/main.5373a75e.chunk.js",
+    "main.js.map": "/tigerwood/static/js/main.5373a75e.chunk.js.map",
     "runtime-main.js": "/tigerwood/static/js/runtime-main.338527c1.js",
     "runtime-main.js.map": "/tigerwood/static/js/runtime-main.338527c1.js.map",
     "static/css/2.1925a4ac.chunk.css": "/tigerwood/static/css/2.1925a4ac.chunk.css",
-    "static/js/2.d98907fb.chunk.js": "/tigerwood/static/js/2.d98907fb.chunk.js",
-    "static/js/2.d98907fb.chunk.js.map": "/tigerwood/static/js/2.d98907fb.chunk.js.map",
+    "static/js/2.638b8c3a.chunk.js": "/tigerwood/static/js/2.638b8c3a.chunk.js",
+    "static/js/2.638b8c3a.chunk.js.map": "/tigerwood/static/js/2.638b8c3a.chunk.js.map",
     "index.html": "/tigerwood/index.html",
-    "precache-manifest.5fba657d36a99460920242dc476e5a42.js": "/tigerwood/precache-manifest.5fba657d36a99460920242dc476e5a42.js",
+    "precache-manifest.8abeb96268241d3518f7f924844b9f05.js": "/tigerwood/precache-manifest.8abeb96268241d3518f7f924844b9f05.js",
     "service-worker.js": "/tigerwood/service-worker.js",
     "static/css/2.1925a4ac.chunk.css.map": "/tigerwood/static/css/2.1925a4ac.chunk.css.map",
     "static/css/main.03ef07d5.chunk.css.map": "/tigerwood/static/css/main.03ef07d5.chunk.css.map",
-    "static/js/2.d98907fb.chunk.js.LICENSE.txt": "/tigerwood/static/js/2.d98907fb.chunk.js.LICENSE.txt",
+    "static/js/2.638b8c3a.chunk.js.LICENSE.txt": "/tigerwood/static/js/2.638b8c3a.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/tigerwood/static/media/Nunito-SemiBold.76ae20d4.ttf",
     "static/media/styles.scss": "/tigerwood/static/media/section1-bg.ce546803.png",
     "static/media/product-01.png": "/tigerwood/static/media/product-01.26d1276c.png",
@@ -27,8 +27,8 @@
   "entrypoints": [
     "static/js/runtime-main.338527c1.js",
     "static/css/2.1925a4ac.chunk.css",
-    "static/js/2.d98907fb.chunk.js",
+    "static/js/2.638b8c3a.chunk.js",
     "static/css/main.03ef07d5.chunk.css",
-    "static/js/main.8f2fb718.chunk.js"
+    "static/js/main.5373a75e.chunk.js"
   ]
 }
