@@ -7,6 +7,10 @@
       .logo {
         max-height: 80px;
         // cursor: pointer;
+
+        @media (hover: hover) and (pointer: fine) {
+          cursor: pointer;
+        }
       }
       .site-description {
         margin-left: 30px;

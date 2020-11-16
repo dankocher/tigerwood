@@ -122,6 +122,7 @@ $product-image: $product-height - $product-name - $product-button - 10px;
     user-select: none;
     @media (hover: hover) and (pointer: fine) {
       &:hover {
+        cursor: pointer;
         span {
           @include shakeX;
         }
