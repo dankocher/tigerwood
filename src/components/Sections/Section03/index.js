@@ -4,12 +4,13 @@ import "./styles.scss";
 import Selector from "./Selector";
 import Button from "./Button";
 
-import products from "./data/products.json"
+// import products from "./data/products.json"
 import Product from "./Product";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ajax, {api_location} from "../../../ajax";
 
 const SECTION_NUMBER = "03"
 
@@ -18,14 +19,34 @@ export default class Section extends React.Component {
 
     constructor(props) {
         super(props);
-        let options = this.props.t.options.map((value, id) => (
-            {id, value}
+        let options = this.props.t.options.map((option) => (
+            {id: option.id, value: option.value}
         ))
+
         this.state = {
-            selected: 0,
+            selected: this.props.t.default_option || "natural",
             selectedModule: 1,
-            options
+            options,
+            products: []
         }
+    }
+    allProducts = [];
+
+    componentDidMount() {
+        this.getProducts()
+    }
+
+    getProducts = async () => {
+        this.allProducts = await ajax("/products/data.json");
+        this.filterProducts();
+    }
+
+    filterProducts = (selectedModule) => {
+        if (selectedModule === undefined) {
+            selectedModule = this.state.selectedModule;
+        }
+        let products = this.allProducts.filter(p => p.modules === selectedModule && p[this.state.selected] !== undefined)
+        this.setState({products})
     }
 
     select = selected => {
@@ -33,11 +54,12 @@ export default class Section extends React.Component {
     }
 
     selectModule = selectedModule => {
-        this.setState({selectedModule})
+        this.setState({selectedModule});
+        this.filterProducts(selectedModule);
     }
 
     render() {
-        const {selected, selectedModule, options} = this.state;
+        const {selected, selectedModule, options, products} = this.state;
         const {width, t} = this.props;
         let section_width = width > (1216) ? 1216 : width - 40;
         let slides = parseInt(section_width / 300)
@@ -68,7 +90,15 @@ export default class Section extends React.Component {
                         <div className="products-content" style={{width: slides === 1 ? '100%' : slides * 300}}>
                             <Slider {...settings}>
                                 {
-                                    products.map((product, i) => <Product className={`slideInDown delay${3+i}`} key={`product-${i}`} product={product} index={i} t={t}/>)
+                                    products.map((product, i) => (
+                                        <Product className={`slideInDown delay${3+i}`} key={`product-${i}`}
+                                                 product={{
+                                                    name: product.name,
+                                                    picture: api_location + "/products/pictures/" + product[selected].picture,
+                                                    price: product[selected].price,
+                                                    features: product.features
+                                                }}
+                                                 index={i} t={t}/>))
                                 }
                             </Slider>
                         </div>

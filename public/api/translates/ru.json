@@ -46,7 +46,16 @@
     "button_2_module": "2-модульные",
     "button_3_module": "3-модульные",
     "button_order": "Заказать",
-    "options": ["Натуральный цвет", "Цветной яркий"]
+    "options": [
+      {
+        "id": "natural",
+        "value": "Натуральный цвет"
+      },
+      {
+        "id": "color",
+        "value": "Цветной яркий"
+      }],
+    "default_option": "natural"
   },
   "section_4": {
     "header": "РАЗВИВАЮТ ЛИЧНОСТЬ \nПОБЕДИТЕЛЯ",

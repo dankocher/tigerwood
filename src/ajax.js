@@ -20,3 +20,4 @@ const ajax = async url => {
 }
 
 export default ajax;
+export {api_location, isProduction, isDeploy};

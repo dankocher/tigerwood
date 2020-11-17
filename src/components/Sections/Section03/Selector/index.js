@@ -32,11 +32,12 @@ class Selector extends React.Component {
     render() {
         const {className, selected, options} = this.props;
         const {show} = this.state;
+        const selectedOption = options.find(o => o.id === selected);
         return (
             <OutsideClick onClickOutside={this.handleClickOutside}>
                 <div className={`-selector-container${show ? " open" : ""}`}>
                     <div className={`-selector ${className}${show ? " open" : ""}`} onClick={this.show}>
-                        <div className="-name">{options.length === 0 ? "" : options[selected].value}</div>
+                        <div className="-name">{options.length === 0 ? "" : selectedOption.value}</div>
                         <Icon open={show}/>
 
                     </div>

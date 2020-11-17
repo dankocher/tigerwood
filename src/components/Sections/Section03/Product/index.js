@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
-import image from "../images/product-01.png"
+// import image from "../images/product-01.png"
 import formatText from "../../../../utils/formatText";
 
 export default class Product extends React.Component {
@@ -22,10 +22,10 @@ export default class Product extends React.Component {
             <div className={`-s03-product --${side} ${className}`}>
                 <div className="-product-top">
                     <div className="-product-picture">
-                        <img src={image} alt={product.name}/>
+                        <img src={product.picture} alt={product.name}/>
                     </div>
                     <div className="-product-name">
-                        <div className="-p-name">{formatText(product.name)}</div>
+                        <div className="-p-name">{product.name}</div>
                         <div className="-p-price">{product.price}</div>
                     </div>
                     <div className="-product-description">
