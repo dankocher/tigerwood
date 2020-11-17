@@ -30,7 +30,7 @@ export default class Mobile extends React.Component {
     gotoPrev = () => {
         let {slideIndex} = this.state;
         slideIndex = slideIndex - this.slides
-        if (slideIndex <= 1 ) {
+        if (slideIndex < 1 ) {
             slideIndex = 0
         }
         this.slider.slickGoTo(slideIndex)
