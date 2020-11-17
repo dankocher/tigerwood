@@ -19,10 +19,10 @@ export default class Mobile extends React.Component {
     slides = 1;
 
     gotoNext = () => {
-        let {slideIndex, reviews} = this.state;
+        let {slideIndex} = this.state;
         slideIndex = slideIndex + this.slides
-        if (slideIndex >= reviews.length-1) {
-            slideIndex = reviews.length-1;
+        if (slideIndex >= screens.length-1) {
+            slideIndex = screens.length-1;
         }
         this.slider.slickGoTo(slideIndex)
     }

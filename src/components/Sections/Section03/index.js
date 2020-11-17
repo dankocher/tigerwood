@@ -99,8 +99,6 @@ export default class Section extends React.Component {
         let maxSlides = products.length - slides;
         maxSlides = maxSlides < 1 ? 1 : maxSlides;
 
-        console.log(slideIndex, maxSlides)
-
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
