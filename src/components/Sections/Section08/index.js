@@ -5,20 +5,55 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import reviews from "./data/reviews.json";
-import image from "./images/review-1.jpg";
+import ajax, {api_location} from "../../../ajax";
+import NextPrevButtons from "../../NextPrevButtons";
 
 const SECTION_NUMBER = "08"
 
 export default class Section extends React.Component {
 
+    state = {
+        reviews: [],
+        slideIndex: 0,
+        animateProducts: "slideInDown"
+    }
+    slides = 1
+    componentDidMount() {
+        this.getReviews()
+    }
+
+    getReviews = async () => {
+        let reviews = await ajax("/reviews.json");
+        this.setState({reviews})
+    }
+
+    gotoNext = () => {
+        let {slideIndex, reviews} = this.state;
+        slideIndex = slideIndex + this.slides
+        if (slideIndex >= reviews.length-1) {
+            slideIndex = reviews.length-1;
+        }
+        this.slider.slickGoTo(slideIndex)
+    }
+
+    gotoPrev = () => {
+        let {slideIndex} = this.state;
+        slideIndex = slideIndex - this.slides
+        if (slideIndex <= 1 ) {
+            slideIndex = 0
+        }
+        this.slider.slickGoTo(slideIndex)
+    }
+
     render() {
         const {width, t} = this.props;
+        const {reviews, animateProducts, slideIndex} = this.state;
         const minWidth = width < 360 ? 280 : 310;
         const min_size = minWidth * 4;
         const min_slide_size = min_size / 4;
         let section_width = width > (min_size) ? min_size : width - 40;
         let slides = parseInt(section_width / min_slide_size);
+        this.slides = slides;
         const isMobile = width <= 500;
         const settings = {
             dots: false,
@@ -26,9 +61,11 @@ export default class Section extends React.Component {
             speed: 500,
             slidesToShow: slides,
             slidesToScroll: slides,
-            nextArrow: <NextArrow />,
-            prevArrow: <PrevArrow />
+            arrows: false,
+            beforeChange: (current, next) => this.setState({ slideIndex: next })
         };
+        let maxSlides = reviews.length - slides;
+        maxSlides = maxSlides < 1 ? 1 : maxSlides;
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
@@ -38,15 +75,25 @@ export default class Section extends React.Component {
                     </div>
                     <div className="-s08-overviews">
                         <div className="-s08-overviews-content" style={{width: slides <= 1 ? '100%' : slides * minWidth}}>
-                            <Slider {...settings}>
+                            <Slider {...settings} ref={slider => (this.slider = slider)}>
                                 {reviews.map((r, i) => (
                                     <div key={i} className={`-picture slideInDown delay${3+i}`}>
                                         <div className="-picture-content">
-                                            <img src={image} alt=""/>
+                                            <img src={api_location + "/reviews/" + r.picture} alt=""/>
                                         </div>
                                     </div>
                                 ))}
                             </Slider>
+                            <NextPrevButtons arrowColor={"#921FED"}
+                                             backgroundColor={"#EBE6FF"}
+                                             className={""}
+                                             nextClassName={`${animateProducts} delay2`}
+                                             prevClassName={`${animateProducts} delay3`}
+                                             prevEnabled={slideIndex > 0}
+                                             nextEnabled={Math.abs(slideIndex) < maxSlides}
+                                             onNext={this.gotoNext}
+                                             onPrev={this.gotoPrev}
+                                             />
                         </div>
                     </div>
                 </div>

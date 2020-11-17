@@ -18,7 +18,7 @@ export default class Section extends React.Component {
                         <Icon2 {...this.props}/>
                         <Icon3 {...this.props}/>
                     </div>
-                    {S5Button}
+                    <S5Button t={t}/>
                 </div>
             </div>
         );

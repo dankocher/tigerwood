@@ -1,0 +1,78 @@
+
+$arrowSize: 54px;
+$animationTime: 100ms;
+$activeBgSize: .8;
+.arrows-container {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  .-btn-arrow {
+    .arrow-content {
+      position: relative;
+      margin: 0 20px;
+      color: black;
+      width: $arrowSize;
+      height: $arrowSize;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .--bg {
+        transition: all $animationTime ease-in-out;
+        transform: scale(0);
+      }
+      .--arrow {
+        position: absolute;
+      }
+    }
+
+
+    &:active {
+      .--bg {
+        transform: scale(1);
+      }
+    }
+
+    @media(hover: hover) and (pointer: fine) {
+      cursor: pointer;
+
+      &:hover {
+        .--bg {
+          transform: scale(1);
+        }
+      }
+      &:active {
+        .--bg {
+          transform: scale($activeBgSize);
+        }
+      }
+    }
+
+
+    &.--disabled {
+      cursor: default;
+      pointer-events: none;
+      filter: grayscale(1);
+      background-size: 0 0;
+      opacity: .3 !important;
+      .--bg {
+        transform: scale(0);
+      }
+    }
+
+    &.--prev {
+      .--arrow {
+        margin-left: -8px !important;
+      }
+    }
+
+    &.--next {
+      .--arrow {
+        margin-right: -4px !important;
+      }
+    }
+  }
+
+}

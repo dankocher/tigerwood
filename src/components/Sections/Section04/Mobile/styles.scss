@@ -7,7 +7,7 @@
         width: 100%;
         margin: {
           top: 15px;
-          bottom: 84px;
+          bottom: 40px;
         };
         .slick-slide {
           padding: 0 0 15px;
@@ -31,66 +31,6 @@
             white-space: pre;
             text-align: center;
             margin-top: 15px;
-          }
-        }
-        .slick-slider {
-          $arrowSize: 54px;
-          .slick-arrow {
-            position: absolute;
-            margin-top: 106px;
-            width: $arrowSize;
-            height: $arrowSize;
-            box-sizing: border-box;
-            padding-top: 18px;
-            // cursor: pointer;
-
-
-
-            background: url("./icons/icon-bg.svg") no-repeat center;
-            background-size: 0 0;
-            $animationTime: 100ms;
-            transition: all $animationTime ease-in-out;
-            $activeBgSize: 80%;
-
-
-            &:active {
-              background-size: 100% 100%;
-            }
-
-            @media(hover: hover) and (pointer: fine) {
-              @keyframes _bgActive {
-                from { background-size: 100% 100% }
-                to { background-size: $activeBgSize $activeBgSize; }
-              }
-
-              &:hover, &:focus {
-                background-size: 100% 100%;
-              }
-              &:active,  {
-                //animation: _bgActive $animationTime 1;
-                background-size: $activeBgSize $activeBgSize;
-              }
-            }
-
-
-            &.slick-disabled {
-              cursor: default;
-              pointer-events: none;
-              filter: grayscale(1);
-              opacity: .3 !important;
-            }
-            &:before {
-              content: "";
-            }
-
-            &.slick-prev {
-              margin-left: calc(50% - (#{$arrowSize} - 4px));
-              padding-left: 18px;
-            }
-            &.slick-next {
-              margin-right: calc(50% - (#{$arrowSize} - 4px));
-              padding-left: 22px;
-            }
           }
         }
       }
