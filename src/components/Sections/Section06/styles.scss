@@ -62,19 +62,25 @@ $min-height: 656px;
           display: flex;
           background: #C4C4C4 no-repeat;
           width: 701px;
-          height: 523px;
+          //height: 523px;
+          height: auto;
           border-radius: 15px;
           overflow: hidden;
           justify-content: center;
           align-items: center;
           // cursor: pointer;
           .--video {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            img {
+            @media(hover: hover) and (pointer: fine) {
+              cursor: pointer;
+            }
+            video {
               width: 100%;
               height: auto;
+              //height: 523px;
             }
 
             .-play-button {
@@ -87,6 +93,16 @@ $min-height: 656px;
               display: inline-flex;
               justify-content: center;
               align-items: center;
+              opacity: 1;
+              transition: all 500ms ease-out;
+              &.-play {
+                opacity: 0;
+                width: 200px;
+                height: 200px;
+                border-radius: 100px;
+                transition: all 500ms ease-in;
+              }
+
 
               &:before {
                 content: url("./icons/play.svg");
@@ -122,6 +138,7 @@ $min-height: 656px;
             width: auto;
           }
         }
+
       }
     }
   }
@@ -145,7 +162,7 @@ $min-height: 656px;
 
         .-s5-video {
           width: calc(100% - 440px);
-          height: unset;
+          height: auto;
           max-width: calc(100% - 420px);
 
           .-video-content {
@@ -178,7 +195,7 @@ $min-height: 656px;
 
         .-s5-video {
           width: calc(100% - 290px);
-          height: unset;
+          height: auto;
           max-width: 701px;
 
           .-video-content {

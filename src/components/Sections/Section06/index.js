@@ -2,13 +2,31 @@ import React from "react";
 import "./styles.scss";
 
 import image from "./images/s5-video.jpg";
+import {api_location} from "../../../ajax";
 
 const SECTION_NUMBER = "06"
 
 export default class Section extends React.Component {
 
+    state = {
+        playing: false
+    }
+
+    play = evt => {
+        const playing = this.state.playing;
+        if (playing) {
+            this.video.pause();
+        } else {
+            this.video.play();
+        }
+        this.setState({playing: !playing})
+    }
+
     render() {
         const {t} = this.props;
+        const {playing} = this.state;
+        const video_url = api_location + "/video/video.mp4";
+        const preview_url = api_location + "/video/preview.jpg";
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
@@ -19,9 +37,15 @@ export default class Section extends React.Component {
                     </div>
                     <div className="-s5-video">
                         <div className="-video-content slideInRight">
-                            <div className="--video ">
-                                <img src={image} alt={""}/>
-                                <div className="-play-button"/>
+                            <div className="--video" onClick={this.play}>
+                                <video  preload="auto" poster={preview_url} ref={video => this.video = video}>
+                                    <source src={video_url} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
+                                    <source src={video_url} type='video/ogg; codecs="theora, vorbis"'/>
+                                    <source src={video_url} type='video/webm; codecs="vp8, vorbis"'/>
+                                    Тег video не поддерживается вашим браузером.
+                                    <a href={video_url}>Скачайте видео</a>.
+                                </video>
+                                <div className={`-play-button ${playing ? "-play" : "-stop"}`}/>
                             </div>
                         </div>
                     </div>
