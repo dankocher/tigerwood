@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/tigerwood/static/css/main.a1dc732a.chunk.css",
-    "main.js": "/tigerwood/static/js/main.d2aa2c87.chunk.js",
-    "main.js.map": "/tigerwood/static/js/main.d2aa2c87.chunk.js.map",
+    "main.css": "/tigerwood/static/css/main.68e776a8.chunk.css",
+    "main.js": "/tigerwood/static/js/main.04a690c1.chunk.js",
+    "main.js.map": "/tigerwood/static/js/main.04a690c1.chunk.js.map",
     "runtime-main.js": "/tigerwood/static/js/runtime-main.338527c1.js",
     "runtime-main.js.map": "/tigerwood/static/js/runtime-main.338527c1.js.map",
     "static/css/2.1925a4ac.chunk.css": "/tigerwood/static/css/2.1925a4ac.chunk.css",
-    "static/js/2.250ece03.chunk.js": "/tigerwood/static/js/2.250ece03.chunk.js",
-    "static/js/2.250ece03.chunk.js.map": "/tigerwood/static/js/2.250ece03.chunk.js.map",
+    "static/js/2.6c777257.chunk.js": "/tigerwood/static/js/2.6c777257.chunk.js",
+    "static/js/2.6c777257.chunk.js.map": "/tigerwood/static/js/2.6c777257.chunk.js.map",
     "index.html": "/tigerwood/index.html",
-    "precache-manifest.7e6b30033e591285281e2460bfae6eaf.js": "/tigerwood/precache-manifest.7e6b30033e591285281e2460bfae6eaf.js",
+    "precache-manifest.a7f33127100759a4384ecb055115d958.js": "/tigerwood/precache-manifest.a7f33127100759a4384ecb055115d958.js",
     "service-worker.js": "/tigerwood/service-worker.js",
     "static/css/2.1925a4ac.chunk.css.map": "/tigerwood/static/css/2.1925a4ac.chunk.css.map",
-    "static/css/main.a1dc732a.chunk.css.map": "/tigerwood/static/css/main.a1dc732a.chunk.css.map",
-    "static/js/2.250ece03.chunk.js.LICENSE.txt": "/tigerwood/static/js/2.250ece03.chunk.js.LICENSE.txt",
+    "static/css/main.68e776a8.chunk.css.map": "/tigerwood/static/css/main.68e776a8.chunk.css.map",
+    "static/js/2.6c777257.chunk.js.LICENSE.txt": "/tigerwood/static/js/2.6c777257.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/tigerwood/static/media/icon-bg.dc5ce830.svg",
     "static/media/styles.scss": "/tigerwood/static/media/section1-bg.ce546803.png",
     "static/media/product-1.png": "/tigerwood/static/media/product-1.f992f3dd.png",
@@ -25,8 +25,8 @@
   "entrypoints": [
     "static/js/runtime-main.338527c1.js",
     "static/css/2.1925a4ac.chunk.css",
-    "static/js/2.250ece03.chunk.js",
-    "static/css/main.a1dc732a.chunk.css",
-    "static/js/main.d2aa2c87.chunk.js"
+    "static/js/2.6c777257.chunk.js",
+    "static/css/main.68e776a8.chunk.css",
+    "static/js/main.04a690c1.chunk.js"
   ]
 }
