@@ -45,7 +45,7 @@ $min-height: 840px;
             margin-top: 25px;
             .slick-list {
               .slick-slide {
-                padding: 0 0 15px;
+                padding: 0 0 0;
                 .-picture {
                   .-picture-content {
                     display: inline-flex;
@@ -65,6 +65,7 @@ $min-height: 840px;
               }
             }
           }
+
         }
       }
     }
