@@ -16,9 +16,15 @@
   // cursor: pointer;
   position: relative;
 
+  &:active {
+    background: linear-gradient(2.34deg, #FF7A00 6.07%, #E86F00 98.04%);
+  }
+
+
   @media (hover: hover) and (pointer: fine) {
     cursor: pointer;
   }
+
   .b-top-text {
     font-family: $font-Nunito-Bold;
     font-size: 18px;
@@ -40,9 +46,16 @@
   &:hover {
     .arrow {
       margin-left: 5px;
-      @include shakeArrow;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-name: animateArrow;
+      animation-name: animateArrow;
+      $duration:  0.3s;
+      -webkit-animation-duration: $duration;
+      animation-duration: $duration;
     }
   }
+
 }
 
 
@@ -68,5 +81,38 @@
       line-height: 19px;
       margin-top: 0;
     }
+  }
+}
+
+@-webkit-keyframes animateArrow {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+
+  0%, 100% {
+    -webkit-transform: translate3d(0px, 0, 0);
+    transform: translate3d(0px, 0, 0);
+  }
+}
+@keyframes animateArrow {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+
+  0%, 100% {
+    -webkit-transform: translate3d(0px, 0, 0);
+    transform: translate3d(0px, 0, 0);
   }
 }
