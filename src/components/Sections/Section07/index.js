@@ -2,6 +2,7 @@ import React from "react";
 import InputMask from "react-input-mask";
 import "./styles.scss";
 import ButtonArrow from "../../ButtonArrow";
+import {api_location} from "../../../ajax";
 
 const SECTION_NUMBER = "07"
 
@@ -9,26 +10,45 @@ export default class Section extends React.Component {
 
     state = {
         phone: "",
-        name: ""
+        name: "",
+        phone_warn: false,
+        name_warn: false,
     }
 
     send = () => {
-        console.log(this.state);
+        const {phone, name} = this.state;
+        let warn = false;
+        if (phone === "") {
+            this.setState({phone_warn: true});
+            warn = true
+        }
+        if (name === "") {
+            this.setState({name_warn: true});
+            warn = true
+        }
+        if (warn === true) {
+            return;
+        }
         this.setState({
             phone: "",
-            name: ""
-        })
+            name: "",
+            phone_warn: false,
+            name_warn: false,
+        });
+        window.open(api_location + "/" + this.props.t.filename)
     }
 
     onChange = e => {
         console.log(e)
+        let warn_param = e.target.name + "_warn"
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            [warn_param]: false
         })
     }
 
     render() {
-        const {phone, name} = this.state;
+        const {phone, name, phone_warn, name_warn} = this.state;
         const {t} = this.props;
 
         return (
@@ -41,8 +61,8 @@ export default class Section extends React.Component {
                     </div>
                     <div className="-form">
                         {/*<input type="text" className="-text-input --phone" name={"phone"}/>*/}
-                        <InputMask className="-text-input --phone slideInDown delay4" name={"phone"} onChange={this.onChange} value={phone} type={"tel"} placeholder={t.placeholder_phone} mask="+375 (99) 999 99 99" maskChar=" "/>
-                        <input className="-text-input --name slideInDown delay5" name={"name"} onChange={this.onChange} value={name} type={"text"} placeholder={t.placeholder_name} autoComplete={"off"} autoCorrect={"off"}/>
+                        <InputMask className={`-text-input --phone slideInDown delay4${phone_warn ? " -warn" : ""}`} name={"phone"} onChange={this.onChange} value={phone} type={"tel"} placeholder={t.placeholder_phone} mask="+375 (99) 999 99 99" maskChar=" "/>
+                        <input className={`-text-input --name slideInDown delay5${name_warn ? " -warn" : ""}`} name={"name"} onChange={this.onChange} value={name} type={"text"} placeholder={t.placeholder_name} autoComplete={"off"} autoCorrect={"off"}/>
                         {/*<Button className={"slideInDown delay6"} onClick={this.send}/>*/}
 
                         <ButtonArrow

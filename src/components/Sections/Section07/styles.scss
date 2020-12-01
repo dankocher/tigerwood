@@ -68,6 +68,11 @@ $height: 550px;
           &:focus {
             border: 2px solid #FF7A00;
           }
+          &.-warn {
+            border-color: #ff7961;
+            border-width: 2px;
+            background-color: rgba(255, 0, 0, 0.1);
+          }
         }
 
         .-s07-button {
