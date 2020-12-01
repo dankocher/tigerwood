@@ -1,10 +1,16 @@
 import React from "react";
 import "./styles.scss";
 import picture from "./images/s2-bg.png"
+import {api_location} from "../../../ajax";
 
 const SECTION_NUMBER = "02"
 
 export default class Section extends React.Component {
+
+    onClick = () => {
+        let url = this.props.t.button_url || "/";
+        window.open(url, "_blank")
+    }
 
     render() {
         return (
@@ -12,7 +18,7 @@ export default class Section extends React.Component {
                 <div className={`---content`}>
                     <S2Picture {...this.props}/>
                     <S2Header {...this.props}/>
-                    <S2Button {...this.props}/>
+                    <S2Button {...this.props} onClick={this.onClick}/>
                 </div>
             </div>
         );
@@ -29,7 +35,7 @@ const S2Header = props => ( <div className="-s02-header">
     <div className="-s02-h-text3 slideInDown delay3">{props.width <= 800 ? props.t.m_text_header_3 : props.t.text_header_3}</div>
 </div>)
 
-const S2Button = props => <div className="-s02-button slideInDown delay4">
+const S2Button = props => <div className="-s02-button slideInDown delay4" onClick={props.onClick}>
     <div className="-b-text1">{props.t.button_text_1}</div>
     <div className="-b-text2">{props.t.button_text_2}</div>
 
