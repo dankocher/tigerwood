@@ -1,0 +1,33 @@
++ title
++ favicon
++ hide menu on mobile at first time
++ call on phone number click
++ buttons hover cursor: pointer; for desktop
++ section 10 arrows
++ api folder on public
++ fetch translates
++ fetch data from api
++ filter products
++ fetch reviews from api
++ add video
++ стрелка в кнопках сделать медленее и чтобы анимация была только один раз
++ buttons on click animation
+- в 9 слайде Машинку отпускать вниз
+
+- fetch products for section 10
+- modal
+
+
+
+
+
+1. Обсудить модалки
+2. Вертикальная и горизонтальная модалка
+3. Текст под модалки "согласие на обработку своих персональных данных" - Будет всегда
+4. Что за файл получить "Отправить заявку и получить файл" -
+5. Будет ли модалка для обзоров. там где Viber
+6. Мобильная версия модалки
+7. Анимацию по нажатию на кнопке
+8. Кнопка плей в первом разделе
+9. Модуль который выбран по умолчанию в 3ем разделе
+10. Кнопка "Выбрать комплекс и рассчитать сумму рассрочки" что делает?
