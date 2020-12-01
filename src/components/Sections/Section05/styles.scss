@@ -91,6 +91,10 @@ $min-height: 656px;
         box-sizing: border-box;
         user-select: none;
 
+        &:active {
+          background: linear-gradient(2.34deg, #FF7A00 6.07%, #E86F00 98.04%);
+        }
+
         @media (hover: hover) and (pointer: fine) {
           cursor: pointer;
         }
