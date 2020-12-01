@@ -120,11 +120,15 @@ $product-image: $product-height - $product-name - $product-button - 10px;
     line-height: 33px;
     color: white;
     user-select: none;
+    &:active {
+      background: linear-gradient(182.34deg, #13C45D 6.07%, #24D26D 98.04%);
+    }
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         cursor: pointer;
         span {
-          @include shakeX;
+          //@include shakeX;
+          @include swing;
         }
       }
     }
