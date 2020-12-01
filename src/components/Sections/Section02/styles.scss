@@ -67,6 +67,10 @@
         box-sizing: border-box;
         user-select: none;
 
+        &:active {
+          background: linear-gradient(0deg, #921FED 0%, #7A04D8 100%);
+        }
+
         @media (hover: hover) and (pointer: fine) {
           cursor: pointer;
         }
