@@ -12,7 +12,14 @@ class App extends React.Component {
         width: 0,
         height: 0,
         scrollDirection: "",
-        translates: null
+        translates: null,
+        showModal: false,
+        modalData: {
+            product: null,
+            variant: null,
+            color: "#E86F00",
+
+        }
     }
 
     componentDidMount() {
@@ -31,7 +38,6 @@ class App extends React.Component {
         window.removeEventListener('resize', this.updateWindowDimensions);
         window.removeEventListener('scroll', this.handleScroll);
     }
-
 
     updateWindowDimensions = () => {
         let width = window.innerWidth;
@@ -55,6 +61,11 @@ class App extends React.Component {
         }
         this.prev = window.scrollY;
     };
+
+    showModal = () => {
+        this.setState({showModal: true})
+    }
+
 
   render() {
     const {isMobile, width, height, scrollDirection, translates} = this.state;
