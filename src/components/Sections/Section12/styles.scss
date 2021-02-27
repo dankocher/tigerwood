@@ -1,0 +1,113 @@
+@import "../../../styles/theme";
+
+$min-height: 656px;
+
+.section {
+  &.--s12 {
+    position: relative;
+    z-index: 100;
+    height: auto;
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+
+    .--container {
+      width: 100vw;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      //align-content: center;
+      //align-items: center;
+      padding: 20px 0px 40px;
+      flex-direction: column;
+      position: relative;
+      .hr-line {
+        background-color: rgba(51, 51, 51, 0.3);
+        height: 1px;
+        width: 1000vw;
+        left: -100vw;
+        top: 0;
+        position: absolute;
+      }
+      .--content {
+        max-width: $max-body-width;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        .-block {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          &.pictures {
+            flex: unset;
+            flex-direction: row;
+            width: 160px + 160px + 46px;
+            .assist, .visa {
+              margin-bottom: 20px;
+            }
+            .belcart {
+              margin-bottom: 36px;
+            }
+          }
+          .--text {
+            font-family: "Nunito-Regular", sans-serif;
+            font-size: 14px;
+            white-space: pre;
+            line-height: 19px;
+            color: black;
+            padding-bottom: 10px;
+            &.-bold {
+              font-weight: bold;
+            }
+            &.-no-padding {
+              padding-bottom: 0;
+            }
+            &.-link {
+              line-height: 20px;
+              &:hover {
+                color: #07ACF2
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1216px) {
+
+  .section {
+    &.--s12 {
+      margin: 0 20px 60px 0 !important;
+      padding: 0 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+
+  .section {
+    &.--s12 {
+      height: auto;
+      min-height: auto;
+      padding: 0;
+      margin: 0 20px 40px 0 !important;
+      &:before {
+        content: none;
+      }
+      &:after {
+        width: 305px;
+        height: 202px;
+        left: unset;
+        top: -70px;
+        right: -160px;
+      }
+      .---content {
+
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import './styles/App.scss';
 import {Header, Sections} from "./components";
 import Test from "./Test";
 import ajax from "./ajax";
+import Document from "./components/Document";
 // import Grids from "./components/Grids";
 
 class App extends React.Component {
@@ -14,6 +15,7 @@ class App extends React.Component {
         scrollDirection: "",
         translates: null,
         showModal: false,
+        currentPage: "",
         modalData: {
             product: null,
             variant: null,
@@ -27,6 +29,17 @@ class App extends React.Component {
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
         window.addEventListener('scroll', this.handleScroll);
+        const path = window.location.pathname;
+        switch (path) {
+            case "/": return this.setState({currentPage: ""});
+            case "/ordering": return this.setState({currentPage: "ordering"});
+            case "/contract_terms": return this.setState({currentPage: "contract_terms"});
+            case "/delivery": return this.setState({currentPage: "delivery"});
+            case "/payments": return this.setState({currentPage: "payments"});
+
+            default:
+                window.location = "/"
+        }
     }
 
     getTranslates = async () => {
@@ -68,7 +81,7 @@ class App extends React.Component {
 
 
   render() {
-    const {isMobile, width, height, scrollDirection, translates} = this.state;
+    const {isMobile, width, height, scrollDirection, translates, currentPage} = this.state;
     const animate = true;
     const animateOnlyFirstTime = false;
     const animateFromBottom = false;
@@ -78,13 +91,22 @@ class App extends React.Component {
 
 
         <Header isMobile={isMobile} width={width} t={translates.header}/>
-        <Sections isMobile={isMobile} width={width}
-                  animate={animate}
-                  animateOnlyFirstTime={animateOnlyFirstTime}
-                  animateFromBottom={animateFromBottom}
-                  scrollDirection={scrollDirection}
-                  t={translates}
-        />
+        { currentPage === "" ?
+            <Sections isMobile={isMobile} width={width}
+                      animate={animate}
+                      animateOnlyFirstTime={animateOnlyFirstTime}
+                      animateFromBottom={animateFromBottom}
+                      scrollDirection={scrollDirection}
+                      t={translates}
+            />
+            :
+            <Document doc={currentPage}
+                      isMobile={isMobile} width={width}
+                      animateOnlyFirstTime={animateOnlyFirstTime}
+                      animateFromBottom={animateFromBottom}
+                      scrollDirection={scrollDirection}
+                      t={translates}/>
+        }
         {/*<Test/>*/}
 
         {/*<Grids/>*/}

@@ -12,6 +12,7 @@ import Section08 from "./Section08";
 import Section09 from "./Section09";
 import Section10 from "./Section10";
 import Section11 from "./Section11";
+import Section12 from "./Section12";
 
 import handleViewport from "react-in-viewport";
 
@@ -54,6 +55,7 @@ class Section extends React.Component {
             case 9: return <Section09 key={`section-09`} animated={animated} {...this.props} t={this.props.t[`section_${i}`]}/>
             case 10: return <Section10 key={`section-10`} animated={animated} {...this.props} t={this.props.t[`section_${i}`]}/>
             case 11: return <Section11 key={`section-11`} animated={animated} {...this.props} t={this.props.t[`section_${i}`]}/>
+            case 12: return <Section12 key={`section-12`} animated={animated} {...this.props} t={this.props.t[`section_${i}`]}/>
             default: return null;
         }
     }
