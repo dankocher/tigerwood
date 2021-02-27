@@ -47,7 +47,7 @@ export default class Document extends React.Component {
                 }
 
                 {/*<Section11  t={this.props.t.section_11}/>*/}
-                <Section12  t={this.props.t.section_12}/>
+                <Section12 {...this.props} t={this.props.t.section_12}/>
             </div>
         </div>
     }
