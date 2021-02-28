@@ -1,8 +1,9 @@
 import React from "react";
 import "./styles.scss";
-import picture_wide from "./images/product-wide-1.jpg"
-import picture from "./images/product-1.png"
-import products from "./data/products.json";
+// import picture_wide from "./images/product-wide-1.jpg"
+// import picture from "./images/product-1.png"
+// import products from "./data/products.json";
+import ajax, {api_location} from "../../../ajax";
 
 const SECTION_NUMBER = "10"
 
@@ -11,16 +12,23 @@ export default class Section extends React.Component {
     state = {
         current: 0,
         left: 0,
-        galleryWidth: 0
+        galleryWidth: 0,
+        products: []
     }
     gallery = null;
 
     componentDidMount() {
-        this.updatePicturePosition()
+        this.getProducts()
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevState.current !== this.state.current || prevState.galleryWidth !== this.state.galleryWidth || this.props.width !== prevProps.width)
             this.updatePicturePosition()
+    }
+
+    getProducts = async () => {
+        const products = await ajax("/show-rum.json");
+        this.setState({products})
+        this.updatePicturePosition()
     }
 
     updatePicturePosition = () => {
@@ -41,7 +49,7 @@ export default class Section extends React.Component {
     }
 
     nextProduct = () => {
-        const {current} = this.state;
+        const {current, products} = this.state;
         if (current === products.length-1)
             return;
         this.setState({
@@ -50,7 +58,7 @@ export default class Section extends React.Component {
     }
 
     render() {
-        const {current, left, galleryWidth} = this.state;
+        const {current, left, galleryWidth, products} = this.state;
         const {width, t} = this.props;
 
         const product = products[current];
@@ -67,8 +75,8 @@ export default class Section extends React.Component {
                             <div className="-pictures-container" style={{left, width: "auto"}} >
                                 {   galleryWidth === 0 ? null :
                                     products.map((p, i) => (
-                                        <div key={i} className={"picture-container"} style={pictureSize}>
-                                            <img key={i} src={picture} alt={""} style={pictureSize}/>
+                                        <div key={p.picture} className={"picture-container"} style={pictureSize}>
+                                            <img src={api_location + "/show-rum/" + p.picture} alt={p.picture} style={pictureSize}/>
                                         </div>
                                     ))
                                 }
@@ -79,19 +87,21 @@ export default class Section extends React.Component {
                             </div>
                         </div>
                         <div className="-info">
-                            <div className="-info-content">
-                                <div className="-complex">
-                                    <div className="--title">{t.complex}</div>
-                                    <div className="--c-name">{product.name}</div>
+                            { !product ? null :
+                                <div className="-info-content">
+                                    <div className="-complex">
+                                        <div className="--title">{t.complex}</div>
+                                        <div className="--c-name">{product.name}</div>
+                                    </div>
+                                    <div className="-features">
+                                        <span>{t.pluses}: </span>
+                                        {product.features.map(f => (<span>• {f}</span>))}
+                                    </div>
+                                    <div className="-button-want">
+                                        {t.button_want_it}
+                                    </div>
                                 </div>
-                                <div className="-features">
-                                    <span>{t.pluses}: </span>
-                                    { product.features.map(f => (<span>• {f}</span>))}
-                                </div>
-                                <div className="-button-want">
-                                    {t.button_want_it}
-                                </div>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>
