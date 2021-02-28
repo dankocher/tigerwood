@@ -1,23 +1,21 @@
 {
   "files": {
-    "main.css": "/tigerwood/static/css/main.4ca24f25.chunk.css",
-    "main.js": "/tigerwood/static/js/main.fa3a1d09.chunk.js",
-    "main.js.map": "/tigerwood/static/js/main.fa3a1d09.chunk.js.map",
+    "main.css": "/tigerwood/static/css/main.02112490.chunk.css",
+    "main.js": "/tigerwood/static/js/main.bae6674e.chunk.js",
+    "main.js.map": "/tigerwood/static/js/main.bae6674e.chunk.js.map",
     "runtime-main.js": "/tigerwood/static/js/runtime-main.a0a497d6.js",
     "runtime-main.js.map": "/tigerwood/static/js/runtime-main.a0a497d6.js.map",
     "static/css/2.a9679d3c.chunk.css": "/tigerwood/static/css/2.a9679d3c.chunk.css",
-    "static/js/2.677ffcad.chunk.js": "/tigerwood/static/js/2.677ffcad.chunk.js",
-    "static/js/2.677ffcad.chunk.js.map": "/tigerwood/static/js/2.677ffcad.chunk.js.map",
+    "static/js/2.1a78f6f8.chunk.js": "/tigerwood/static/js/2.1a78f6f8.chunk.js",
+    "static/js/2.1a78f6f8.chunk.js.map": "/tigerwood/static/js/2.1a78f6f8.chunk.js.map",
     "index.html": "/tigerwood/index.html",
-    "precache-manifest.0c4493407a7e21efe3e7b2be17a7f1f7.js": "/tigerwood/precache-manifest.0c4493407a7e21efe3e7b2be17a7f1f7.js",
+    "precache-manifest.29ab5eac53214d1865e2bb257b6c6a7b.js": "/tigerwood/precache-manifest.29ab5eac53214d1865e2bb257b6c6a7b.js",
     "service-worker.js": "/tigerwood/service-worker.js",
     "static/css/2.a9679d3c.chunk.css.map": "/tigerwood/static/css/2.a9679d3c.chunk.css.map",
-    "static/css/main.4ca24f25.chunk.css.map": "/tigerwood/static/css/main.4ca24f25.chunk.css.map",
-    "static/js/2.677ffcad.chunk.js.LICENSE.txt": "/tigerwood/static/js/2.677ffcad.chunk.js.LICENSE.txt",
+    "static/css/main.02112490.chunk.css.map": "/tigerwood/static/css/main.02112490.chunk.css.map",
+    "static/js/2.1a78f6f8.chunk.js.LICENSE.txt": "/tigerwood/static/js/2.1a78f6f8.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/tigerwood/static/media/icon-bg.dc5ce830.svg",
     "static/media/styles.scss": "/tigerwood/static/media/section1-bg.ce546803.png",
-    "static/media/product-1.png": "/tigerwood/static/media/product-1.f992f3dd.png",
-    "static/media/product-wide-1.jpg": "/tigerwood/static/media/product-wide-1.4fbcfc46.jpg",
     "static/media/s2-bg.png": "/tigerwood/static/media/s2-bg.bc5ad1de.png",
     "static/media/s5-video.jpg": "/tigerwood/static/media/s5-video.cc879836.jpg",
     "static/media/slick-theme.css": "/tigerwood/static/media/slick.f97e3bbf.svg"
@@ -25,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.a0a497d6.js",
     "static/css/2.a9679d3c.chunk.css",
-    "static/js/2.677ffcad.chunk.js",
-    "static/css/main.4ca24f25.chunk.css",
-    "static/js/main.fa3a1d09.chunk.js"
+    "static/js/2.1a78f6f8.chunk.js",
+    "static/css/main.02112490.chunk.css",
+    "static/js/main.bae6674e.chunk.js"
   ]
 }
