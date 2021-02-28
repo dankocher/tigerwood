@@ -97,7 +97,11 @@ export default class Section extends React.Component {
                                         <span>{t.pluses}: </span>
                                         {product.features.map(f => (<span key={`${f}`}>• {f}</span>))}
                                     </div>
-                                    <div className="-button-want">
+                                    <div className="-button-want" onClick={() => this.props.showModal({
+                                        show: true,
+                                        type: "empty",
+                                        data: t.modal
+                                    })}>
                                         {t.button_want_it}
                                     </div>
                                 </div>
