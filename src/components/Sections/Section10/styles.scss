@@ -79,9 +79,6 @@ $min-height: 656px;
             justify-content: center;
             align-items: center;
             font-family: $font-Nunito-Regular;
-            font-size: 18px;
-            line-height: 25px;
-            color: #000000;
             user-select: none;
             .-g-button {
               height: $height;
@@ -234,16 +231,7 @@ $min-height: 656px;
       min-height: auto;
       padding: 0;
       margin: 0 20px 40px 0 !important;
-      &:before {
-        content: none;
-      }
-      &:after {
-        width: 305px;
-        height: 202px;
-        left: unset;
-        top: -70px;
-        right: -160px;
-      }
+
       .---content {
         .-header-1, .-header-2 {
           font-size: 18px;
@@ -256,89 +244,74 @@ $min-height: 656px;
           line-height: 19px;
         }
         .-gallery {
+          margin: 20px;
           height: auto;
+          width: calc(100% - 40px);
+          //max-width: 701px;
+          flex-direction: column;
           .-pictures {
-            z-index: 117;
-            //height: 200px;
-            height: calc(100vw - 40px);
-            max-height: 400px;
-            margin: 0 20px;
-            width: calc(100% - 40px);
-            position: relative;
-            overflow: hidden;
-            @media only screen and (max-width: 650px) {
-              & {
-                max-height: 320px;
-              }
-            }
-            @media only screen and (max-width: 525px) {
-              & {
-                max-height: 200px;
-              }
-            }
+            //min-height: 280px;
+            width: 100%;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            height: auto;
             .-pictures-container {
-              height: 100%;
-              .picture-container {
-                height: 100%;
-                border-radius: 15px 15px 0 0;
-                width: calc(100vw - 40px);
-                overflow: hidden;
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                background: #f5f5f5;
+              //height: auto;
+              .-picture-container {
+                //height: auto;
                 img {
-                  height: auto;
                   width: 100%;
+                  height: auto;
+                }
+              }
+            }
+            .-gallery-buttons {
+              $width: 58px;
+              $height: 28px;
+              width: $width;
+              height: $height;
+              bottom: 20px;
+              left: calc(50% - #{$width}/2);
+
+              .-g-button {
+                width: $width/2;
+                height: $height;
+                svg {
+                  width: 14.61px;
+                  height: 14.61px;
                 }
               }
             }
           }
           .-info {
-            position: relative;
-            margin: 0;
-            border-radius: 0 0 15px 15px;
             height: auto;
-            margin: {
-              left: 20px;
-              right: 20px;
-              bottom: 20px;
-            };
+            width: 100%;
+
             .-info-content {
-              display: flex;
-              flex-direction: column;
-              align-items: flex-start;
-              width: 100%;
-              position: relative;
+              padding: 20px 20px 30px;
               .-complex {
-                position: relative;
-                margin: 0;
-                padding: 20px 0 10px 20px;
-                box-sizing: content-box;
+                width: 100%;
+
                 .--title, .--c-name {
-                  font-size: 14px;
-                  line-height: 19px;
+                  font-size: 18px;
+                  line-height: 25px;
                 }
               }
+
               .-features {
                 font-size: 14px;
                 line-height: 19px;
-                padding: 0 20px 10px;
               }
+
               .-button-want {
+                $height: 64px;
                 position: relative;
-                height: 50px;
+                bottom: unset;
                 width: 100%;
-                font-size: 18px;
-                line-height: 25px;
-              }
-              .-gallery-buttons {
-                position: relative;
-                height: 64px;
-                font-size: 14px;
-                line-height: 19px;
-                width: 100%;
-                right: unset;
+                max-width: 320px;
+                height: $height;
+                border-radius: $height/2;
+                margin-top: 20px;
               }
             }
           }

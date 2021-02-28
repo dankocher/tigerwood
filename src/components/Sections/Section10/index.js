@@ -10,7 +10,8 @@ export default class Section extends React.Component {
 
     state = {
         current: 0,
-        left: 0
+        left: 0,
+        galleryWidth: 0
     }
     gallery = null;
 
@@ -18,15 +19,15 @@ export default class Section extends React.Component {
         this.updatePicturePosition()
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevState.current !== this.state.current)
+        if (prevState.current !== this.state.current || prevState.galleryWidth !== this.state.galleryWidth || this.props.width !== prevProps.width)
             this.updatePicturePosition()
     }
 
     updatePicturePosition = () => {
-        const width = this.gallery.offsetWidth;
+        const galleryWidth = this.gallery.offsetWidth;
         const {current} = this.state;
         this.setState({
-            left: -current * width
+            left: -current * galleryWidth, galleryWidth
         })
     }
 
@@ -49,31 +50,32 @@ export default class Section extends React.Component {
     }
 
     render() {
-        const {current, left} = this.state;
+        const {current, left, galleryWidth} = this.state;
         const {width, t} = this.props;
 
         const product = products[current];
         const isMobile = width <= 1100;
 
+        let pictureSize = {width: galleryWidth, height: galleryWidth * 526/701}
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>
                     <div className="-header-1 slideInDown delay1">{isMobile ? t.m_header_1 : t.header_1}</div>
                     <div className="-header-2 slideInDown delay2">{isMobile ? t.m_header_2 : t.header_2}</div>
                     <div className="-gallery slideInDown delay3">
-                        <div className="-pictures" ref={gallery => this.gallery = gallery }>
-                            <div className="-pictures-container" style={{left, width: "auto"}}>
-                                {
+                        <div className="-pictures" ref={gallery => this.gallery = gallery} style={{height: pictureSize.height}}>
+                            <div className="-pictures-container" style={{left, width: "auto"}} >
+                                {   galleryWidth === 0 ? null :
                                     products.map((p, i) => (
-                                        <div key={i} className={"picture-container"}>
-                                            <img key={i} src={picture} alt={""}/>
+                                        <div key={i} className={"picture-container"} style={pictureSize}>
+                                            <img key={i} src={picture} alt={""} style={pictureSize}/>
                                         </div>
                                     ))
                                 }
                             </div>
                             <div className="-gallery-buttons">
-                                <LeftButton disabled={current === 0} onClick={this.prevProduct}/>
-                                <RightButton disabled={current === products.length-1} onClick={this.nextProduct}/>
+                                <LeftButton disabled={current === 0} onClick={this.prevProduct} inMobile={isMobile}/>
+                                <RightButton disabled={current === products.length-1} onClick={this.nextProduct} inMobile={isMobile}/>
                             </div>
                         </div>
                         <div className="-info">
