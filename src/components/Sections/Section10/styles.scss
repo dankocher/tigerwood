@@ -66,6 +66,70 @@ $min-height: 656px;
               }
             }
           }
+
+          .-gallery-buttons {
+            $width: 96px;
+            $height: 46px;
+            position: absolute;
+            bottom: 40px;
+            left: calc(50% - #{$width}/2);
+            height: $height;
+            width: $width;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-family: $font-Nunito-Regular;
+            font-size: 18px;
+            line-height: 25px;
+            color: #000000;
+            user-select: none;
+            .-g-button {
+              height: $height;
+              width: $width/2;
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              // cursor: pointer;
+              opacity: 1;
+              background-color: white;
+              &.-left {
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+              }
+              &.-right {
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+              }
+              &:not(.-disabled) {
+                &:active {
+                  background-color: #07ACF2 !important;
+                  svg {
+                    path {
+                      fill: white
+                    }
+                  }
+                }
+
+                &:hover {
+                  background-color: #B5E7FC;
+                  cursor: pointer;
+                }
+              }
+              @media (hover: hover) and (pointer: fine) {
+                //background-color: #B5E7FC;
+              }
+              &.-disabled {
+                svg {
+                  opacity: .5;
+                  filter: grayscale(1);
+                }
+                cursor: default;
+              }
+            }
+            .-g-name {
+              user-select: none;
+            }
+          }
         }
         .-info {
           //position: absolute;
@@ -145,65 +209,6 @@ $min-height: 656px;
               }
             }
 
-            .-gallery-buttons {
-              position: absolute;
-              right: 13px;
-              height: 100%;
-              display: inline-flex;
-              justify-content: center;
-              align-items: center;
-              font-family: $font-Nunito-Regular;
-              font-size: 18px;
-              line-height: 25px;
-              color: #000000;
-              .-g-button {
-                width: 50px;
-                height: 50px;
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                // cursor: pointer;
-                margin: 0 13px;
-                opacity: 1;
-
-                background: url("./icons/icon-bg.svg") no-repeat center;
-                background-size: 0 0;
-                $animationTime: 100ms;
-                transition: all $animationTime ease-in-out;
-                $activeBgSize: 80%;
-
-                &:active {
-                  background-size: 100% 100%;
-                }
-
-                @media(hover: hover) and (pointer: fine) {
-                  @keyframes _bgActive {
-                    from { background-size: 100% 100% }
-                    to { background-size: $activeBgSize $activeBgSize; }
-                  }
-
-                  &:hover, &:focus {
-                    background-size: 100% 100%;
-                  }
-                  &:active,  {
-                    //animation: _bgActive $animationTime 1;
-                    background-size: $activeBgSize $activeBgSize;
-                  }
-                }
-
-                @media (hover: hover) and (pointer: fine) {
-                  cursor: pointer;
-                }
-                &.-disabled {
-                  opacity: .5;
-                  filter: grayscale(1);
-                  cursor: default;
-                }
-              }
-              .-g-name {
-                user-select: none;
-              }
-            }
           }
         }
       }
