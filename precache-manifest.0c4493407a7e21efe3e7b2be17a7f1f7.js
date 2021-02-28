@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2970601764db8a8429270791ae15f4ee",
+    "revision": "4a7a0145f6ffa9c76c35907e4c02f78b",
     "url": "/tigerwood/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tigerwood/static/css/2.a9679d3c.chunk.css"
   },
   {
-    "revision": "0d88246c4f4db6f0a560",
-    "url": "/tigerwood/static/css/main.ab502966.chunk.css"
+    "revision": "5f5804359c13e1f2533a",
+    "url": "/tigerwood/static/css/main.4ca24f25.chunk.css"
   },
   {
     "revision": "f58c965d432a82031696",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tigerwood/static/js/2.677ffcad.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0d88246c4f4db6f0a560",
-    "url": "/tigerwood/static/js/main.fb72bea9.chunk.js"
+    "revision": "5f5804359c13e1f2533a",
+    "url": "/tigerwood/static/js/main.fa3a1d09.chunk.js"
   },
   {
     "revision": "6dc1905d8c897176cd04",
@@ -54,10 +54,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "d56dc0b561173df880e3d91cf840d1d3",
     "url": "/tigerwood/static/media/bg.d56dc0b5.svg"
-  },
-  {
-    "revision": "a5693a2ec25eeb235da069d8b818c193",
-    "url": "/tigerwood/static/media/icon-bg.a5693a2e.svg"
   },
   {
     "revision": "dc5ce830d236a2c189153f296fb558cf",
