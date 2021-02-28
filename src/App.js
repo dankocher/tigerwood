@@ -4,6 +4,8 @@ import {Header, Sections} from "./components";
 import Test from "./Test";
 import ajax, {isDeploy} from "./ajax";
 import Document from "./components/Document";
+import Modal from "./components/Modal";
+import disableScroll from 'disable-scroll';
 // import Grids from "./components/Grids";
 
 class App extends React.Component {
@@ -14,13 +16,11 @@ class App extends React.Component {
         height: 0,
         scrollDirection: "",
         translates: null,
-        showModal: false,
         currentPage: "",
-        modalData: {
-            product: null,
-            variant: null,
-            color: "#E86F00",
-
+        modal: {
+            show: false,
+            type: "product", // picture, video, product, review
+            data: null,
         }
     }
 
@@ -78,13 +78,19 @@ class App extends React.Component {
         this.prev = window.scrollY;
     };
 
-    showModal = () => {
-        this.setState({showModal: true})
+    showModal = (modal) => {
+        this.setState({modal});
+
+        if(modal.show) {
+            disableScroll.on();
+        } else {
+            disableScroll.off();
+        }
     }
 
 
   render() {
-    const {isMobile, width, height, scrollDirection, translates, currentPage} = this.state;
+    const {isMobile, width, height, scrollDirection, translates, currentPage, modal} = this.state;
     const animate = true;
     const animateOnlyFirstTime = false;
     const animateFromBottom = false;
@@ -101,6 +107,7 @@ class App extends React.Component {
                       animateFromBottom={animateFromBottom}
                       scrollDirection={scrollDirection}
                       t={translates}
+                      showModal={this.showModal}
             />
             :
             <Document doc={currentPage}
@@ -109,6 +116,13 @@ class App extends React.Component {
                       animateFromBottom={animateFromBottom}
                       scrollDirection={scrollDirection}
                       t={translates}/>
+        }
+
+        {   !modal.show ? null :
+            <Modal type={modal.type} data={modal.data}
+                   t={translates.modal}
+                   isMobile={isMobile} width={width}
+                   showModal={this.showModal}/>
         }
         {/*<Test/>*/}
 

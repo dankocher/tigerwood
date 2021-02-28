@@ -119,6 +119,7 @@ export default class Section extends React.Component {
                                 {
                                     products.map((product, i) => (
                                         <Product className={`${animateProducts} delay${3+i}`} key={`product-${i}`}
+                                                {...this.props}
                                                  product={{
                                                     name: product.name,
                                                     picture: api_location + "/products/" + product[selected].picture,

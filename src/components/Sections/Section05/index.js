@@ -18,7 +18,9 @@ export default class Section extends React.Component {
                         <Icon2 {...this.props}/>
                         <Icon3 {...this.props}/>
                     </div>
-                    <S5Button t={t}/>
+                    <S5Button t={t} onClick={() => {
+                        this.props.showModal({type: 'empty', show: true, data: {...t.modal}})
+                    }}/>
                 </div>
             </div>
         );
@@ -127,7 +129,7 @@ const Icon3 = props => {
     )
 }
 
-const S5Button = props => <div className="-s05-button slideInDown delay7">
+const S5Button = props => <div className="-s05-button slideInDown delay7" onClick={props.onClick}>
     <div className="-b-text1">{props.t.button_1}</div>
     <div className="-b-text2">{props.t.button_2}</div>
 

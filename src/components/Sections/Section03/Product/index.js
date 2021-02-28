@@ -19,7 +19,9 @@ export default class Product extends React.Component {
         }
 
         return (
-            <div className={`-s03-product --${side} ${className}`}>
+            <div className={`-s03-product --${side} ${className}`} onClick={() => {
+                this.props.showModal({type: 'product', show: true, data: {...t.modal, ...product}})
+            }}>
                 <div className="-product-top">
                     <div className="-product-picture">
                         <img src={product.picture} alt={product.name}/>

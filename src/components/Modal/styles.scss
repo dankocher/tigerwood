@@ -1,0 +1,244 @@
+@import "../../styles/theme";
+
+.modal-container {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .overlay {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 250ms ease-in-out;
+    &.-show {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  .modal {
+    $height: 820px;
+    position: absolute;
+    //min-width: 439px+8px+8px;
+    min-height: $height;
+    background: #FDF9FF;
+    border-radius: 15px;
+    transition: all 250ms ease-in-out;
+    margin-top: -250px;
+    opacity: 0;
+    box-sizing: border-box;
+    border: 5px solid #333333;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(255, 122, 0, 0.35);
+    &.product {
+      box-shadow: 0px 4px 20px rgba(36, 210, 109, 0.35);
+    }
+    &.review {
+      box-shadow: 0px 2px 10px rgba(146, 31, 237, 0.35), inset 0px -3px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    &.-show {
+      opacity: 1;
+      margin-top: 0;
+    }
+
+    .--data {
+      height: $height;
+      .picture-image {
+        height: 100%;
+        width: auto;
+      }
+    }
+
+    .--form {
+      display: flex;
+      width: 439px+8px+8px;
+      justify-content: center;
+      align-content: center;
+      height: $height;
+      align-items: center;
+      flex-direction: column;
+      .close-button {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+
+      .title {
+        font-family: $font-Nunito-ExtraBold;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 30px;
+        line-height: 41px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .-text-input {
+        width: 289px;
+        height: 60px;
+        box-sizing: border-box;
+        border-radius: 30px;
+        padding-left: 20px;
+        border: 1px solid #E6DFD1;
+        background: transparent;
+        font-family: $font-Nunito-Regular;
+        font-size: 18px;
+        line-height: 25px;
+        color: rgba(0, 0, 0, 0.7);
+        outline: none;
+        &.--name {
+          margin-top: 18px;
+        }
+        &:focus {
+          border: 2px solid #FF7A00;
+        }
+        &.-warn {
+          border-color: #ff7961;
+          border-width: 2px;
+          background-color: rgba(255, 0, 0, 0.1);
+        }
+      }
+
+      .--button {
+        margin-top: 20px;
+        width: 223px;
+        border-radius: 35px;
+        height: 70px;
+        display: flex;
+        flex-direction: column;
+        padding: 13px 0 0 32px;
+        box-sizing: border-box;
+        user-select: none;
+        // cursor: pointer;
+        .b-top-text {
+          font-family: $font-Nunito-Bold;
+          font-size: 18px;
+          line-height: 25px;
+          color: #FFFFFF;
+        }
+        .b-bottom-text {
+          font-family: $font-Nunito-Regular;
+          font-size: 14px;
+          line-height: 19px;
+          color: #FFFFFF;
+          margin-top: -2px;
+          .arrow {
+            margin-left: 5px;
+          }
+        }
+      }
+
+      .-description {
+        font-family: $font-Nunito-Regular;
+        font-size: 14px;
+        line-height: 19px;
+        text-align: center;
+        margin-top: 10px;
+        color: rgba(0, 0, 0, 0.7);
+        white-space: pre;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 960px) {
+
+  .modal-container {
+    .modal {
+
+      $height: 501px;
+      min-height: $height;
+      height: $height;
+
+      .--form {
+        width: 320px;
+        height: $height;
+        .close-button {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+
+        .title {
+          font-size: 21px;
+          line-height: 29px;
+        }
+
+        .-text-input {
+          width: 289px;
+          height: 60px;
+          box-sizing: border-box;
+          border-radius: 30px;
+          padding-left: 20px;
+          border: 1px solid #E6DFD1;
+          background: transparent;
+          font-family: $font-Nunito-Regular;
+          font-size: 18px;
+          line-height: 25px;
+          color: rgba(0, 0, 0, 0.7);
+          outline: none;
+          &.--name {
+            margin-top: 18px;
+          }
+          &:focus {
+            border: 2px solid #FF7A00;
+          }
+          &.-warn {
+            border-color: #ff7961;
+            border-width: 2px;
+            background-color: rgba(255, 0, 0, 0.1);
+          }
+        }
+
+        .--button {
+          margin-top: 20px;
+          width: 223px;
+          border-radius: 35px;
+          height: 70px;
+          display: flex;
+          flex-direction: column;
+          padding: 13px 0 0 32px;
+          box-sizing: border-box;
+          user-select: none;
+          // cursor: pointer;
+          .b-top-text {
+            font-family: $font-Nunito-Bold;
+            font-size: 18px;
+            line-height: 25px;
+            color: #FFFFFF;
+          }
+          .b-bottom-text {
+            font-family: $font-Nunito-Regular;
+            font-size: 14px;
+            line-height: 19px;
+            color: #FFFFFF;
+            margin-top: -2px;
+            .arrow {
+              margin-left: 5px;
+            }
+          }
+        }
+
+        .-description {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+
+}

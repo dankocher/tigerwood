@@ -77,7 +77,9 @@ export default class Section extends React.Component {
                         <div className="-s08-overviews-content" style={{width: slides <= 1 ? '100%' : slides * minWidth}}>
                             <Slider {...settings} ref={slider => (this.slider = slider)}>
                                 {reviews.map((r, i) => (
-                                    <div key={i} className={`-picture slideInDown delay${3+i}`}>
+                                    <div key={i} className={`-picture slideInDown delay${3+i}`} onClick={() => {
+                                        this.props.showModal({type: 'review', show: true, data: {...t.modal, ...r}})
+                                    }}>
                                         <div className="-picture-content">
                                             <img src={api_location + "/reviews/" + r.picture} alt=""/>
                                         </div>
