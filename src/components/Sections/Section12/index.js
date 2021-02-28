@@ -1,4 +1,5 @@
 import React from "react";
+import {isDeploy} from "../../../ajax";
 import "./styles.scss";
 
 const SECTION_NUMBER = "12"
@@ -31,10 +32,10 @@ export default class Section extends React.Component {
                             <div className="--text">{t.text_6}</div>
                             <div className="--text -bold -no-padding">{t.text_7}</div>
                             <div className="--text" style={{marginBottom: isMobile ? 20 : 44}}>{t.text_8}</div>
-                            <div className={"--text -no-padding"}><a href="/ordering" target={"_black"} className="-link --text -no-padding">{t.text_9}</a></div>
-                            <div className={"--text -no-padding"}><a href="/contract_terms" target={"_black"} className="-link --text -no-padding">{t.text_10}</a></div>
-                            <div className={"--text -no-padding"}><a href="/delivery" target={"_black"} className="-link --text -no-padding">{t.text_11}</a></div>
-                            <div className={"--text -no-padding"}><a href="/payments" target={"_black"} className="-link --text -no-padding">{t.text_12}</a></div>
+                            <div className={"--text -no-padding"}><a href={`${isDeploy ? "/tigerwood" : ""}/ordering`} target={"_black"} className="-link --text -no-padding">{t.text_9}</a></div>
+                            <div className={"--text -no-padding"}><a href={`${isDeploy ? "/tigerwood" : ""}/contract_terms`} target={"_black"} className="-link --text -no-padding">{t.text_10}</a></div>
+                            <div className={"--text -no-padding"}><a href={`${isDeploy ? "/tigerwood" : ""}/delivery`} target={"_black"} className="-link --text -no-padding">{t.text_11}</a></div>
+                            <div className={"--text -no-padding"}><a href={`${isDeploy ? "/tigerwood" : ""}/payments`} target={"_black"} className="-link --text -no-padding">{t.text_12}</a></div>
                         </div>
                         <div className="-block pictures">
                             <div className="left">

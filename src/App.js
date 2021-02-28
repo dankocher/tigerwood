@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/App.scss';
 import {Header, Sections} from "./components";
 import Test from "./Test";
-import ajax from "./ajax";
+import ajax, {isDeploy} from "./ajax";
 import Document from "./components/Document";
 // import Grids from "./components/Grids";
 
@@ -29,7 +29,10 @@ class App extends React.Component {
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
         window.addEventListener('scroll', this.handleScroll);
-        const path = window.location.pathname;
+        let path = window.location.pathname;
+        if (isDeploy) {
+            path = path.replace("/tigerwood", "");
+        }
         switch (path) {
             case "/": return this.setState({currentPage: ""});
             case "/ordering": return this.setState({currentPage: "ordering"});
@@ -38,7 +41,7 @@ class App extends React.Component {
             case "/payments": return this.setState({currentPage: "payments"});
 
             default:
-                window.location = "/"
+                window.location = isDeploy ? "/tigerwood" : "/"
         }
     }
 

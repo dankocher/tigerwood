@@ -62,11 +62,11 @@ export default class Section extends React.Component {
                     <div className="-header-2 slideInDown delay2">{isMobile ? t.m_header_2 : t.header_2}</div>
                     <div className="-gallery slideInDown delay3">
                         <div className="-pictures" ref={gallery => this.gallery = gallery }>
-                            <div className="-pictures-container" style={{left}}>
+                            <div className="-pictures-container" style={{left, width: "auto"}}>
                                 {
                                     products.map((p, i) => (
                                         <div key={i} className={"picture-container"}>
-                                            <img key={i} src={isMobile ? picture : picture_wide} alt={""}/>
+                                            <img key={i} src={picture} alt={""}/>
                                         </div>
                                     ))
                                 }
@@ -80,16 +80,16 @@ export default class Section extends React.Component {
                                 </div>
                                 <div className="-features">
                                     <span>{t.pluses}: </span>
-                                    <span>{product.features}</span>
+                                    { product.features.map(f => (<span>• {f}</span>))}
                                 </div>
                                 <div className="-button-want">
                                     {t.button_want_it}
                                 </div>
-                                <div className="-gallery-buttons">
-                                    <LeftButton disabled={current === 0} onClick={this.prevProduct}/>
-                                    <div className="-g-name">{t.gallery}</div>
-                                    <RightButton disabled={current === products.length-1} onClick={this.nextProduct}/>
-                                </div>
+                                {/*<div className="-gallery-buttons">*/}
+                                {/*    <LeftButton disabled={current === 0} onClick={this.prevProduct}/>*/}
+                                {/*    <div className="-g-name">{t.gallery}</div>*/}
+                                {/*    <RightButton disabled={current === products.length-1} onClick={this.nextProduct}/>*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                     </div>
