@@ -95,7 +95,7 @@ export default class Section extends React.Component {
                                     </div>
                                     <div className="-features">
                                         <span>{t.pluses}: </span>
-                                        {product.features.map(f => (<span>• {f}</span>))}
+                                        {product.features.map(f => (<span key={`${f}`}>• {f}</span>))}
                                     </div>
                                     <div className="-button-want">
                                         {t.button_want_it}
