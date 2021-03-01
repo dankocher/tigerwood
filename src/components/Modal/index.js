@@ -85,13 +85,13 @@ export default class Modal extends React.Component {
         return <div className={"modal-container"}>
             <div className={`overlay${show ? ' -show' : ""}`} onClick={this.hideModal}/>
                 <div className={`modal ${type}${show ? ' -show' : ""}`}>
+                    <CloseButton onClick={this.hideModal}/>
                     <div className={"--data"}>
                         {
                             this.getData()
                         }
                     </div>
                     <div className={"--form"}>
-                        <CloseButton onClick={this.hideModal}/>
                         <div className="title">{data.title}</div>
                         <InputMask className={`-text-input --phone slideInDown delay4${phone_warn ? " -warn" : ""}`} name={"phone"} onChange={this.onChange} value={phone} type={"tel"} placeholder={t.placeholder_phone} mask="+375 (99) 999 99 99" maskChar=" "/>
                         <input className={`-text-input --name slideInDown delay5${name_warn ? " -warn" : ""}`} name={"name"} onChange={this.onChange} value={name} type={"text"} placeholder={t.placeholder_name} autoComplete={"off"} autoCorrect={"off"}/>

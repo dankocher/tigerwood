@@ -20,7 +20,8 @@
     $height: 820px;
     position: absolute;
     //min-width: 439px+8px+8px;
-    min-height: $height;
+    height: $height;
+    max-height: calc(100% - 40px);
     background: #FDF9FF;
     border-radius: 15px;
     transition: all 250ms ease-in-out;
@@ -44,11 +45,23 @@
       margin-top: 0;
     }
 
+    .close-button {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
     .--data {
-      height: $height;
+      height: 100%;
       .picture-image {
         height: 100%;
         width: auto;
+        margin-left: -1px;
       }
     }
 
@@ -57,19 +70,10 @@
       width: 439px+8px+8px;
       justify-content: center;
       align-content: center;
+      max-height: calc(100% - 20px);
       height: $height;
       align-items: center;
       flex-direction: column;
-      .close-button {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        cursor: pointer;
-
-        &:hover {
-          opacity: 0.9;
-        }
-      }
 
       .title {
         font-family: $font-Nunito-ExtraBold;
@@ -157,6 +161,7 @@
 
       $height: 501px;
       min-height: $height;
+      max-height: calc(100% - 20px);
       height: $height;
 
       .--form {
