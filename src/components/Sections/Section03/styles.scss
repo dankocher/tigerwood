@@ -99,7 +99,7 @@ $s03-min-height: 650px;
   }
 }
 
-@media only screen and (max-width: 704px) {
+@media only screen and (max-width: 615px) {
 
   .section {
     &.--s03 {
@@ -111,6 +111,9 @@ $s03-min-height: 650px;
             justify-content: center;
             .-button {
               //margin-top: 9px;
+              &:first-child {
+                margin-left: 0 !important;
+              }
             }
           }
         }
@@ -127,6 +130,27 @@ $s03-min-height: 650px;
       .---content {
         .-s03-text-header-1, .-s03-text-header-2  {
           white-space: pre;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 420px) {
+
+  .section {
+    &.--s03 {
+      .---content {
+        .-s03-filters {
+          .-f-buttons {
+            .-button {
+              //margin-top: 9px;
+              &:last-child {
+                margin-left: 0 !important;
+              }
+            }
+          }
         }
       }
     }
