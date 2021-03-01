@@ -97,7 +97,6 @@ export default class Modal extends React.Component {
                     </video>
                     <div className={`-play-button ${playing ? "-play" : "-stop"}`}/>
                 </div>;
-
             case "product": return null;
             case "review": return null;
             default: return null;
