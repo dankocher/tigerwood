@@ -12,6 +12,7 @@ export default class Modal extends React.Component {
         name: "",
         phone_warn: false,
         name_warn: false,
+        playing: true
     }
     componentDidMount() {
         this.showModal()
@@ -67,11 +68,36 @@ export default class Modal extends React.Component {
         })
     }
 
+    play = evt => {
+        const playing = this.state.playing;
+        if (playing) {
+            this.video.pause();
+        } else {
+            this.video.play();
+        }
+        this.setState({playing: !playing})
+    }
+
     getData = () => {
         const {type, data, width} = this.props;
+
         switch (type) {
             case "picture": return width < 1100 ? null : <img className={'picture-image'} src={api_location + "/pictures/" + data.picture}/>
-            case "video": return null;
+            case "video":
+                const {playing} = this.state;
+                const video_url = api_location + "/video/" + data.video;
+                const preview_url = api_location + "/video/preview.jpg";
+                return  <div className="--video" onClick={this.play}>
+                    <video  preload="auto" poster={preview_url} ref={video => this.video = video} autoPlay={true} onEnded={() => this.setState({playing: false})}>
+                        <source src={video_url} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
+                        <source src={video_url} type='video/ogg; codecs="theora, vorbis"'/>
+                        <source src={video_url} type='video/webm; codecs="vp8, vorbis"'/>
+                        Тег video не поддерживается вашим браузером.
+                        <a href={video_url}>Скачайте видео</a>.
+                    </video>
+                    <div className={`-play-button ${playing ? "-play" : "-stop"}`}/>
+                </div>;
+
             case "product": return null;
             case "review": return null;
             default: return null;
@@ -93,9 +119,10 @@ export default class Modal extends React.Component {
                     </div>
                     <div className={"--form"}>
                         <div className="title">{data.title}</div>
-                        <InputMask className={`-text-input --phone slideInDown delay4${phone_warn ? " -warn" : ""}`} name={"phone"} onChange={this.onChange} value={phone} type={"tel"} placeholder={t.placeholder_phone} mask="+375 (99) 999 99 99" maskChar=" "/>
-                        <input className={`-text-input --name slideInDown delay5${name_warn ? " -warn" : ""}`} name={"name"} onChange={this.onChange} value={name} type={"text"} placeholder={t.placeholder_name} autoComplete={"off"} autoCorrect={"off"}/>
-                        {/*<Button className={"slideInDown delay6"} onClick={this.send}/>*/}
+                        <div className="text-inputs">
+                            <InputMask className={`-text-input --phone slideInDown delay4${phone_warn ? " -warn" : ""}`} name={"phone"} onChange={this.onChange} value={phone} type={"tel"} placeholder={t.placeholder_phone} mask="+375 (99) 999 99 99" maskChar=" "/>
+                            <input className={`-text-input --name slideInDown delay5${name_warn ? " -warn" : ""}`} name={"name"} onChange={this.onChange} value={name} type={"text"} placeholder={t.placeholder_name} autoComplete={"off"} autoCorrect={"off"}/>
+                        </div>
 
                         <ButtonArrow
                             className={"--button slideInDown delay6"}

@@ -43,6 +43,7 @@
     "modal_video": {
       "title": "Оставьте заявку и мы расскажем больше о нашем продукте",
       "video": "video.mp4",
+      "preview": "preview.jpg",
       "button_text_1": "Отправить заявку"
     }
   },
