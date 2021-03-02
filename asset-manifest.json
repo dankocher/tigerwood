@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.css": "/tigerwood/static/css/main.02112490.chunk.css",
-    "main.js": "/tigerwood/static/js/main.bae6674e.chunk.js",
-    "main.js.map": "/tigerwood/static/js/main.bae6674e.chunk.js.map",
+    "main.css": "/tigerwood/static/css/main.aec82cd7.chunk.css",
+    "main.js": "/tigerwood/static/js/main.f23e20e4.chunk.js",
+    "main.js.map": "/tigerwood/static/js/main.f23e20e4.chunk.js.map",
     "runtime-main.js": "/tigerwood/static/js/runtime-main.a0a497d6.js",
     "runtime-main.js.map": "/tigerwood/static/js/runtime-main.a0a497d6.js.map",
     "static/css/2.a9679d3c.chunk.css": "/tigerwood/static/css/2.a9679d3c.chunk.css",
-    "static/js/2.1a78f6f8.chunk.js": "/tigerwood/static/js/2.1a78f6f8.chunk.js",
-    "static/js/2.1a78f6f8.chunk.js.map": "/tigerwood/static/js/2.1a78f6f8.chunk.js.map",
+    "static/js/2.ebf2c163.chunk.js": "/tigerwood/static/js/2.ebf2c163.chunk.js",
+    "static/js/2.ebf2c163.chunk.js.map": "/tigerwood/static/js/2.ebf2c163.chunk.js.map",
     "index.html": "/tigerwood/index.html",
-    "precache-manifest.29ab5eac53214d1865e2bb257b6c6a7b.js": "/tigerwood/precache-manifest.29ab5eac53214d1865e2bb257b6c6a7b.js",
+    "precache-manifest.72afd92674522531625721698eb650ba.js": "/tigerwood/precache-manifest.72afd92674522531625721698eb650ba.js",
     "service-worker.js": "/tigerwood/service-worker.js",
     "static/css/2.a9679d3c.chunk.css.map": "/tigerwood/static/css/2.a9679d3c.chunk.css.map",
-    "static/css/main.02112490.chunk.css.map": "/tigerwood/static/css/main.02112490.chunk.css.map",
-    "static/js/2.1a78f6f8.chunk.js.LICENSE.txt": "/tigerwood/static/js/2.1a78f6f8.chunk.js.LICENSE.txt",
+    "static/css/main.aec82cd7.chunk.css.map": "/tigerwood/static/css/main.aec82cd7.chunk.css.map",
+    "static/js/2.ebf2c163.chunk.js.LICENSE.txt": "/tigerwood/static/js/2.ebf2c163.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/tigerwood/static/media/icon-bg.dc5ce830.svg",
     "static/media/styles.scss": "/tigerwood/static/media/section1-bg.ce546803.png",
+    "static/media/facilities.svg": "/tigerwood/static/media/facilities.71ab326a.svg",
+    "static/media/included.svg": "/tigerwood/static/media/included.f7af38c8.svg",
     "static/media/s2-bg.png": "/tigerwood/static/media/s2-bg.bc5ad1de.png",
     "static/media/s5-video.jpg": "/tigerwood/static/media/s5-video.cc879836.jpg",
     "static/media/slick-theme.css": "/tigerwood/static/media/slick.f97e3bbf.svg"
@@ -23,8 +25,8 @@
   "entrypoints": [
     "static/js/runtime-main.a0a497d6.js",
     "static/css/2.a9679d3c.chunk.css",
-    "static/js/2.1a78f6f8.chunk.js",
-    "static/css/main.02112490.chunk.css",
-    "static/js/main.bae6674e.chunk.js"
+    "static/js/2.ebf2c163.chunk.js",
+    "static/css/main.aec82cd7.chunk.css",
+    "static/js/main.f23e20e4.chunk.js"
   ]
 }
