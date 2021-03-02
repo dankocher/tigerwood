@@ -121,10 +121,15 @@ export default class Section extends React.Component {
                                         <Product className={`${animateProducts} delay${3+i}`} key={`product-${i}`}
                                                 {...this.props}
                                                  product={{
-                                                    name: product.name,
-                                                    picture: api_location + "/products/" + product[selected].picture,
-                                                    price: product[selected].price,
-                                                    features: product.features
+                                                     name: product.name,
+                                                     facilities: product.facilities,
+                                                     features: product.features,
+                                                     included: product.included,
+                                                     picture: api_location + "/products/" + product[selected].picture,
+                                                     price: product[selected].price,
+                                                     modules: product.modules,
+                                                     pictures: product[selected].pictures || [product[selected].picture],
+                                                     t
                                                 }}
                                                  index={i} t={t}/>))
                                 }

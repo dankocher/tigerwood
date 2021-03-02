@@ -96,6 +96,8 @@ $product-image: $product-height - $product-name - $product-button - 10px;
         padding-left: 20px;
         font-size: 18px;
         line-height: 26px;
+        max-height: 170px;
+        overflow: hidden;
       }
       .-p-d-price {
         font-size: 21px;

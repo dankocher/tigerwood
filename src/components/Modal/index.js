@@ -3,6 +3,7 @@ import "./styles.scss"
 import InputMask from "react-input-mask";
 import ButtonArrow from "../ButtonArrow";
 import {api_location} from "../../ajax";
+import Product from "./Product";
 
 export default class Modal extends React.Component {
 
@@ -97,7 +98,7 @@ export default class Modal extends React.Component {
                     </video>
                     <div className={`-play-button ${playing ? "-play" : "-stop"}`}/>
                 </div>;
-            case "product": return null;
+            case "product": return <Product data={data} width={width}/>;
             case "review": return null;
             default: return null;
         }
