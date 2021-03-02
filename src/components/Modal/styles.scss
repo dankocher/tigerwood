@@ -234,7 +234,7 @@
 
       $height: 501px;
       min-height: $height;
-      max-height: calc(100% - 20px);
+      max-height: calc(100% - 40px);
       height: $height;
 
       .close-button {
@@ -401,6 +401,18 @@
           .--button {
             height: 70px !important;
           }
+        }
+      }
+      &.product {
+        flex-direction: column;
+        height: auto;
+        max-width: 360px;
+        width: calc(100% - 20px);
+        overflow-y: auto;
+        .--form {
+          //margin: 20px 0 40px;
+          min-height: 440px;
+          width: 100%;
         }
       }
     }

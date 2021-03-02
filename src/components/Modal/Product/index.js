@@ -44,8 +44,10 @@ export default class Product extends React.Component {
             <div className="bottom-section">
                 <div className="-header">
                     <div className="-name">{name}</div>
-                    <div className="-modules">{t[`modules_${modules}`]}</div>
-                    <div className="-price">{`${price}*`}</div>
+                    <div className={"char-cont"}>
+                        <div className="-modules">{t[`modules_${modules}`]}</div>
+                        <div className="-price">{`${price}*`}</div>
+                    </div>
                 </div>
                 <div className="-features">
                     {features.map((f, i) => (<>

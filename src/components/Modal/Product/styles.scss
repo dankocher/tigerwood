@@ -86,28 +86,32 @@
         line-height: 41px;
         margin-right: 16px;
       }
-      .-modules {
-        font-family: $font-Nunito-SemiBold;
-        font-size: 18px;
-        line-height: 100%;
-        color: #000000;
-        height: 41px;
-        background: #C9F6DC;
-        border-radius: 5px;
-        padding: 12px 12px 11px;
-        box-sizing: border-box;
-        margin-right: 16px;
-      }
-      .-price {
-        font-family: $font-Nunito-Bold;
-        height: 41px;
-        font-size: 21px;
-        line-height: 29px;
-        color: #FFFFFF;
-        background: #FF7A00;
-        padding: 6px 12px;
-        border-radius: 5px;
-        box-sizing: border-box;
+      .char-cont {
+        display: flex;
+        .-modules {
+          font-family: $font-Nunito-SemiBold;
+          font-size: 18px;
+          line-height: 100%;
+          color: #000000;
+          height: 41px;
+          background: #C9F6DC;
+          border-radius: 5px;
+          padding: 12px 12px 11px;
+          box-sizing: border-box;
+          margin-right: 16px;
+        }
+
+        .-price {
+          font-family: $font-Nunito-Bold;
+          height: 41px;
+          font-size: 21px;
+          line-height: 29px;
+          color: #FFFFFF;
+          background: #FF7A00;
+          padding: 6px 12px;
+          border-radius: 5px;
+          box-sizing: border-box;
+        }
       }
     }
     .-features {
@@ -134,4 +138,94 @@
       margin-top: 20px;
     }
   }
+}
+
+
+@media only screen and (max-width: 960px) {
+
+  .modal-product {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    .-pictures {
+      flex-direction: column;
+      height: auto;
+      .-picture {
+        width: 280px;
+        height: 280px;
+        .-big-picture {
+          width: 280px;
+          height: auto;
+        }
+        .-description-section {
+          padding-left: 0;
+          .-big-picture {
+            display: none;
+          }
+          .-title {
+            font-size: 24px;
+            line-height: 33px;
+          }
+          .-fasc {
+            font-size: 16px;
+            line-height: 130%;
+          }
+        }
+      }
+      .pictures-list {
+        height: 48px;
+        width: 100%;
+        .--picture-option {
+          width: 48px;
+          height: 48px;
+          margin-bottom: 0;
+          margin-right: 10px;
+          &.-selected {
+
+          }
+        }
+      }
+    }
+    .bottom-section {
+      padding-left: 0;
+      .-header {
+        flex-direction: column;
+        .-name {
+          font-size: 24px;
+          line-height: 33px;
+          margin-bottom: 4px;
+        }
+        .char-cont {
+          .-modules {
+            height: 38px;
+            padding: 12px;
+            font-size: 14px;
+            line-height: 100%;
+            margin-right: 12px;
+          }
+
+          .-price {
+            height: 38px;
+            padding: 7px 12px;
+            font-size: 18px;
+            line-height: 25px;
+          }
+        }
+      }
+      .-features {
+        padding-right: 0;
+        i {
+          margin-right: 8px;
+        }
+        .-feature {
+          font-size: 14px;
+          line-height: 100%;
+        }
+      }
+      .byn-bank-course {
+        white-space: unset;
+      }
+    }
+  }
+
 }

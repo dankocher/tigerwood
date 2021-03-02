@@ -27,7 +27,12 @@ html {
 body {
   overflow-x: hidden;
   min-width: 320px;
-  background-color: white;
+  background-color: #F1F1F1;
+  &.non-scroll {
+    position: fixed;
+    overflow-y:scroll;
+    width: 100%;
+  }
 }
 #root, .App {
   overflow: hidden;
