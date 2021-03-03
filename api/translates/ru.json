@@ -1,4 +1,7 @@
 {
+  "preload": [
+    "pictures/modal-picture.jpg"
+  ],
   "header" : {
     "site_name": "Tigerwood",
     "site_description": "Производство и продажа детских спортивных \nкомплексов в Беларуси и по всему миру",
@@ -7,12 +10,16 @@
     "call_me": "Перезвоните мне",
     "whatsapp": "375295886679",
     "telegram": "tigerwood",
-    "or": "или"
+    "or": "или",
+    "modal": {
+      "title": "Оставьте заявку и мы вам перезвоним",
+      "button_text_1": "Отправить заявку",
+      "button_text_2": "и получить консультацию"
+    }
   },
   "modal": {
     "placeholder_phone": "+375 (  )",
     "placeholder_name": "Ваше имя",
-
     "button_text_1": "Отправить заявку",
     "button_text_2": "и получить файл",
     "description": "Отправляя заявку, вы даёте согласие \nна обработку своих персональных данных"
@@ -36,7 +43,7 @@
     "picture_alt": "",
     "modal": {
       "title": "Оставьте заявку и получите консультацию специалиста",
-      "picture": "modal-picture.png",
+      "picture": "modal-picture.jpg",
       "button_text_1": "Отправить заявку",
       "button_text_2": "и получить консультацию"
     },
@@ -56,8 +63,7 @@
     "m_text_header_3": "В конце теста - получите БОНУС \n«Как комплекс помогает в развитии \nвашего ребенка»",
 
     "button_text_1": "Пройти тест",
-    "button_text_2": "и получить БОНУС",
-    "button_url": "https://www.google.com/"
+    "button_text_2": "и получить БОНУС"
   },
   "section_3": {
     "text_header_1": "ДО 119 \nВОЗМОЖНЫХ ВАРИАЦИЙ",
