@@ -54,10 +54,12 @@ class App extends React.Component {
     }
 
     preload = (pictures) => {
-        pictures.forEach((picture) => {
-            const img = new Image();
-            img.src = api_location + "/" + picture;
-        })
+        if(pictures) {
+            pictures.forEach((picture) => {
+                const img = new Image();
+                img.src = api_location + "/" + picture;
+            })
+        }
     }
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
