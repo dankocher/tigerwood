@@ -12,7 +12,6 @@
   "modal": {
     "placeholder_phone": "+375 (  )",
     "placeholder_name": "Ваше имя",
-
     "button_text_1": "Отправить заявку",
     "button_text_2": "и получить файл",
     "description": "Отправляя заявку, вы даёте согласие \nна обработку своих персональных данных"
@@ -36,7 +35,7 @@
     "picture_alt": "",
     "modal": {
       "title": "Оставьте заявку и получите консультацию специалиста",
-      "picture": "modal-picture.png",
+      "picture": "modal-picture.jpg",
       "button_text_1": "Отправить заявку",
       "button_text_2": "и получить консультацию"
     },
