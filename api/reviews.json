@@ -1,6 +1,7 @@
 [
   {
-    "picture": "review-1.jpg"
+    "picture": "001/review-1.jpg",
+    "pictures": ["001/review-1.jpg", "001/review-1.jpg", "001/001-color.jpg", "001/001-color.jpg"]
   },
 
 
