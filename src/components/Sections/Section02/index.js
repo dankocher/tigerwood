@@ -8,8 +8,9 @@ const SECTION_NUMBER = "02"
 export default class Section extends React.Component {
 
     onClick = () => {
-        let url = this.props.t.button_url || "/";
-        window.open(url, "_blank")
+        window.Marquiz.showModal('5f056569e79801004427891a')
+        // let url = this.props.t.button_url || "/";
+        // window.open(url, "_blank")
     }
 
     render() {
