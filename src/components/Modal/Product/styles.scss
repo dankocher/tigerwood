@@ -80,10 +80,13 @@
   }
   .bottom-section {
     width: 100%;
-    flex: 1;
     padding-left: 103px - 20px;
     box-sizing: border-box;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 10px;
     .-header {
       display: inline-flex;
       justify-content: flex-start;
@@ -185,6 +188,8 @@
       .pictures-list {
         height: 48px;
         width: 100%;
+        display: inline-flex;
+        flex-direction: row;
         .--picture-option {
           width: 48px;
           height: 48px;
