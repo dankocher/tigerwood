@@ -110,7 +110,7 @@
       box-shadow: 0px 4px 20px rgba(36, 210, 109, 0.35);
     }
     &.review {
-      box-shadow: 0px 2px 10px rgba(146, 31, 237, 0.35), inset 0px -3px 0px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 2px 10px rgba(146, 31, 237, 0.35);
     }
 
     &.-show {
@@ -254,6 +254,7 @@
         .title {
           font-size: 21px;
           line-height: 29px;
+          padding: 0 20px;
         }
 
         .text-inputs {
@@ -404,6 +405,18 @@
         }
       }
       &.product {
+        flex-direction: column;
+        height: auto;
+        max-width: 360px;
+        width: calc(100% - 20px);
+        overflow-y: auto;
+        .--form {
+          //margin: 20px 0 40px;
+          min-height: 440px;
+          width: 100%;
+        }
+      }
+      &.review {
         flex-direction: column;
         height: auto;
         max-width: 360px;
