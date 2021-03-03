@@ -56,7 +56,7 @@ class App extends React.Component {
     preload = (pictures) => {
         pictures.forEach((picture) => {
             const img = new Image();
-            img.src = api_location + picture;
+            img.src = api_location + "/" + picture;
         })
     }
     componentWillUnmount() {

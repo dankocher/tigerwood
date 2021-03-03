@@ -1,6 +1,6 @@
 {
   "preload": [
-    "/pictures/modal-picture.jpg"
+    "pictures/modal-picture.jpg"
   ],
   "header" : {
     "site_name": "Tigerwood",
