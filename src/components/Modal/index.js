@@ -4,6 +4,7 @@ import InputMask from "react-input-mask";
 import ButtonArrow from "../ButtonArrow";
 import {api_location} from "../../ajax";
 import Product from "./Product";
+import Review from "./Review/Review";
 
 export default class Modal extends React.Component {
 
@@ -99,7 +100,7 @@ export default class Modal extends React.Component {
                     <div className={`-play-button ${playing ? "-play" : "-stop"}`}/>
                 </div>;
             case "product": return <Product data={data} width={width}/>;
-            case "review": return null;
+            case "review": return <Review data={data} width={width}/>;
             default: return null;
         }
     }
