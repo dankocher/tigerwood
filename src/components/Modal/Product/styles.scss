@@ -2,7 +2,8 @@
 
 .modal-product {
   width: 721px;
-  height: 820px;
+  max-height: 820px;
+  height: 100%;
   background-color: white;
   border-right: 1px solid rgba(51, 51, 51, 0.3);
   padding: 20px;
@@ -10,14 +11,18 @@
   display: flex;
   flex-direction: column;
   .-pictures {
-    height: 578px;
+    height: 70%;
     width: 100%;
     display: flex;
+    flex: 1;
     .-picture {
-      width: 578px;
+      width: 577px;
       height: 100%;
+      display: flex;
+      justify-content: center;
+      //flex: 1;
       .-big-picture {
-        width: 100%;
+        width: auto;
         height: 100%;
       }
       .-description-section {
@@ -29,6 +34,7 @@
         padding-left: 103px - 20px;
         flex-direction: column;
         box-sizing: border-box;
+        overflow: hidden;
         .-big-picture {
           width: 289px;
           height: 289px;
@@ -56,7 +62,10 @@
     }
     .pictures-list {
       height: 100%;
-      flex: 1;
+      flex: 1 1;
+      flex-direction: column;
+      display: flex;
+      align-items: flex-end;
       .--picture-option {
         width: 83px;
         height: 83px;
@@ -74,6 +83,7 @@
     flex: 1;
     padding-left: 103px - 20px;
     box-sizing: border-box;
+    margin-top: 10px;
     .-header {
       display: inline-flex;
       justify-content: flex-start;

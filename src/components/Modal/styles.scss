@@ -20,8 +20,8 @@
     $height: 820px;
     position: absolute;
     //min-width: 439px+8px+8px;
-    height: $height;
-    max-height: calc(100% - 40px);
+    max-height: $height;
+    height: calc(100% - 40px);
     background: #FDF9FF;
     border-radius: 15px;
     transition: all 250ms ease-in-out;
