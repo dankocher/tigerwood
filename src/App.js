@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/App.scss';
 import {Header, Sections} from "./components";
 import Test from "./Test";
-import ajax, {isDeploy} from "./ajax";
+import ajax, {api_location, isDeploy} from "./ajax";
 import Document from "./components/Document";
 import Modal from "./components/Modal";
 import disableScroll from 'disable-scroll';
@@ -48,10 +48,17 @@ class App extends React.Component {
     }
 
     getTranslates = async () => {
-        let translates = await ajax("/translates/ru.json")
+        let translates = await ajax("/translates/ru.json");
+        this.preload(translates.preload);
         this.setState({translates});
     }
 
+    preload = (pictures) => {
+        pictures.forEach((picture) => {
+            const img = new Image();
+            img.src = api_location + picture;
+        })
+    }
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
         window.removeEventListener('scroll', this.handleScroll);
@@ -112,7 +119,7 @@ class App extends React.Component {
         {/*<div className="screen-size">{`${width}x${height}`}</div>*/}
 
 
-        <Header isMobile={isMobile} width={width} t={translates.header}/>
+        <Header isMobile={isMobile} width={width} t={translates.header} showModal={this.showModal}/>
         { currentPage === "" ?
             <Sections isMobile={isMobile} width={width}
                       animate={animate}

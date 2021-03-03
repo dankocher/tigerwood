@@ -59,7 +59,11 @@ class MobileMenu extends React.Component {
                                 <PhoneNumber number={t.phone_number}/>
                             </a>
                             <div className="-or">{t.or}</div>
-                            <CallMe call_me={t.call_me}/>
+                            <CallMe call_me={t.call_me} onClick={() => this.props.showModal({
+                                show: true,
+                                type: "default",
+                                data: t.modal
+                            })}/>
                             <div className="-messengers">
                                 <Messengers
                                     whatsapp={t.whatsapp}

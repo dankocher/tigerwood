@@ -9,6 +9,7 @@ class RightSide extends React.Component {
         const {width, t} = this.props;
         if (width <= 480) {
             return <MobileMenu
+                {...this.props}
                 t={t}
                 Address={Address}
                 PhoneNumber={PhoneNumber}
@@ -29,7 +30,11 @@ class RightSide extends React.Component {
                         />
                     </div>
                     <div className="h-p-bottom">
-                        <CallMe call_me={t.call_me}/>
+                        <CallMe call_me={t.call_me} onClick={() => this.props.showModal({
+                            show: true,
+                            type: "default",
+                            data: t.modal
+                        })}/>
                     </div>
                 </div>
             </div>
@@ -51,4 +56,4 @@ const Messengers = props => (<>
         <a href={`https://wa.me/${props.whatsapp}`} _target={"blank"} className="mess whatsapp-icon"><Icon name={"whatsapp"}/></a>
         <a href={`https://t.me/${props.telegram}`} _target={"blank"} className="mess telegram-icon"><Icon name={"telegram"}/></a>
 </>);
-const CallMe = props => <div className="h-call-me">{props.call_me}</div>;
+const CallMe = props => <div className="h-call-me" onClick={props.onClick}>{props.call_me}</div>;

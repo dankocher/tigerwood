@@ -1,4 +1,7 @@
 {
+  "preload": [
+    "/pictures/modal-picture.jpg"
+  ],
   "header" : {
     "site_name": "Tigerwood",
     "site_description": "Производство и продажа детских спортивных \nкомплексов в Беларуси и по всему миру",
@@ -7,7 +10,12 @@
     "call_me": "Перезвоните мне",
     "whatsapp": "375295886679",
     "telegram": "tigerwood",
-    "or": "или"
+    "or": "или",
+    "modal": {
+      "title": "Оставьте заявку и мы вам перезвоним",
+      "button_text_1": "Отправить заявку",
+      "button_text_2": "и получить консультацию"
+    }
   },
   "modal": {
     "placeholder_phone": "+375 (  )",
