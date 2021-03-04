@@ -68,12 +68,15 @@ class Admin extends React.Component {
                 :
                 <div className={"admin-panel"}>
                     <div className="left-menu">
-                        <LeftMenu {...this.props} onChange={section => this.setState({section})} selected={section}/>
-                        <div className={'logout-button'} onClick={this.logout}>Выйти</div>
+                        <div className="left-menu-container">
+                            <LeftMenu {...this.props} onChange={section => this.setState({section})} selected={section}/>
+                        </div>
                     </div>
                     <div className="content">
                             <div className="header-top">
                                 {showButtonSave ? <button onClick={() => this.saveTranslatesToServer()}>Сохранить</button> : null}
+
+                                <div className={'logout-button'} onClick={this.logout}>Выйти</div>
                             </div>
                         <div className="content-container">
                             {
