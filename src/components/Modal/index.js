@@ -22,7 +22,9 @@ class Modal extends React.Component {
     }
     componentDidMount() {
         this.showModal();
-        window.history.pushState({}, "", "#modal");
+        if (window.location.pathname !== "/admin") {
+            window.history.pushState({}, "", "#modal");
+        }
         window.addEventListener('hashchange', () => {
             if (window.location.hash !== URL_HASH) {
                 this.hideModal()
