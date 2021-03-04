@@ -20,6 +20,10 @@ export default class LeftMenu extends React.Component {
         const {sections} = this.state;
         const {selected} = this.props;
         return <div className="left-menu-container">
+            <div className="section-select">Товары</div>
+            <div className="section-select">Обзоры</div>
+            <div className="section-select">Шоу-рум</div>
+            <hr/>
             {
                 sections.map(s => (
                     !s.section_name ? null : <div key={s.alias}

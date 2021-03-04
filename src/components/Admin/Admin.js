@@ -68,7 +68,6 @@ class Admin extends React.Component {
                 :
                 <div className={"admin-panel"}>
                     <div className="left-menu">
-
                         <LeftMenu {...this.props} onChange={section => this.setState({section})} selected={section}/>
                         <div className={'logout-button'} onClick={this.logout}>Выйти</div>
                     </div>
@@ -79,7 +78,9 @@ class Admin extends React.Component {
                         <div className="content-container">
                             {
                                 section === null ? null :
-                                    <AdminSection section={section} {...this.props} t={this.props.translates[section]} showModal={() => {}} saveTranslates={this.saveTranslates}/>
+                                    <AdminSection section={section} {...this.props} t={this.props.translates[section]}
+                                                  showModal={() => {}}
+                                                  saveTranslates={this.saveTranslates}/>
                             }
                         </div>
                     </div>

@@ -16,6 +16,8 @@ import Section12 from "../../Sections/Section12";
 import Header from "../../Header/Header";
 import Modal from "../../Modal";
 import {compareObjects} from "../../../utils/compareObjects";
+import Product from "../../Modal/Product";
+import {api_location} from "../../../ajax";
 
 export default class AdminSection extends React.Component {
 
@@ -50,15 +52,15 @@ export default class AdminSection extends React.Component {
             // case "header": case "modal": case "section_1": case "section_2": case "section_4": case "section_5":
             // case "section_6": case "section_7": case "section_9": case "section_11": case "section_12":
             //     return this.setState({ready: true});
-            case "section_3":
-                //TODO: get products
-                return this.setState({ready: false});
-            case "section_8":
-            //TODO: get reviews
-                return this.setState({ready: false});
-            case "section_10":
-                //TODO: get show_rums
-                return this.setState({ready: false});
+            // case "section_3":
+            //     //TODO: get products
+            //     return this.setState({ready: false});
+            // case "section_8":
+            // TODO: get reviews
+                // return this.setState({ready: false});
+            // case "section_10":
+            //     //TODO: get show_rums
+            //     return this.setState({ready: false});
             default: return this.setState({ready: true});
 
         }
@@ -79,7 +81,41 @@ export default class AdminSection extends React.Component {
                 }} type={"default"} show={true}/>
             case "section_1": return <Section01 animated={false} {...this.props} t={this.state.t}/>
             case "section_2": return <Section02 animated={false} {...this.props} t={this.state.t}/>
-            case "section_3": return <Section03 animated={false} {...this.props} t={this.state.t}/>
+            case "section_3": return <>
+                <Section03 animated={false} {...this.props} t={this.state.t}/>
+                <hr/>
+                <Product width={500} data={{
+                    "name": "Compact plus",
+                    "price": "от 153USD",
+                    "picture": api_location + "/products/001-natural.jpg",
+                    "pictures": ["001-natural.jpg", "001-natural.jpg", "001-natural.jpg"],
+                    "modules": 1,
+                    "features": [
+                        "Лесница",
+                        "Горка",
+                        "Трапеция"
+                    ],
+                    "facilities": [
+                        "Складывается и раскладывается за 1 минуту",
+                        "Сборка без инструмента",
+                        "Можно использовать в помещении и на улице",
+                        "Модули меняются местами",
+                        "Модули можно использовать по отдельности",
+                        "Можно дополнять"
+                    ],
+                    "included": [
+                        "Комплектация выбранными элементами",
+                        "Экологичная упаковка",
+                        "Доставка (Бесплатная от 300 руб.)",
+                        "Сборка – собран на производстве",
+                        "Фирменная раскраска",
+                        "Онлайн поддержка по вопросам развития ребенка",
+                        "Электронная книга по финансовой грамотности для самых маленьких",
+                        "Гарантия 12 месяцев"
+                    ],
+                    t: this.state.t
+                }}/>
+            </>
             case "section_4": return <Section04 animated={false} {...this.props} t={this.state.t}/>
             case "section_5": return <Section05 animated={false} {...this.props} t={this.state.t}/>
             case "section_6": return <Section06 animated={false} {...this.props} t={this.state.t}/>
@@ -121,7 +157,9 @@ export default class AdminSection extends React.Component {
                     <tbody>
                     {
                         Object.keys(t).map(alias => (
-                            alias === "modal" || alias === "modal_video" || alias === "section_name" ? null :
+                            alias === "modal" || alias === "modal_video" || alias === "section_name"
+                            || alias === "options" || alias === "default_option"
+                                ? null :
                                 <tr key={alias} className="translate">
                                     <td>{alias}</td>
                                     <td><textarea value={t[alias]} onChange={(e) => this.changeTranslate(alias, e.target.value)}/></td>

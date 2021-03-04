@@ -1,6 +1,6 @@
 .admin-section {
   .preview {
-    pointer-events: none;
+    //pointer-events: none;
 
     .header {
       position: unset;
@@ -31,10 +31,20 @@
         }
       }
     }
+
+    .-description-section {
+      .-big-picture {
+        width: 298px !important;
+        height: 289px !important;
+      }
+    }
+    .-big-picture {
+      width: 591px !important;
+      height: 591px !important;
+    }
   }
 
   .edit {
-    z-index: 5000;
     margin-top: 40px;
     padding-top: 20px;
     padding-bottom: 20px;

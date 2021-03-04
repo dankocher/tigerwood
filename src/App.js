@@ -99,6 +99,8 @@ class App extends React.Component {
     };
 
     showModal = (modal) => {
+        if (window.location.path === "/admin") return;
+
         this.setState({modal});
 
         if(modal.show) {
@@ -128,7 +130,8 @@ class App extends React.Component {
     if (translates === null) return null;
 
     if (this.isAdmin) {
-        return <Admin translates={translates}/>
+        return <Admin translates={translates}
+                      isMobile={isMobile} width={width}/>
     }
 
     return <div className={`App`}>

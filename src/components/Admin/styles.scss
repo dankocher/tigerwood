@@ -3,7 +3,6 @@
   height: 100%;
   .admin-panel {
     $leftMenuWidth: 250px;
-    z-index: 5000;
     .left-menu {
       width: $leftMenuWidth;
       position: fixed;
@@ -12,11 +11,11 @@
       box-shadow: 4px 0px 8px 0px rgba(34, 60, 80, 0.2);
       left: 0;
       top: 0;
-      z-index: 5000;
+      z-index: 15000;
       .logout-button {
         width: 100%;
         text-align: center;
-        margin-top: 100px;
+        margin-top: 40px;
         cursor: pointer;
         background-color: #EB575750;
         vertical-align: center;
@@ -42,7 +41,7 @@
         position: fixed;
         background-color: slategray;
         box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
-        z-index: 5000;
+        z-index: 15000;
       }
       .content-container {
         margin-top: $headerTopHeight;
