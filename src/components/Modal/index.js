@@ -6,7 +6,11 @@ import {api_location} from "../../ajax";
 import Product from "./Product";
 import Review from "./Review/Review";
 
-export default class Modal extends React.Component {
+// const AmoCRM = require( 'amocrm-js' );
+
+const URL_HASH = "#modal";
+
+class Modal extends React.Component {
 
     state = {
         show: false,
@@ -17,7 +21,13 @@ export default class Modal extends React.Component {
         playing: true
     }
     componentDidMount() {
-        this.showModal()
+        this.showModal();
+        window.history.pushState({}, "", "#modal");
+        window.addEventListener('hashchange', () => {
+            if (window.location.hash !== URL_HASH) {
+                this.hideModal()
+            }
+        })
     }
 
     showModal = () => {
@@ -29,6 +39,9 @@ export default class Modal extends React.Component {
     hideModal = () => {
         this.setState({show: false})
         setTimeout(() => {
+            if (window.location.hash === URL_HASH) {
+                window.history.replaceState(null, null, ' ');
+            }
             this.props.showModal({
                 show: false,
                 data: null,
@@ -37,7 +50,7 @@ export default class Modal extends React.Component {
         }, 300)
     }
 
-    send = () => {
+    send = async () => {
         const {phone, name} = this.state;
         let warn = false;
         if (phone === "") {
@@ -58,6 +71,29 @@ export default class Modal extends React.Component {
             name_warn: false,
         });
         // TODO: SEND
+
+        // const crm = new AmoCRM({
+        //     domain: 'tigerwoodby',
+        //     auth: {
+        //         client_id: '961a92e2-b60e-4c9f-a78b-d6f03f1ea01a', // ID интеграции
+        //         client_secret: 'LcT8pQ8tnenz1KKIrmJBQXRleU3iF84dSiaz6z3Jm5KWfZXmfLqcKe2AM7foHotc', // Секретный ключ
+        //         // redirect_uri: 'redirectUri', // Ссылка для перенаправления
+        //         code: 'def502008a1ba7b22a3e67b5c0b4af87f9d4622e7c0e3b8419b7542d613414f2eca4dc3d30eaa5abfc0d8a5f387e4a95ad3fa20239a3db1f9775acd871e90860141582776ef8800ebbeece784d298021c146e4c3bb2431b2087291fa41d49a9f4915d6b12ad5a20d14b6977ed0a21ec8ed1149fed04c14bce6e289dc1fc803e7ee594b3371eb5f098104d6d849e4eb93b7d1cdb73f57fd88a7941b4575e07eb0648f0bb96e06effa2661d219562ef471399f74fdc12b3591e948c75e4eb8c0cc6962cec8f452124cc75b1fa3e3e39d963ad8fffc09b75fcba2b156fc21ad867e7fce68fe540bb17b6a9a21a93abd67654522501270ae660a6b1142d1748fec0f8dd49984e66c92eeb3826c413045d9c8026b2abdf19ebaaef5e9ae2ea414465e0798a98231ac08329350a2911467a6157fbe3c7c7aeff386373e4a5f949383e6d675883737059cf7a9e223e09db94c31699a8b3db349a2eaeda7d1412eb9acf84fdf8e39fffd88347a00264d1e6a53f99f2a858720b47a7ce615ae57d14355b43d57b30d83a21aa84d0f1024b76e43796dfa41bdba3b729433f8e0485b4c39697736d750aa7f6129f759419b891eee4ec45d81cc431ab03079079ae126385668775454912c5b415422',
+        //
+        //         redirect_uri: 'https://3dea21ea6c8f.ngrok.io/',
+        //         // server: {
+        //         //     port: 3000
+        //         // }
+        //     },
+        // });
+        //
+        // const data = await crm.request.get("/api/v4/leads");
+        // console.log(data);
+        // //
+        // // console.log(crm)
+        // // const response = await crm.request( 'GET', '/api/v4/account' );
+        // // console.log(response)
+
 
         this.hideModal();
     }
@@ -141,6 +177,8 @@ export default class Modal extends React.Component {
             </div>
     }
 }
+
+export default Modal;
 
 const CloseButton = props => {
 
