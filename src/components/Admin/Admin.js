@@ -7,6 +7,7 @@ import LeftMenu from "./LeftMenu";
 import AdminSection from "./AdminSection";
 
 const SESSION_NAME = "tgw_session";
+const SECTION_NAME = "tgw_section";
 
 class Admin extends React.Component {
 
@@ -14,9 +15,10 @@ class Admin extends React.Component {
         super(props);
 
         let session = localStorage.getItem(SESSION_NAME);
+        let section = localStorage.getItem(SECTION_NAME) || "products";
         this.state = {
             session,
-            section: null,
+            section,
             showButtonSave: false
         };
         this.translates = props.translates;
@@ -26,6 +28,11 @@ class Admin extends React.Component {
 
     componentDidMount() {
         this.checkSession(this.state.session)
+    }
+
+    setSection = section => {
+        this.setState({section})
+        localStorage.setItem(SECTION_NAME, section)
     }
 
     checkSession = async (session) => {
@@ -69,7 +76,7 @@ class Admin extends React.Component {
                 <div className={"admin-panel"}>
                     <div className="left-menu">
                         <div className="left-menu-container">
-                            <LeftMenu {...this.props} onChange={section => this.setState({section})} selected={section}/>
+                            <LeftMenu {...this.props} onChange={this.setSection} selected={section}/>
                         </div>
                     </div>
                     <div className="content">
@@ -81,7 +88,7 @@ class Admin extends React.Component {
                         <div className="content-container">
                             {
                                 section === null ? null :
-                                    <AdminSection section={section} {...this.props} t={this.props.translates[section]}
+                                    <AdminSection section={section} {...this.props} t={this.props.translates[section] || {}}
                                                   showModal={() => {}}
                                                   saveTranslates={this.saveTranslates}/>
                             }

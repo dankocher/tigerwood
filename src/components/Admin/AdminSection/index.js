@@ -19,6 +19,7 @@ import {compareObjects} from "../../../utils/compareObjects";
 import Product from "../../Modal/Product";
 import {api_location} from "../../../ajax";
 import AutoResizeTextarea from "../../AutoResizeTextarea";
+import Products from "../Products";
 
 export default class AdminSection extends React.Component {
 
@@ -70,6 +71,8 @@ export default class AdminSection extends React.Component {
     getSection = (section) => {
         const {t} = this.state;
         switch (section) {
+            case "products": return <Products/>
+
             case "header":
                 return <>
                     <Header {...this.props} t={this.state.t}/>
@@ -126,6 +129,7 @@ export default class AdminSection extends React.Component {
             case "section_10": return <Section10 animated={false} {...this.props} t={this.state.t}/>
             case "section_11": return <Section11 animated={false} {...this.props} t={this.state.t}/>
             case "section_12": return <Section12 animated={false} {...this.props} t={this.state.t}/>
+            default: return null;
         }
     }
 

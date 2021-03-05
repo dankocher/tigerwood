@@ -20,9 +20,12 @@ export default class LeftMenu extends React.Component {
         const {sections} = this.state;
         const {selected} = this.props;
         return <div className="left-menu-container">
-            <div className="section-select">Товары</div>
-            <div className="section-select">Обзоры</div>
-            <div className="section-select">Шоу-рум</div>
+            <div className={`section-select${selected === "products" ? " -selected" : ""}`}
+                 onClick={() => this.props.onChange("products")}>Товары</div>
+            <div className={`section-select${selected === "reviews" ? " -selected" : ""}`}
+                 onClick={() => this.props.onChange("reviews")}>Обзоры</div>
+            <div className={`section-select${selected === "show-rums" ? " -selected" : ""}`}
+                 onClick={() => this.props.onChange("show-rums")}>Шоу-рум</div>
             <hr/>
             {
                 sections.map(s => (
