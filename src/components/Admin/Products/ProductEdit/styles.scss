@@ -1,0 +1,64 @@
+.product-edit-item-content {
+  position: fixed;
+  height: calc(100% - 60px);
+  background-color: white;
+  z-index: 9000;
+  left: 200px;
+  top: 60px;
+  width: calc(100% - 200px);
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  padding: 20px;
+  font-family: "Nunito-Regular", sans-serif;
+  hr {
+    border: none;
+    height: 1px;
+    background-color: #CFCFCF;
+    margin: 20px 0;
+  }
+  .edit-content {
+    display: inline-flex;
+    width: 100%;
+    .edit-name {
+      padding: 6px 10px;
+      font-size: 18px;
+      display: flex;
+      flex: 1;
+      border: 1px solid #00000030;
+    }
+    .edit-modules {
+      //width: 120px;
+      background: #C9F6DC;
+      border: 1px solid #C9F6DC;
+      border-radius: 3px;
+      margin: 0 10px;
+      padding: 0 10px;
+      font-size: 16px;
+      option {
+        height: 30px;
+        padding: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+  .edit-text {
+    .product-text-edit {
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      font-family: "Nunito-Regular", sans-serif;
+      margin-bottom: 20px;
+    }
+  }
+  .type-edit-container {
+    display: inline-flex;
+    .sep {
+      width: 1px;
+      height: 100%;
+      display: flex;
+      background-color: #CFCFCF;
+    }
+  }
+}

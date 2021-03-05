@@ -5,6 +5,8 @@ import ajaxAdmin from "./ajaxAdmin";
 import api from "./apiAdmin";
 import LeftMenu from "./LeftMenu";
 import AdminSection from "./AdminSection";
+import arrayMove from "array-move";
+import ajax from "../../ajax";
 
 const SESSION_NAME = "tgw_session";
 const SECTION_NAME = "tgw_section";
@@ -19,7 +21,8 @@ class Admin extends React.Component {
         this.state = {
             session,
             section,
-            showButtonSave: false
+            showButtonSave: false,
+            products: []
         };
         this.translates = props.translates;
     }
@@ -28,8 +31,12 @@ class Admin extends React.Component {
 
     componentDidMount() {
         this.checkSession(this.state.session)
+        this.getProducts()
     }
-
+    getProducts = async () => {
+        let products = await ajax("/products.json");
+        this.setState({products})
+    }
     setSection = section => {
         this.setState({section})
         localStorage.setItem(SECTION_NAME, section)
@@ -59,6 +66,25 @@ class Admin extends React.Component {
         }
         this.setState({showButtonSave: true})
     }
+
+    sortProducts = ({oldIndex, newIndex}) => {
+        this.setState(({products}) => ({
+            products: arrayMove(products, oldIndex, newIndex),
+        }));
+        this.setState({showButtonSave: true})
+    }
+    saveProducts = products => {
+        this.setState({products, showButtonSave: true});
+    }
+    saveReviews = (section, t) => {
+        //TODO
+        this.setState({showButtonSave: true})
+    }
+    saveShowRums = (section, t) => {
+        //TODO
+        this.setState({showButtonSave: true})
+    }
+
     saveTranslatesToServer = async () => {
         let res = await ajaxAdmin(api.saveJson, {file: "translates/ru.json", data: this.translates});
         if (res.ok) {
@@ -67,7 +93,7 @@ class Admin extends React.Component {
     }
 
     render() {
-        const {session, section, showButtonSave} = this.state;
+        const {session, section, showButtonSave, products, reviews, show_rums} = this.state;
 
         return <div className="Admin">
             {   !session ?
@@ -89,8 +115,16 @@ class Admin extends React.Component {
                             {
                                 section === null ? null :
                                     <AdminSection section={section} {...this.props} t={this.props.translates[section] || {}}
+                                                  products={products}
+                                                  reviews={reviews}
+                                                  show_rums={show_rums}
                                                   showModal={() => {}}
-                                                  saveTranslates={this.saveTranslates}/>
+                                                  saveTranslates={this.saveTranslates}
+                                                  sortProducts={this.sortProducts}
+                                                  saveProducts={this.saveProducts}
+                                                  saveReviews={this.saveReviews}
+                                                  saveShowRums={this.saveShowRums}
+                                    />
                             }
                         </div>
                     </div>

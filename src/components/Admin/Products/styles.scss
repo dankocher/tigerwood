@@ -1,3 +1,6 @@
 .admin-products {
-
+  .products-items-container {
+    display: flex;
+    flex-direction: column;
+  }
 }

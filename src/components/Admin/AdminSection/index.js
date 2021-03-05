@@ -50,28 +50,16 @@ export default class AdminSection extends React.Component {
     }
 
     checkReady = () => {
-        switch (this.props.section) {
-            // case "header": case "modal": case "section_1": case "section_2": case "section_4": case "section_5":
-            // case "section_6": case "section_7": case "section_9": case "section_11": case "section_12":
-            //     return this.setState({ready: true});
-            // case "section_3":
-            //     //TODO: get products
-            //     return this.setState({ready: false});
-            // case "section_8":
-            // TODO: get reviews
-                // return this.setState({ready: false});
-            // case "section_10":
-            //     //TODO: get show_rums
-            //     return this.setState({ready: false});
-            default: return this.setState({ready: true});
-
-        }
+        this.setState({ready: true});
     }
 
     getSection = (section) => {
         const {t} = this.state;
         switch (section) {
-            case "products": return <Products/>
+            case "products": return <Products t={this.props.translates.section_3}
+                                    products={this.props.products}
+                                    saveProducts={this.props.saveProducts}
+                                    sortProducts={this.props.sortProducts}/>
 
             case "header":
                 return <>
