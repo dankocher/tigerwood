@@ -63,4 +63,20 @@
       }
     }
   }
+  .add-picture {
+    background-color: #00000005;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    cursor: pointer;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+    &:hover {
+      opacity: 0.8;
+    }
+    img {
+      width: 60px;
+    }
+  }
 }
