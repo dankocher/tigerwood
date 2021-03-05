@@ -19,7 +19,7 @@ class ProductTypeEdit extends React.Component {
         let pictures = data.pictures || [];
 
         pictures = [
-            ...pictures.splice(0, index-1), ...pictures.splice(index, pictures.length-1)
+            ...pictures.splice(0, index), ...pictures.splice(index+1, pictures.length)
         ];
 
         this.props.onChange(this.props.type, {

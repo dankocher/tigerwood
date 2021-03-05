@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.scss";
 import {sortableElement, sortableHandle} from 'react-sortable-hoc';
 import Handle from "../../Handle";
+import trash from "../icons/trash.svg";
 
 class ProductItem extends React.Component {
 
@@ -23,6 +24,9 @@ const SortableItem = sortableElement((props) => (
     <div className="product-item">
         <Handle />
         <ProductItem {...props}/>
+        <div className="delete-button" onClick={props.deleteProduct}>
+            <img src={trash}/>
+        </div>
     </div>
 ));
 

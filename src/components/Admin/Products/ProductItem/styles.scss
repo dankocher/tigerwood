@@ -61,4 +61,14 @@
       }
     }
   }
+  .delete-button {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    img {
+      width: 24px;
+    }
+  }
 }

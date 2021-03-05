@@ -10,11 +10,11 @@ export default class Products extends React.Component {
         selected: null
     }
 
-    componentDidMount() {
-        setTimeout(() =>{
-            this.onSelect(0)
-        }, 500)
-    }
+    // componentDidMount() {
+    //     setTimeout(() =>{
+    //         this.onSelect(0)
+    //     }, 500)
+    // }
 
     onSelect = selected => {
         this.setState({selected})
@@ -23,6 +23,17 @@ export default class Products extends React.Component {
         } else {
             document.body.style.overflowY = "hidden";
         }
+    }
+
+    deleteProduct = index => {
+
+        let {products} = this.props;
+
+        products = [
+            ...products.splice(0, index), ...products.splice(index+1, products.length)
+        ];
+
+        this.props.saveProducts(products)
     }
 
     render() {
@@ -38,7 +49,8 @@ export default class Products extends React.Component {
             <SortableContainer onSortEnd={this.props.sortProducts} useDragHandle>
                 {
                     products.map((product, i) => (
-                        <ProductItem key={`product-${i}`} index={i} product={product} t={this.props.t} onSelect={() => this.onSelect(i)}/>
+                        <ProductItem key={`product-${i}`} index={i} product={product} t={this.props.t}
+                                     onSelect={() => this.onSelect(i)} deleteProduct={() => this.deleteProduct(i)}/>
                     ))
                 }
             </SortableContainer>
