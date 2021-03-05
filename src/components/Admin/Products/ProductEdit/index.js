@@ -6,6 +6,7 @@ import ProductTypeEdit from "../ProductTypeEdit";
 class ProductEdit extends React.Component {
 
     saveParam = (param, value) => {
+        console.log(value)
         const {products, selected} = this.props;
         products[selected][param] = value
         this.props.saveProducts(products);
@@ -30,9 +31,9 @@ class ProductEdit extends React.Component {
                 />
                 <select className={"edit-modules"} defaultValue={product.modules}
                         onChange={(event) => this.saveParam("modules", event.target.value)}>
-                    <option value="1" selected={products.selected == "1"}>{t.modules_1}</option>
-                    <option value="2" selected={products.selected == "2"}>{t.modules_2}</option>
-                    <option value="3" selected={products.selected == "3"}>{t.modules_3}</option>
+                    <option value={1} selected={products.selected == 1}>{t.modules_1}</option>
+                    <option value={2} selected={products.selected == 2}>{t.modules_2}</option>
+                    <option value={3} selected={products.selected == 3}>{t.modules_3}</option>
                 </select>
                 <button onClick={this.props.onClose}>Закрыть</button>
             </div>

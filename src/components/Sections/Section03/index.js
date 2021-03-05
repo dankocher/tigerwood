@@ -49,7 +49,7 @@ export default class Section extends React.Component {
         if (selectedModule === undefined) {
             selectedModule = this.state.selectedModule;
         }
-        let products = this.allProducts.filter(p => p.modules === selectedModule && p[this.state.selected] !== undefined)
+        let products = this.allProducts.filter(p => parseInt(p.modules) === selectedModule && p[this.state.selected] !== undefined)
         this.setState({products})
     }
 

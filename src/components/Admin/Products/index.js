@@ -30,7 +30,7 @@ export default class Products extends React.Component {
         let {products} = this.props;
 
         products = [
-            ...products.splice(0, index), ...products.splice(index+1, products.length)
+            ...products.slice(0, index), ...products.slice(index+1, products.length)
         ];
 
         this.props.saveProducts(products)

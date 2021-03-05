@@ -39,6 +39,16 @@
         align-items: center;
         align-content: center;
         box-sizing: border-box;
+        .left-side {
+          display: inline-flex;
+          flex: 1;
+          padding: 10px;
+          height: 100%;
+          box-sizing: border-box;
+        }
+        .right-side {
+          display: inline-flex;
+        }
         .logout-button {
           text-align: center;
           cursor: pointer;

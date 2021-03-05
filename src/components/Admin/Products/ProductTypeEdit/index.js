@@ -5,6 +5,8 @@ import {sortableContainer} from "react-sortable-hoc";
 import arrayMove from "array-move";
 import addPicture from "../icons/add_picture.svg";
 import DropZone from "../../../DropZone";
+import ajaxAdmin from "../../ajaxAdmin";
+import apiAdmin from "../../apiAdmin";
 
 class ProductTypeEdit extends React.Component {
 
@@ -18,12 +20,15 @@ class ProductTypeEdit extends React.Component {
         this.props.onChange(this.props.type, data)
     }
 
-    deletePicture = index => {
+    deletePicture = async index => {
         const {data} = this.props;
         let pictures = data.pictures || [];
 
+        let name = pictures[index];
+        let res = await ajaxAdmin(apiAdmin.deletePicture, {path: "products/" + name})
+
         pictures = [
-            ...pictures.splice(0, index), ...pictures.splice(index+1, pictures.length)
+            ...pictures.slice(0, index), ...pictures.slice(index + 1, pictures.length)
         ];
 
         this.props.onChange(this.props.type, {
@@ -47,20 +52,19 @@ class ProductTypeEdit extends React.Component {
     addPicture = name => {
         const {data} = this.props;
         let pictures = data.pictures || [];
-        pictures = [...pictures, name]
+        pictures = [...pictures, name];
         this.props.onChange(this.props.type, {
             ...data,
             picture: pictures[0],
             pictures: pictures
         });
-
     }
 
     render() {
         const {type, data, t} = this.props;
         let option = t.options.find(o => o.id === type);
 
-        const pictures = data.pictures || [data.picture];
+        const pictures = data.pictures || [];
 
         return <div className={'product-edit-type-content'}>
             <div className="edit-type-header">

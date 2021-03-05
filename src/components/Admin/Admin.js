@@ -64,7 +64,7 @@ class Admin extends React.Component {
             ...this.translates,
             [section]: t
         }
-        this.setState({showButtonSave: true})
+        this.setState({showButtonSave: true});
     }
 
     sortProducts = ({oldIndex, newIndex}) => {
@@ -85,10 +85,32 @@ class Admin extends React.Component {
         this.setState({showButtonSave: true})
     }
 
-    saveTranslatesToServer = async () => {
-        let res = await ajaxAdmin(api.saveJson, {file: "translates/ru.json", data: this.translates});
-        if (res.ok) {
+    saveToServer = async () => {
+        let resTranslates = await ajaxAdmin(api.saveJson, {file: "translates/ru.json", data: this.translates});
+        let resProducts = await ajaxAdmin(api.saveJson, {file: "products.json", data: this.state.products});
+        if (resTranslates.ok && resProducts.ok) {
             this.setState({showButtonSave: false})
+        }
+    }
+
+    add = () => {
+        if (this.state.section === "products") {
+            const modelProduct = {
+                "name": "",
+                "modules": 1,
+                "features": [],
+                "natural": {
+                    "price": "",
+                },
+                "color": {
+                    "price": "",
+                }
+            };
+            this.setState({
+                products: [
+                    ...this.state.products, modelProduct
+                ]
+            })
         }
     }
 
@@ -107,9 +129,15 @@ class Admin extends React.Component {
                     </div>
                     <div className="content">
                             <div className="header-top">
-                                {showButtonSave ? <button onClick={() => this.saveTranslatesToServer()}>Сохранить</button> : null}
-
-                                <div className={'logout-button'} onClick={this.logout}>Выйти</div>
+                                <div className="left-side">
+                                    {section === "products" || section === "reviews" || section === "show-rums" ?
+                                        <button className="add-item" onClick={this.add}>Добавить</button> : null
+                                    }
+                                </div>
+                                <div className="right-side">
+                                    {showButtonSave ? <button onClick={() => this.saveToServer()}>Сохранить</button> : null}
+                                    <div className={'logout-button'} onClick={this.logout}>Выйти</div>
+                                </div>
                             </div>
                         <div className="content-container">
                             {
