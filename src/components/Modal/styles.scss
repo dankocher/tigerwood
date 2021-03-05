@@ -249,7 +249,7 @@
       }
       .--form {
         width: 320px;
-        height: $height;
+        //height: $height;
 
         .title {
           font-size: 21px;
@@ -412,7 +412,8 @@
         overflow-y: auto;
         .--form {
           //margin: 20px 0 40px;
-          min-height: 440px;
+          //min-height: 440px;
+          padding: 30px 0 40px;
           width: 100%;
         }
       }
@@ -424,7 +425,7 @@
         overflow-y: auto;
         .--form {
           //margin: 20px 0 40px;
-          min-height: 440px;
+          //min-height: 440px;
           width: 100%;
         }
       }
