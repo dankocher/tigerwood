@@ -18,6 +18,7 @@ import Modal from "../../Modal";
 import {compareObjects} from "../../../utils/compareObjects";
 import Product from "../../Modal/Product";
 import {api_location} from "../../../ajax";
+import AutoResizeTextarea from "../../AutoResizeTextarea";
 
 export default class AdminSection extends React.Component {
 
@@ -162,7 +163,14 @@ export default class AdminSection extends React.Component {
                                 ? null :
                                 <tr key={alias} className="translate">
                                     <td>{alias}</td>
-                                    <td><textarea value={t[alias]} onChange={(e) => this.changeTranslate(alias, e.target.value)}/></td>
+                                    <td>
+                                        {/*<textarea value={t[alias]} onChange={(e) => this.changeTranslate(alias, e.target.value)}/>*/}
+                                        <AutoResizeTextarea className={"translate-text"}
+                                                            value={(t[alias] || "").toString()}
+                                                            onChange={(value) => this.changeTranslate(alias, value)}
+                                                            minHeight={20}
+                                                            maxHeight={500}/>
+                                    </td>
                                 </tr>
                         ))
                     }
