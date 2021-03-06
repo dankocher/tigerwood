@@ -35,6 +35,7 @@ class Admin extends React.Component {
         this.checkSession(this.state.session)
         this.getProducts();
         this.getReviews();
+        this.getShowRums();
     }
     getProducts = async () => {
         let products = await ajax("/products.json");
@@ -43,6 +44,10 @@ class Admin extends React.Component {
     getReviews = async () => {
         let reviews = await ajax("/reviews.json");
         this.setState({reviews})
+    }
+    getShowRums = async () => {
+        let show_rums = await ajax("/show-rum.json");
+        this.setState({show_rums})
     }
     setSection = section => {
         this.setState({section})
