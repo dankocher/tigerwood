@@ -22,7 +22,9 @@ class Admin extends React.Component {
             session,
             section,
             showButtonSave: false,
-            products: []
+            products: [],
+            reviews: [],
+            show_rums: [],
         };
         this.translates = props.translates;
     }
@@ -31,11 +33,16 @@ class Admin extends React.Component {
 
     componentDidMount() {
         this.checkSession(this.state.session)
-        this.getProducts()
+        this.getProducts();
+        this.getReviews();
     }
     getProducts = async () => {
         let products = await ajax("/products.json");
         this.setState({products})
+    }
+    getReviews = async () => {
+        let reviews = await ajax("/reviews.json");
+        this.setState({reviews})
     }
     setSection = section => {
         this.setState({section})
@@ -67,50 +74,71 @@ class Admin extends React.Component {
         this.setState({showButtonSave: true});
     }
 
-    sortProducts = ({oldIndex, newIndex}) => {
-        this.setState(({products}) => ({
-            products: arrayMove(products, oldIndex, newIndex),
-        }));
-        this.setState({showButtonSave: true})
-    }
     saveProducts = products => {
         this.setState({products, showButtonSave: true});
     }
-    saveReviews = (section, t) => {
-        //TODO
-        this.setState({showButtonSave: true})
+    sortProducts = ({oldIndex, newIndex}) => {
+        this.setState(({products}) => ({
+            products: arrayMove(products, oldIndex, newIndex),
+            showButtonSave: true
+        }));
     }
-    saveShowRums = (section, t) => {
-        //TODO
-        this.setState({showButtonSave: true})
+
+    saveReviews = (reviews) => {
+        this.setState({reviews, showButtonSave: true})
+    }
+    sortReviews = ({oldIndex, newIndex}) => {
+        this.setState(({reviews}) => ({
+            reviews: arrayMove(reviews, oldIndex, newIndex),
+            showButtonSave: true
+        }));
+    }
+
+    saveShowRums = (show_rums) => {
+        this.setState({show_rums, showButtonSave: true})
+    }
+    sortShowRums = ({oldIndex, newIndex}) => {
+        this.setState(({show_rums}) => ({
+            reviews: arrayMove(show_rums, oldIndex, newIndex),
+            showButtonSave: true
+        }));
     }
 
     saveToServer = async () => {
         let resTranslates = await ajaxAdmin(api.saveJson, {file: "translates/ru.json", data: this.translates});
         let resProducts = await ajaxAdmin(api.saveJson, {file: "products.json", data: this.state.products});
-        if (resTranslates.ok && resProducts.ok) {
+        let reviewsProducts = await ajaxAdmin(api.saveJson, {file: "reviews.json", data: this.state.reviews});
+        if (resTranslates.ok && resProducts.ok && reviewsProducts.ok) {
             this.setState({showButtonSave: false})
         }
     }
 
     add = () => {
-        if (this.state.section === "products") {
-            const modelProduct = {
-                "name": "",
-                "modules": 1,
-                "features": [],
-                "natural": {
-                    "price": "",
-                },
-                "color": {
-                    "price": "",
-                }
-            };
-            this.setState({
-                products: [
-                    ...this.state.products, modelProduct
-                ]
-            })
+        switch (this.state.section) {
+            case "products" :
+                const modelProduct = {
+                    "name": "",
+                    "modules": 1,
+                    "features": [],
+                    "natural": {
+                        "price": "",
+                    },
+                    "color": {
+                        "price": "",
+                    }
+                };
+                this.setState({
+                    products: [
+                        ...this.state.products, modelProduct
+                    ]
+                })
+                break;
+            case "reviews":
+                this.setState({
+                    reviews: [...this.state.reviews, {pictures: []}]
+                })
+                break;
+            default: break;
         }
     }
 
@@ -143,15 +171,21 @@ class Admin extends React.Component {
                             {
                                 section === null ? null :
                                     <AdminSection section={section} {...this.props} t={this.props.translates[section] || {}}
+
                                                   products={products}
-                                                  reviews={reviews}
-                                                  show_rums={show_rums}
-                                                  showModal={() => {}}
-                                                  saveTranslates={this.saveTranslates}
                                                   sortProducts={this.sortProducts}
                                                   saveProducts={this.saveProducts}
+
+                                                  reviews={reviews}
                                                   saveReviews={this.saveReviews}
+                                                  sortReviews={this.sortReviews}
+
+                                                  show_rums={show_rums}
                                                   saveShowRums={this.saveShowRums}
+                                                  sortShowRums={this.sortShowRums}
+
+                                                  showModal={() => {}}
+                                                  saveTranslates={this.saveTranslates}
                                     />
                             }
                         </div>

@@ -20,6 +20,7 @@ import Product from "../../Modal/Product";
 import {api_location} from "../../../ajax";
 import AutoResizeTextarea from "../../AutoResizeTextarea";
 import Products from "../Products";
+import Reviews from "../Reviews";
 
 export default class AdminSection extends React.Component {
 
@@ -60,6 +61,11 @@ export default class AdminSection extends React.Component {
                                     products={this.props.products}
                                     saveProducts={this.props.saveProducts}
                                     sortProducts={this.props.sortProducts}/>
+
+            case "reviews": return <Reviews
+                                    reviews={this.props.reviews}
+                                    saveReviews={this.props.saveReviews}
+                                    sortReviews={this.props.sortReviews}/>;
 
             case "header":
                 return <>

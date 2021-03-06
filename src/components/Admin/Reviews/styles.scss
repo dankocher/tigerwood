@@ -1,0 +1,98 @@
+.admin-reviews {
+  .reviews-items-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.review-item {
+  background-color: #FAFAFA;
+  margin-bottom: 2px;
+  //padding: 10px 20px 10px 0;
+  height: 150px;
+  padding: 10px 0px;
+  font-size: 16px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  font-family: "Nunito-Regular", sans-serif;
+
+  &:hover {
+    background-color: #F0F0F080;
+  }
+
+  .review-item-content {
+    display: inline-flex;
+    width: 100%;
+    //padding: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    .pictures-items-container {
+      height: 150px;
+      display: inline-flex;
+
+    }
+    .add-picture {
+      width: 85px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      background-color: #e7e7e7;
+      margin-left: 2px;
+      cursor: pointer;
+      border-radius: 10px;
+      img {
+        width: 40px;
+      }
+    }
+  }
+  .delete-button {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    img {
+      width: 24px;
+    }
+  }
+}
+.picture-item {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border: 2px solid #9B51E0;
+  //border-width: 1px 5px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 2px;
+  margin-left: 2px;
+  .-r-pic {
+    height: 148px;
+    cursor: move;
+    img {
+      height: 148px;
+    }
+  }
+
+  .delete-button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #CFCFCFAA;
+    border-radius: 20px;
+    cursor: pointer;
+
+    img {
+      height: 16px;
+      width: 16px;
+    }
+  }
+}
