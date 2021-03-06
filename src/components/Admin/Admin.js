@@ -107,7 +107,7 @@ class Admin extends React.Component {
     }
     sortShowRums = ({oldIndex, newIndex}) => {
         this.setState(({show_rums}) => ({
-            reviews: arrayMove(show_rums, oldIndex, newIndex),
+            show_rums: arrayMove(show_rums, oldIndex, newIndex),
             showButtonSave: true
         }));
     }
@@ -115,8 +115,9 @@ class Admin extends React.Component {
     saveToServer = async () => {
         let resTranslates = await ajaxAdmin(api.saveJson, {file: "translates/ru.json", data: this.translates});
         let resProducts = await ajaxAdmin(api.saveJson, {file: "products.json", data: this.state.products});
-        let reviewsProducts = await ajaxAdmin(api.saveJson, {file: "reviews.json", data: this.state.reviews});
-        if (resTranslates.ok && resProducts.ok && reviewsProducts.ok) {
+        let resReviews = await ajaxAdmin(api.saveJson, {file: "reviews.json", data: this.state.reviews});
+        let resShowRums = await ajaxAdmin(api.saveJson, {file: "show-rum.json", data: this.state.show_rums});
+        if (resTranslates.ok && resProducts.ok && resReviews.ok && resShowRums.ok) {
             this.setState({showButtonSave: false})
         }
     }
@@ -144,6 +145,11 @@ class Admin extends React.Component {
             case "reviews":
                 this.setState({
                     reviews: [...this.state.reviews, {pictures: []}]
+                })
+                break;
+            case "show-rums":
+                this.setState({
+                    show_rums: [...this.state.show_rums, {name: "", features: []}]
                 })
                 break;
             default: break;

@@ -21,6 +21,7 @@ import {api_location} from "../../../ajax";
 import AutoResizeTextarea from "../../AutoResizeTextarea";
 import Products from "../Products";
 import Reviews from "../Reviews";
+import ShowRum from "../ShowRum";
 
 export default class AdminSection extends React.Component {
 
@@ -66,6 +67,11 @@ export default class AdminSection extends React.Component {
                                     reviews={this.props.reviews}
                                     saveReviews={this.props.saveReviews}
                                     sortReviews={this.props.sortReviews}/>;
+
+            case "show-rums": return <ShowRum
+                                    showRums={this.props.show_rums}
+                                    saveShowRums={this.props.saveShowRums}
+                                    sortShowRums={this.props.sortShowRums}/>;
 
             case "header":
                 return <>
