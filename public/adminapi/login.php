@@ -3,7 +3,8 @@ include "headers.php";
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$pass = file_get_contents("password");
+// sha1(pass); // generate new password
+$pass = file_get_contents("_____secret___PASS____");
 
 if ($data["user"] === "admin" && $data["pass"] === $pass) {
     session_start();    

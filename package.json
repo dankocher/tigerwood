@@ -22,7 +22,8 @@
     "react-slick": "^0.27.11",
     "react-sortable-hoc": "^1.11.0",
     "react-yandex-maps": "^4.4.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "crypto-browserify": "^3.12.0"
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
