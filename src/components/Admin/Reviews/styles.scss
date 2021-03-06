@@ -8,55 +8,83 @@
   background-color: #FAFAFA;
   margin-bottom: 2px;
   //padding: 10px 20px 10px 0;
-  height: 150px;
+  //height: 180px;
   padding: 10px 0px;
   font-size: 16px;
   display: inline-flex;
   justify-content: flex-start;
-  align-content: center;
-  align-items: center;
+  align-content: flex-start;
+  align-items: flex-start;
   font-family: "Nunito-Regular", sans-serif;
 
   &:hover {
     background-color: #F0F0F080;
   }
+  .handle {
+    margin-top: 12px;
+  }
 
   .review-item-content {
-    display: inline-flex;
+    display: flex;
     width: 100%;
     //padding: 10px;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    .pictures-items-container {
-      height: 150px;
-      display: inline-flex;
-
-    }
-    .add-picture {
-      width: 85px;
-      height: 150px;
+    align-items: flex-start;
+    padding: 5px;
+    input {
+      margin: 5px;
+      width: 500px;
+      padding: 6px 10px;
+      font-size: 18px;
       display: flex;
-      justify-content: center;
-      align-content: center;
+      flex: 1;
+      border: 1px solid #00000030;
+    }
+    .-r-content {
+      display: inline-flex;
+      width: 100%;
+      //padding: 10px;
+      justify-content: flex-start;
       align-items: center;
-      background-color: #e7e7e7;
-      margin-left: 2px;
-      cursor: pointer;
-      border-radius: 10px;
-      img {
-        width: 40px;
+      padding-left: 5px;
+
+      .pictures-items-container {
+        height: 150px;
+        display: inline-flex;
+
+      }
+
+      .add-picture {
+        width: 85px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background-color: #e7e7e7;
+        margin-left: 2px;
+        cursor: pointer;
+        border-radius: 10px;
+
+        img {
+          width: 40px;
+        }
       }
     }
   }
-  .delete-button {
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    img {
-      width: 24px;
-    }
+    .delete-button {
+      width: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      cursor: pointer;
+
+      img {
+        width: 24px;
+      }
+
   }
 }
 .picture-item {

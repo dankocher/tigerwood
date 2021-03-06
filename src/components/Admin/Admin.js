@@ -32,10 +32,22 @@ class Admin extends React.Component {
     translates = {}
 
     componentDidMount() {
-        this.checkSession(this.state.session)
-        this.getProducts();
-        this.getReviews();
-        this.getShowRums();
+        this.checkSession(this.state.session);
+    }
+    checkSession = async (session) => {
+        if (session) {
+            let res = await ajaxAdmin(api.checkSession, {session});
+            if (res.ok) {
+                this.setState({session});
+                localStorage.setItem(SESSION_NAME, session);
+
+                this.getProducts();
+                this.getReviews();
+                this.getShowRums();
+            } else {
+                this.logout();
+            }
+        }
     }
     getProducts = async () => {
         let products = await ajax("/products.json");
@@ -54,15 +66,6 @@ class Admin extends React.Component {
         localStorage.setItem(SECTION_NAME, section)
     }
 
-    checkSession = async (session) => {
-        if (session) {
-            let res = await ajaxAdmin(api.checkSession, {session});
-            if (res.ok) {
-                this.setState({session});
-                localStorage.setItem(SESSION_NAME, session)
-            }
-        }
-    }
 
     logout = async () => {
         let res = await ajaxAdmin(api.logout);

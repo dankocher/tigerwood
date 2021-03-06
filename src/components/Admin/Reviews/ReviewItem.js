@@ -15,10 +15,9 @@ class ReviewItem extends React.Component {
         evt.preventDefault();
         let {review} = this.props;
         let pictures = review.pictures || [];
-        console.log(pictures)
 
         let name = pictures[index];
-        // let res = await ajaxAdmin(apiAdmin.deletePicture, {path: "reviews/" + name})
+        let res = await ajaxAdmin(apiAdmin.deletePicture, {path: "reviews/" + name})
 
         pictures = [
             ...pictures.slice(0, index), ...pictures.slice(index + 1, pictures.length)
@@ -54,23 +53,34 @@ class ReviewItem extends React.Component {
         });
     }
 
+    onChangeParam = (param, value) => {
+        const {review} = this.props;
+
+        this.props.onChange({
+            ...review,
+            [param]: value
+        })
+    }
+
     render() {
         const {review, t} = this.props;
         return <div className={'review-item-content'}>
+            <input value={review.name || ""} placeholder={"Название"} onChange={e => this.onChangeParam("name", e.target.value)}/>
+            <div className="-r-content">
+                <SortablePicturesContainer onSortEnd={this.sortPictures} lockAxis={"x"} axis={"x"} useDragHandle>
+                    {
+                        (review.pictures || []).map((p, i) => (
+                            <SortablePicture index={i} picture={p} deletePicture={(evt) => this.deletePicture(evt, i)}/>
+                        ))
+                    }
+                </SortablePicturesContainer>
 
-            <SortablePicturesContainer onSortEnd={this.sortPictures} lockAxis={"x"} axis={"x"} useDragHandle>
-                {
-                    (review.pictures || []).map((p, i) => (
-                        <SortablePicture index={i} picture={p} deletePicture={(evt) => this.deletePicture(evt, i)}/>
-                    ))
-                }
-            </SortablePicturesContainer>
-
-            <DropZone onUpload={this.addPicture} path={"reviews"}>
-                <div className="add-picture">
-                    <img src={addPicture} alt=""/>
-                </div>
-            </DropZone>
+                <DropZone onUpload={this.addPicture} path={"reviews"}>
+                    <div className="add-picture">
+                        <img src={addPicture} alt=""/>
+                    </div>
+                </DropZone>
+            </div>
         </div>
 
     }
