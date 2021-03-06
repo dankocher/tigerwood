@@ -33,7 +33,9 @@ class ShowRumItem extends React.Component {
     render() {
         const {show_rum, t} = this.props;
         return <div className={'show-rum-item-content'}>
-            <input value={show_rum.name || ""} placeholder={"Название"} onChange={e => this.onChangeParam("name", e.target.value)}/>
+            <div className="top-side">
+                <input value={show_rum.name || ""} placeholder={"Название"} onChange={e => this.onChangeParam("name", e.target.value)}/>
+            </div>
             <div className="-r-content">
                 <DropZone onUpload={this.addPicture} path={"show-rum"}>
                     <div className="add-picture">

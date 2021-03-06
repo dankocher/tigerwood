@@ -1,5 +1,5 @@
 .admin-show-rums {
-  .show-rum-items-containercontainer {
+  .show-rum-items-container {
     display: flex;
     flex-direction: column;
   }
@@ -32,14 +32,20 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 5px;
+    .top-side {
+      display: flex;
+      flex: 1;
+      width: 100%;
+    }
     input, textarea {
       margin: 5px 0 5px;
-      width: 500px;
+      width: 100%;
       padding: 6px 10px;
       font-size: 18px;
       display: flex;
       flex: 1;
       border: 1px solid #00000030;
+      font-family: "Nunito-Regular", sans-serif;
     }
     .-r-content {
       display: inline-flex;
@@ -99,9 +105,8 @@
       .-t-features {
         height: 150px;
         margin-left: 10px;
-        width: 245px;
         box-sizing: border-box;
-        margin-right: 25px;
+        margin-right: 5px;
         resize: none
       }
     }

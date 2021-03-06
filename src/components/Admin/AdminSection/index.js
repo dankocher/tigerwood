@@ -132,7 +132,7 @@ export default class AdminSection extends React.Component {
                     <tbody>
                     {
                         Object.keys(t).map(alias => (
-                            alias === "modal" || alias === "modal_video" || alias === "section_name"
+                            alias === "modal" || alias === "modal_video"
                             || alias === "options" || alias === "default_option"
                                 ? null :
                                 <tr key={alias} className="translate">
