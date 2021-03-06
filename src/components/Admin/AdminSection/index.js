@@ -76,37 +76,7 @@ export default class AdminSection extends React.Component {
             case "section_3": return <>
                 <Section03 animated={false} {...this.props} t={this.state.t}/>
                 <hr/>
-                <Product width={500} data={{
-                    "name": "Compact plus",
-                    "price": "от 153USD",
-                    "picture": api_location + "/products/001-natural.jpg",
-                    "pictures": ["001-natural.jpg", "001-natural.jpg", "001-natural.jpg"],
-                    "modules": 1,
-                    "features": [
-                        "Лесница",
-                        "Горка",
-                        "Трапеция"
-                    ],
-                    "facilities": [
-                        "Складывается и раскладывается за 1 минуту",
-                        "Сборка без инструмента",
-                        "Можно использовать в помещении и на улице",
-                        "Модули меняются местами",
-                        "Модули можно использовать по отдельности",
-                        "Можно дополнять"
-                    ],
-                    "included": [
-                        "Комплектация выбранными элементами",
-                        "Экологичная упаковка",
-                        "Доставка (Бесплатная от 300 руб.)",
-                        "Сборка – собран на производстве",
-                        "Фирменная раскраска",
-                        "Онлайн поддержка по вопросам развития ребенка",
-                        "Электронная книга по финансовой грамотности для самых маленьких",
-                        "Гарантия 12 месяцев"
-                    ],
-                    t: this.state.t
-                }}/>
+                <Product width={500} data={{...productModel, t: this.state.t}}/>
             </>
             case "section_4": return <Section04 animated={false} {...this.props} t={this.state.t}/>
             case "section_5": return <Section05 animated={false} {...this.props} t={this.state.t}/>
@@ -172,3 +142,35 @@ export default class AdminSection extends React.Component {
         </div>
     }
 }
+
+
+const productModel = {
+    "name": "Compact plus",
+    "price": "от 153USD",
+    "picture": api_location + "/products/001-natural.jpg",
+    "pictures": ["001-natural.jpg", "001-natural.jpg", "001-natural.jpg"],
+    "modules": 1,
+    "features": [
+        "Лесница",
+        "Горка",
+        "Трапеция"
+    ],
+    "facilities": [
+        "Складывается и раскладывается за 1 минуту",
+        "Сборка без инструмента",
+        "Можно использовать в помещении и на улице",
+        "Модули меняются местами",
+        "Модули можно использовать по отдельности",
+        "Можно дополнять"
+    ],
+    "included": [
+        "Комплектация выбранными элементами",
+        "Экологичная упаковка",
+        "Доставка (Бесплатная от 300 руб.)",
+        "Сборка – собран на производстве",
+        "Фирменная раскраска",
+        "Онлайн поддержка по вопросам развития ребенка",
+        "Электронная книга по финансовой грамотности для самых маленьких",
+        "Гарантия 12 месяцев"
+    ]
+};
