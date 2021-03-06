@@ -35,6 +35,14 @@
       margin: 0 10px;
       padding: 0 10px;
       font-size: 16px;
+      &.-m2 {
+        background: #9B51E080;
+        border: 1px solid #9B51E080;
+      }
+      &.-m3 {
+        background: rgba(246, 96, 48, 0.2);
+        border: 1px solid rgba(246, 96, 48, 0.2);
+      }
       option {
         height: 30px;
         padding: 10px;
