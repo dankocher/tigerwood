@@ -25,15 +25,14 @@ class Admin extends React.Component {
             products: [],
             reviews: [],
             show_rums: [],
+            translates: {}
         };
-        this.translates = props.translates;
     }
-
-    translates = {}
 
     componentDidMount() {
         this.checkSession(this.state.session);
     }
+
     checkSession = async (session) => {
         if (session) {
             let res = await ajaxAdmin(api.checkSession, {session});
@@ -41,6 +40,7 @@ class Admin extends React.Component {
                 this.setState({session});
                 localStorage.setItem(SESSION_NAME, session);
 
+                this.getTranslates();
                 this.getProducts();
                 this.getReviews();
                 this.getShowRums();
@@ -48,6 +48,11 @@ class Admin extends React.Component {
                 this.logout();
             }
         }
+    }
+
+    getTranslates = async () => {
+        let translates = await ajax("/translates/ru.json");
+        this.setState({translates});
     }
     getProducts = async () => {
         let products = await ajax("/products.json");
@@ -75,11 +80,11 @@ class Admin extends React.Component {
         }
     }
     saveTranslates = (section, t) => {
-        this.translates = {
-            ...this.translates,
+        const translates = {
+            ...this.state.translates,
             [section]: t
         }
-        this.setState({showButtonSave: true});
+        this.setState({translates, showButtonSave: true});
     }
 
     saveProducts = products => {
@@ -113,12 +118,14 @@ class Admin extends React.Component {
     }
 
     saveToServer = async () => {
-        let resTranslates = await ajaxAdmin(api.saveJson, {file: "translates/ru.json", data: this.translates});
+        let resTranslates = await ajaxAdmin(api.saveJson, {file: "translates/ru.json", data: this.state.translates});
         let resProducts = await ajaxAdmin(api.saveJson, {file: "products.json", data: this.state.products});
         let resReviews = await ajaxAdmin(api.saveJson, {file: "reviews.json", data: this.state.reviews});
         let resShowRums = await ajaxAdmin(api.saveJson, {file: "show-rum.json", data: this.state.show_rums});
         if (resTranslates.ok && resProducts.ok && resReviews.ok && resShowRums.ok) {
-            this.setState({showButtonSave: false})
+            this.setState({showButtonSave: false});
+            // this.checkSession(this.state.session);
+            this.props.updateTranslates();
         }
     }
 

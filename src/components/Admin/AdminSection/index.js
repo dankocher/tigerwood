@@ -22,6 +22,8 @@ import AutoResizeTextarea from "../../AutoResizeTextarea";
 import Products from "../Products";
 import Reviews from "../Reviews";
 import ShowRum from "../ShowRum";
+import ModalEdit from "../ModalEdit";
+import OptionsEdit from "../OptionsEdit";
 
 export default class AdminSection extends React.Component {
 
@@ -128,6 +130,9 @@ export default class AdminSection extends React.Component {
                 }
             </div>
             <div className={"edit"}>
+                {!t.modal ? null : <ModalEdit t={t.modal} onChange={(value) => this.changeTranslate("modal", value)}/>}
+                {!t.options ? null : <OptionsEdit options={t.options} default_option={t.default_option}
+                                               onChange={this.changeTranslate}/>}
                 <table className="translates">
                     <tbody>
                     {

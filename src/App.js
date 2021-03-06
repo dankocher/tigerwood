@@ -67,7 +67,7 @@ class App extends React.Component {
             pictures.forEach((picture) => {
                 const img = new Image();
                 img.src = api_location + "/" + picture;
-            })
+            });
         }
     }
     componentWillUnmount() {
@@ -131,7 +131,7 @@ class App extends React.Component {
 
     if (this.isAdmin) {
         return <Admin translates={translates}
-                      isMobile={isMobile} width={width}/>
+                      isMobile={isMobile} width={width} updateTranslates={this.getTranslates}/>
     }
 
     return <div className={`App`}>
