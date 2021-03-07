@@ -77,6 +77,7 @@ class Admin extends React.Component {
         if (res.ok) {
             this.setState({session: null});
             localStorage.removeItem(SESSION_NAME)
+            localStorage.removeItem(SECTION_NAME)
         }
     }
     saveTranslates = (section, t) => {
