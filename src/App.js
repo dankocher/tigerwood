@@ -28,7 +28,8 @@ class App extends React.Component {
                 show: false,
                 type: "product", // picture, video, product, review
                 data: null,
-            }
+            },
+            version: 0
         }
     }
 
@@ -56,9 +57,8 @@ class App extends React.Component {
                 window.location = isDeploy ? "/tigerwood" : "/"
         }
     }
-
     getTranslates = async () => {
-        let translates = await ajax("/translates/ru.json");
+        let translates = await ajax(`/translates/ru.json`);
         this.preload(translates.preload);
         this.setState({translates});
     }

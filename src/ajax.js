@@ -8,10 +8,20 @@ const api_location = "/api"
 //         window.location = "/"
 //     }
 // }
+let version = null;
 
-const ajax = async url => {
+const ajax = async (url) => {
 
-    return await fetch(`${api_location}${url}`)
+    if (version === null) {
+        version = await fetch(`${api_location}/version?${new Date().getTime()}`)
+            .then(res => res.text())
+            .then(async res => { return res })
+            .catch((e) => {
+                return new Date().getTime();
+            });
+    }
+
+    return await fetch(`${api_location}${url}?${version}`)
         .then(res => res.json())
         .then(async res => { return res })
         .catch((e) => {

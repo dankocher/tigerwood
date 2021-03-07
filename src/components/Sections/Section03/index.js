@@ -41,7 +41,7 @@ export default class Section extends React.Component {
     }
 
     getProducts = async () => {
-        this.allProducts = await ajax("/products.json");
+        this.allProducts = await ajax(`/products.json`);
         this.filterProducts();
     }
 
