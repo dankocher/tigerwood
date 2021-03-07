@@ -100,7 +100,7 @@ export default class Section extends React.Component {
                                     <div className="-button-want" onClick={() => this.props.showModal({
                                         show: true,
                                         type: "empty",
-                                        data: t.modal
+                                        data: {...product, ...t.modal}
                                     })}>
                                         {t.button_want_it}
                                     </div>

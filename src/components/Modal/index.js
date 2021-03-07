@@ -5,6 +5,9 @@ import ButtonArrow from "../ButtonArrow";
 import {api_location} from "../../ajax";
 import Product from "./Product";
 import Review from "./Review/Review";
+import ajaxAdmin from "../Admin/ajaxAdmin";
+import api from "../Admin/apiAdmin";
+import sendRequest from "../../utils/sendRequest";
 
 // const AmoCRM = require( 'amocrm-js' );
 
@@ -72,7 +75,10 @@ class Modal extends React.Component {
             phone_warn: false,
             name_warn: false,
         });
-        // TODO: SEND
+
+        const {type, data} = this.props;
+
+        sendRequest({name, phone, type, data})
 
         // const crm = new AmoCRM({
         //     domain: 'tigerwoodby',

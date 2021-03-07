@@ -10,7 +10,8 @@ const api = {
     logout: {method: "POST", uri: "adminapi/logout.php"},
     checkSession: {method: "POST", uri: "adminapi/check_session.php"},
     saveJson: {method: "POST", uri: "adminapi/save_json.php"},
-    deletePicture: {method: "POST", uri: "adminapi/delete_picture.php"}
+    deletePicture: {method: "POST", uri: "adminapi/delete_picture.php"},
+    sendRequest: {method: "POST", uri: "api/send_request.php"},
 }
 
 export default api;

@@ -3,6 +3,7 @@ import InputMask from "react-input-mask";
 import "./styles.scss";
 import ButtonArrow from "../../ButtonArrow";
 import {api_location} from "../../../ajax";
+import sendRequest from "../../../utils/sendRequest";
 
 const SECTION_NUMBER = "07"
 
@@ -35,11 +36,12 @@ export default class Section extends React.Component {
             phone_warn: false,
             name_warn: false,
         });
+        const {header_1, header_2, header_3} = this.props.t;
+        sendRequest({name, phone, data: {title: `${header_1} ${header_2} ${header_3}`.replace(/\n/gmi, "")}})
         window.open(api_location + "/" + this.props.t.filename)
     }
 
     onChange = e => {
-        console.log(e)
         let warn_param = e.target.name + "_warn"
         this.setState({
             [e.target.name]: e.target.value,
