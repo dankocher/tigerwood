@@ -3,7 +3,7 @@ import "./styles.scss";
 import PictureEdit from "./PictureEdit";
 import {sortableContainer} from "react-sortable-hoc";
 import arrayMove from "array-move";
-import addPicture from "../icons/add_picture.svg";
+import addPicture from "../../icons/add_picture.svg";
 import DropZone from "../../../DropZone";
 import ajaxAdmin from "../../ajaxAdmin";
 import apiAdmin from "../../apiAdmin";

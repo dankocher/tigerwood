@@ -1,8 +1,8 @@
 import React from "react";
 import {sortableContainer, sortableElement, sortableHandle} from 'react-sortable-hoc';
 import Handle from "../Handle";
-import trash from "./icons/trash.svg";
-import addPicture from "./icons/add_picture.svg";
+import trash from "../icons/trash.svg";
+import addPicture from "../icons/add_picture.svg";
 import {api_location} from "../../../ajax";
 import DropZone from "../../DropZone";
 

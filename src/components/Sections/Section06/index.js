@@ -25,8 +25,8 @@ export default class Section extends React.Component {
     render() {
         const {t} = this.props;
         const {playing} = this.state;
-        const video_url = api_location + "/video/video.mp4";
-        const preview_url = api_location + "/video/preview.jpg";
+        const video_url = api_location + "/video/" + t.video;
+        const preview_url = api_location + "/video/" + t.preview;
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
                 <div className={`---content`}>

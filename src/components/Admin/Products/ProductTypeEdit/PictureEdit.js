@@ -1,7 +1,7 @@
 import React from "react";
 import {api_location} from "../../../../ajax";
 import Handle from "../../Handle";
-import trash from "../icons/trash.svg"
+import trash from "../../icons/trash.svg"
 import "./picture.scss"
 import {sortableElement} from "react-sortable-hoc";
 

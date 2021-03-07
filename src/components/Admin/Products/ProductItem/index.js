@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.scss";
 import {sortableElement, sortableHandle} from 'react-sortable-hoc';
 import Handle from "../../Handle";
-import trash from "../icons/trash.svg";
+import trash from "../../icons/trash.svg";
 import {api_location} from "../../../../ajax";
 
 class ProductItem extends React.Component {

@@ -24,6 +24,11 @@ import Reviews from "../Reviews";
 import ShowRum from "../ShowRum";
 import ModalEdit from "../ModalEdit";
 import OptionsEdit from "../OptionsEdit";
+import DropZone from "../../DropZone";
+import addPicture from "../icons/add_picture.svg";
+import addFile from "../icons/add_file.svg";
+import addVideo from "../icons/add_video.svg";
+import { Document, Page } from 'react-pdf';
 
 export default class AdminSection extends React.Component {
 
@@ -131,6 +136,7 @@ export default class AdminSection extends React.Component {
             </div>
             <div className={"edit"}>
                 {!t.modal ? null : <ModalEdit t={t.modal} onChange={(value) => this.changeTranslate("modal", value)}/>}
+                {!t.modal_video ? null : <ModalEdit t={t.modal_video} onChange={(value) => this.changeTranslate("modal_video", value)}/>}
                 {!t.options ? null : <OptionsEdit options={t.options} default_option={t.default_option}
                                                onChange={this.changeTranslate}/>}
                 <table className="translates">
@@ -138,11 +144,12 @@ export default class AdminSection extends React.Component {
                     {
                         Object.keys(t).map(alias => (
                             alias === "modal" || alias === "modal_video"
-                            || alias === "options" || alias === "default_option"
+                            || alias === "options" || alias === "default_option" || alias === "video" || alias === "preview" || alias === "filename"
                                 ? null :
                                 <tr key={alias} className="translate">
                                     <td>{alias}</td>
                                     <td>
+                                        {/*{alias === "video" ? <span>Видео нужно вручную скопировать в папку <b>api/video</b> на сервере и вставить название в след. поле</span> : null}*/}
                                         {/*<textarea value={t[alias]} onChange={(e) => this.changeTranslate(alias, e.target.value)}/>*/}
                                         <AutoResizeTextarea className={"translate-text"}
                                                             value={(t[alias] || "").toString()}
@@ -152,6 +159,55 @@ export default class AdminSection extends React.Component {
                                     </td>
                                 </tr>
                         ))
+                    }
+                    {!t.video ? null :
+                        <>
+                            <tr className={"translate"}>
+                                <td>video</td>
+                                <td>
+                                    <DropZone onUpload={name => this.addPicture("video", name)} path={"video"}>
+                                        <div className="--add-picture -video">
+                                            <video>
+                                                <source src={api_location + "/video/" + t.video} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
+                                            </video>
+                                            <div className="-hover-pic-container">
+                                                <img className={'hover-pic'} src={addVideo} alt=""/>
+                                            </div>
+                                        </div>
+                                    </DropZone>
+                                </td>
+                            </tr>
+                            <tr className={"translate"}>
+                                <td>preview</td>
+                                <td>
+                                    <DropZone onUpload={(name) => this.changeTranslate("preview", name)} path={"video"}>
+                                        <div className="--add-picture -preview">
+                                            <img className={'-picture -preview'} src={api_location + "/video/" + t.preview || addPicture} alt=""/>
+                                            <div className="-hover-pic-container">
+                                                <img className={'hover-pic'} src={addPicture} alt=""/>
+                                            </div>
+                                        </div>
+                                    </DropZone>
+                                </td>
+                            </tr>
+                        </>
+
+                    }
+                    {!t.filename ? null : //TODO
+                        <tr className={"translate"}>
+                            <td>filename</td>
+                            <td>
+                                <DropZone onUpload={(name) => this.changeTranslate("filename", name)} path={""} notRename={true}>
+                                    <div className="--add-picture -preview">
+                                        Перетащите файлы сюда
+                                        <div className="-hover-pic-container">
+                                            <img className={'hover-pic'} src={addFile} alt=""/>
+                                        </div>
+                                    </div>
+                                </DropZone>
+                                <div><a href={api_location + "/" + t.filename} target={"__blank"}>{t.filename}</a></div>
+                            </td>
+                        </tr>
                     }
                 </tbody>
                 </table>
