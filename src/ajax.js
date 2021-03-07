@@ -1,6 +1,7 @@
 const isProduction = window.location.port !== "3000";
 const isDeploy = isProduction ? window.location.host === "dankocher.github.io" : false;
-const api_location = !isProduction ? process.env.PUBLIC_URL + "/api" : isDeploy ? "./api" : "/api"
+// const api_location = !isProduction ? process.env.PUBLIC_URL + "/api" : isDeploy ? "./api" : "/api"
+const api_location = "/api"
 
 // if (!isProduction || (isProduction && !isDeploy)) {
 //     if (window.location.pathname !== "/") {

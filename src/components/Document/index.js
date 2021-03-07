@@ -29,22 +29,24 @@ export default class Document extends React.Component {
         if (text === null) return null;
         return <div className="sections">
             <div className="content">
+                <div className="section document animated">
+                    <div className="text" dangerouslySetInnerHTML={{__html: text}}/>
+                </div>
+                {/*{*/}
+                {/*    <div className="section document animated">*/}
+                {/*        <div className="title">*/}
+                {/*            {title}*/}
+                {/*        </div>*/}
+                {/*        <div className="text">*/}
+                {/*            {*/}
+                {/*                text.map((t,i) => (*/}
+                {/*                    <p key={`text${i}`}>{t}</p>*/}
+                {/*                ))*/}
+                {/*            }*/}
+                {/*        </div>*/}
 
-                {
-                    <div className="section document animated">
-                        <div className="title">
-                            {title}
-                        </div>
-                        <div className="text">
-                            {
-                                text.map((t,i) => (
-                                    <p key={`text${i}`}>{t}</p>
-                                ))
-                            }
-                        </div>
-
-                    </div>
-                }
+                {/*    </div>*/}
+                {/*}*/}
 
                 {/*<Section11  t={this.props.t.section_11}/>*/}
                 <Section12 {...this.props} t={this.props.t.section_12}/>

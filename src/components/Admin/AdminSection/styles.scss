@@ -1,4 +1,44 @@
 .admin-section {
+  //position: relative;
+  .edit-document {
+    position: fixed;
+    background-color: white;
+    width: calc(100% - 200px);
+    height: calc(100% - 60px);
+    margin-left: -20px;
+    margin-top: -60px;
+    z-index: 20000;
+    .edit-document-content {
+      max-width: 1216px;
+      height: calc(100% - 40px);
+    }
+    .drop-header-container {
+      display: inline-flex;
+      width: 100%;
+      max-width: 1216px;
+      .drop-container {
+        width: 250px;
+        .--add-picture {
+          width: 250px;
+          height: 50px;
+        }
+      }
+      .input-container {
+        display: flex;
+        flex: 1;
+        margin-left: 10px;
+        margin-right: 40px;
+        input {
+          width: 100%;
+          font-size: 16px;
+        }
+      }
+      button  {
+        width: 80px;
+      }
+    }
+  }
+
   .preview {
     //pointer-events: none;
 
@@ -55,6 +95,9 @@
         font-family: "Nunito-Regular", sans-serif;
         padding: 4px 10px;
         width: 800px;
+      }
+      .edit-button {
+        margin-bottom: 20px;
       }
       //textarea {
       //  margin-left: 10px;

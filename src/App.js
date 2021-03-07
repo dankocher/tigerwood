@@ -8,6 +8,7 @@ import Modal from "./components/Modal";
 import disableScroll from 'disable-scroll';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import Admin from "./components/Admin";
+import parseBoolean from "./utils/parseBoolean";
 
 // import Grids from "./components/Grids";
 
@@ -124,10 +125,12 @@ class App extends React.Component {
 
   render() {
     const {isMobile, width, height, scrollDirection, translates, currentPage, modal} = this.state;
-    const animate = true;
+    if (translates === null) return null;
+
+    const animate = parseBoolean(translates.header.site_animations);
+    // const animate = false;
     const animateOnlyFirstTime = false;
     const animateFromBottom = false;
-    if (translates === null) return null;
 
     if (this.isAdmin) {
         return <Admin translates={translates}

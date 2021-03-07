@@ -17,7 +17,7 @@ import Header from "../../Header/Header";
 import Modal from "../../Modal";
 import {compareObjects} from "../../../utils/compareObjects";
 import Product from "../../Modal/Product";
-import {api_location} from "../../../ajax";
+import ajax, {api_location} from "../../../ajax";
 import AutoResizeTextarea from "../../AutoResizeTextarea";
 import Products from "../Products";
 import Reviews from "../Reviews";
@@ -29,6 +29,9 @@ import Switch from "react-switch";
 import addPicture from "../icons/add_picture.svg";
 import addFile from "../icons/add_file.svg";
 import addVideo from "../icons/add_video.svg";
+import JoditEditor from "jodit-react";
+import api, {host} from "../apiAdmin";
+import ajaxAdmin from "../ajaxAdmin";
 
 export default class AdminSection extends React.Component {
 
@@ -37,7 +40,11 @@ export default class AdminSection extends React.Component {
         super(props);
         this.state = {
             t: {...this.props.t},
-            ready: false
+            ready: false,
+            editDocument: null,
+            documentValue: "",
+            newDocumentValue: "",
+            temporalPicture: ""
         }
     }
 
@@ -121,14 +128,75 @@ export default class AdminSection extends React.Component {
         }
     }
 
+    editDocument = async editDocument => {
+        if(editDocument !== null) {
+            document.body.style.overflowY = "hidden";
+            let doc = await ajax("/documents/" + editDocument + ".json");
+            this.temporalDocument = doc.text;
+            this.setState({documentValue: doc.text, editDocument})
+        } else {
+            document.body.style.overflowY = "auto";
+            this.setState({editDocument: null})
+        }
+    }
+
+    temporalDocument = ""
+    saveDocument = newDocumentValue => {
+        this.temporalDocument = newDocumentValue;
+    }
+    saveDocumentToServer = async () => {
+        let savedDocument = await ajaxAdmin(api.saveJson, {file: "documents/"+this.state.editDocument+".json", data: {text: this.temporalDocument}});
+        this.editDocument(null)
+    }
+
+    setTemporalPicture = temporalPicture => {
+        this.setState({temporalPicture});
+    }
+
 
     render() {
         const {section} = this.props;
-        const {t, ready} = this.state;
+        const {t, ready, editDocument, documentValue, temporalPicture} = this.state;
 
         if (!ready) return null;
 
         return <div className="admin-section">
+            {editDocument === null ? null :
+                <div className="edit-document">
+                    <div className="drop-header-container">
+                        <div className="drop-container">
+                            <DropZone onUpload={this.setTemporalPicture} path={"pictures"}>
+                                <div className="--add-picture">
+                                    Перетащите изображения сюда
+                                    <img className={'-picture'} src={api_location + "/pictures/" + t.preview || addPicture} alt=""/>
+                                    <div className="-hover-pic-container">
+                                        <img className={'hover-pic'} src={addPicture} alt=""/>
+                                    </div>
+                                </div>
+                            </DropZone>
+                        </div>
+                        <div className="input-container">
+                            <input value={temporalPicture === "" ? "" : window.location.origin + "/api/pictures/" + temporalPicture}
+                            placeholder={"Затем скопируйте ссылку и нажмите на кнопку Вставить изображение в редакторе"}/>
+                        </div>
+                        <button onClick={() => this.editDocument(null)}>Отменить</button>
+                        <button onClick={this.saveDocumentToServer}>Сохранить</button>
+                    </div>
+                    <div className="edit-document-content">
+                        <JoditEditor
+                            ref={editor => this.editor = editor}
+                            value={documentValue}
+                            config={{
+                                height: "100%",
+                                readonly: false // all options from https://xdsoft.net/jodit/doc/
+                            }}
+                            tabIndex={1} // tabIndex of textarea
+                            // onBlur={newContent => this.saveDocument(newContent)} // preferred to use only this option to update the content for performance reasons
+                            onChange={newContent => this.saveDocument(newContent)}
+                        />
+                    </div>
+                </div>
+            }
             <div className={'preview'}>
                 {
                     this.getSection(section)
@@ -165,6 +233,10 @@ export default class AdminSection extends React.Component {
                                                             onChange={(value) => this.changeTranslate(alias, value)}
                                                             minHeight={20}
                                                             maxHeight={500}/>
+                                        {
+                                            ["ordering", "contract_terms", "delivery", "payments"].indexOf(alias) === -1 ? null :
+                                                <button className={'edit-button'} onClick={() => this.editDocument(alias)}>Редактировать: {t[alias]}</button>
+                                        }
                                     </td>
                                 </tr>
                         ))
