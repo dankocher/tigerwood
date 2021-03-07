@@ -25,10 +25,10 @@ import ShowRum from "../ShowRum";
 import ModalEdit from "../ModalEdit";
 import OptionsEdit from "../OptionsEdit";
 import DropZone from "../../DropZone";
+import Switch from "react-switch";
 import addPicture from "../icons/add_picture.svg";
 import addFile from "../icons/add_file.svg";
 import addVideo from "../icons/add_video.svg";
-import { Document, Page } from 'react-pdf';
 
 export default class AdminSection extends React.Component {
 
@@ -141,10 +141,19 @@ export default class AdminSection extends React.Component {
                                                onChange={this.changeTranslate}/>}
                 <table className="translates">
                     <tbody>
+                    {   t.site_animations === undefined ? null :
+                        <tr className={"translate"}>
+                            <td>site_animations</td>
+                            <td>
+                                <Switch onChange={value => this.changeTranslate("site_animations", value)} checked={t.site_animations} />
+                            </td>
+                        </tr>
+                    }
                     {
                         Object.keys(t).map(alias => (
                             alias === "modal" || alias === "modal_video"
-                            || alias === "options" || alias === "default_option" || alias === "video" || alias === "preview" || alias === "filename"
+                            || alias === "options" || alias === "default_option" || alias === "video" || alias === "preview"
+                            || alias === "filename" || alias === "site_animations"
                                 ? null :
                                 <tr key={alias} className="translate">
                                     <td>{alias}</td>
@@ -193,7 +202,7 @@ export default class AdminSection extends React.Component {
                         </>
 
                     }
-                    {!t.filename ? null : //TODO
+                    {!t.filename ? null :
                         <tr className={"translate"}>
                             <td>filename</td>
                             <td>
