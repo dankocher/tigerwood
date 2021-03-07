@@ -9,7 +9,7 @@ import ajaxAdmin from "../Admin/ajaxAdmin";
 import api from "../Admin/apiAdmin";
 import sendRequest from "../../utils/sendRequest";
 
-// const AmoCRM = require( 'amocrm-js' );
+// const AmoCRMButton = require( 'amocrm-js' );
 
 const URL_HASH = "#modal";
 
@@ -80,7 +80,7 @@ class Modal extends React.Component {
 
         sendRequest({name, phone, type, data})
 
-        // const crm = new AmoCRM({
+        // const crm = new AmoCRMButton({
         //     domain: 'tigerwoodby',
         //     auth: {
         //         client_id: '961a92e2-b60e-4c9f-a78b-d6f03f1ea01a', // ID интеграции

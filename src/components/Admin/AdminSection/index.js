@@ -32,6 +32,7 @@ import addVideo from "../icons/add_video.svg";
 import JoditEditor from "jodit-react";
 import api, {host} from "../apiAdmin";
 import ajaxAdmin from "../ajaxAdmin";
+import AmoCRMButton from "../AmoCRMButton";
 
 export default class AdminSection extends React.Component {
 
@@ -203,6 +204,10 @@ export default class AdminSection extends React.Component {
                 }
             </div>
             <div className={"edit"}>
+                {
+                    section === "modal" ? <AmoCRMButton/> : null
+                }
+
                 {!t.modal ? null : <ModalEdit t={t.modal} onChange={(value) => this.changeTranslate("modal", value)}/>}
                 {!t.modal_video ? null : <ModalEdit t={t.modal_video} onChange={(value) => this.changeTranslate("modal_video", value)}/>}
                 {!t.options ? null : <OptionsEdit options={t.options} default_option={t.default_option}
