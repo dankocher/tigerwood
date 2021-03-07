@@ -125,6 +125,7 @@ export default class Section extends React.Component {
                                                      facilities: product.facilities,
                                                      features: product.features,
                                                      included: product.included,
+                                                     color_type: selected,
                                                      picture: api_location + "/products/" + product[selected].picture,
                                                      price: product[selected].price,
                                                      modules: product.modules,
