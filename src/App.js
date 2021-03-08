@@ -1,20 +1,21 @@
 import React from 'react';
 import './styles/App.scss';
-import {Header, Sections} from "./components";
 import ajax, {api_location, isDeploy} from "./ajax";
-import Document from "./components/Document";
-import Modal from "./components/Modal";
-import Admin from "./components/Admin";
 import parseBoolean from "./utils/parseBoolean";
 import {disableScroll, enableScroll} from "./utils/scrollUtilities";
-
-// import Grids from "./components/Grids";
+import {Header, Sections} from "./components";
+// const Header = React.lazy(() => import("./components/Header/Header"));
+// const Sections = React.lazy(() => import("./components/Sections/Sections"));
+const Document = React.lazy(() => import("./components/Document"));
+const Modal = React.lazy(() => import("./components/Modal"));
+const Admin = React.lazy(() => import('./components/Admin'));
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.isAdmin = window.location.pathname === "/admin"
+        this.isAdmin = window.location.pathname === "/admin";
+
         this.state = {
             isMobile: false,
             width: 0,
