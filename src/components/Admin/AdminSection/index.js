@@ -252,7 +252,7 @@ export default class AdminSection extends React.Component {
                             <tr className={"translate"}>
                                 <td>video</td>
                                 <td>
-                                    <DropZone onUpload={name => this.addPicture("video", name)} path={"video"}>
+                                    <DropZone onUpload={name => this.changeTranslate("video", name)} path={"video"}>
                                         <div className="--add-picture -video">
                                             <video>
                                                 <source src={api_location + "/video/" + t.video} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
