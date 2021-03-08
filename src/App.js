@@ -5,11 +5,8 @@ import parseBoolean from "./utils/parseBoolean";
 import {disableScroll, enableScroll} from "./utils/scrollUtilities";
 import {Header, Sections} from "./components";
 import Admin from "./components/Admin";
-// const Header = React.lazy(() => import("./components/Header/Header"));
-// const Sections = React.lazy(() => import("./components/Sections/Sections"));
-const Document = React.lazy(() => import("./components/Document"));
-const Modal = React.lazy(() => import("./components/Modal"));
-// const Admin = React.lazy(() => import('./components/Admin'));
+import Document from "./components/Document";
+import Modal from "./components/Modal";
 
 class App extends React.Component {
 
