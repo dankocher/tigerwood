@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles.scss";
 import Section from "./Section";
-// const Section = React.lazy(() => import("./Section"));
 
 class Sections extends React.Component {
 
@@ -17,5 +16,3 @@ class Sections extends React.Component {
 }
 
 export default Sections;
-
-
