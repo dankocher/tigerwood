@@ -15,13 +15,17 @@ $phone = $data['phone'];
 $text = $data['text'];
 $price = $data['price'];
 
-$type = str_starts_with($phone, "+375 17") || str_starts_with($phone, "+375 (17)") ? "HOME" : "MOB";
+function startsWith($haystack, $needle) {
+    return substr_compare($haystack, $needle, 0, strlen($needle)) === 0;
+}
+
+$type = startsWith($phone, "+375 17") || startsWith($phone, "+375 (17)") ? "HOME" : "MOB";
 
 $data = [
 	[
 		"name" => $text,
 		"price" => intval($price),
-		"pipeline_id" => $config['pipeline_id'],
+		"pipeline_id" => intval($config['pipeline_id']),
 		"_embedded" => [
 			"contacts" => [
 				[
@@ -98,8 +102,12 @@ try
 catch(\Exception $e)
 {
 	// die('Ошибка: ' . $e->getMessage() . PHP_EOL . 'Код ошибки: ' . $e->getCode());
-		$res = ['ok' => false, "error" => 'Ошибка: ' . $e->getMessage() . PHP_EOL . 'Код ошибки: ' . $e->getCode()];
-		echo json_encode($res, JSON_UNESCAPED_UNICODE);
+	$res = [
+		'ok' => false, 
+		"error" => 'Ошибка: ' . $e->getMessage() . PHP_EOL . 'Код ошибки: ' . $e->getCode(), 
+		"data" => $data
+	];
+	echo json_encode($res, JSON_UNESCAPED_UNICODE);
 	die();
 }
 

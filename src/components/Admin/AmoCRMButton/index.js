@@ -14,6 +14,7 @@ class AmoCRMButton extends React.Component {
         client_id: "",
         client_secret: "",
         redirect_uri: "",
+        pipeline_id: "",
     }
 
     componentDidMount() {
@@ -22,8 +23,8 @@ class AmoCRMButton extends React.Component {
 
     getConfig = async () => {
         let res = await ajax("/amocrm_config.json");
-        const {domain, client_id, client_secret, redirect_uri} = res;
-        this.setState({domain, client_id, client_secret, redirect_uri});
+        const {domain, client_id, client_secret, redirect_uri, pipeline_id} = res;
+        this.setState({domain, client_id, client_secret, redirect_uri, pipeline_id});
     }
 
     connect = () => {
@@ -47,7 +48,7 @@ class AmoCRMButton extends React.Component {
     }
 
     render() {
-        const {domain, client_id, client_secret, redirect_uri} = this.state;
+        const {domain, client_id, client_secret, redirect_uri, pipeline_id} = this.state;
         return <div className="-amo-section">
             <table>
                 <tbody>
@@ -61,6 +62,12 @@ class AmoCRMButton extends React.Component {
                     <td>Домен:</td>
                     <td>
                         <input type="text" className="-host" name="domain" value={domain} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ID воронки:</td>
+                    <td>
+                        <input type="text" className="-host" name="pipeline_id" value={pipeline_id} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
                 </tr>
                 <tr>
