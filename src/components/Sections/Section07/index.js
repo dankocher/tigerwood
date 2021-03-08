@@ -19,7 +19,7 @@ export default class Section extends React.Component {
     send = () => {
         const {phone, name} = this.state;
         let warn = false;
-        if (phone === "" || !phone.match(/^\+375 \((17|29|33|44)\) [0-9]{3} [0-9]{2} [0-9]{2}$/)) {
+        if (phone === "" || !phone.match(/^\+375 \((17|29|33|44|25)\) [0-9]{3} [0-9]{2} [0-9]{2}$/)) {
             this.setState({phone_warn: true});
             warn = true
         }
