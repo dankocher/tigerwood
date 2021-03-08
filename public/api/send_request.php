@@ -1,20 +1,55 @@
 <?php
 include "../adminapi/headers.php";
+header("Content-Type: application/json");
 
 
-// $data = json_decode(file_get_contents('php://input'), true);
+$data = json_decode(file_get_contents('php://input'), true);
 
-// $name = $data['name'];
-// $phone = $data['phone'];
-// $text = $data['text'];
-// $price = $data['price'];
+// print_r($data);
 
+
+$config = json_decode(file_get_contents(__DIR__.'/../api/amocrm_config.json'), true);
+
+$name = $data['name'];
+$phone = $data['phone'];
+$text = $data['text'];
+$price = $data['price'];
+
+$type = str_starts_with($phone, "+375 17") || str_starts_with($phone, "+375 (17)") ? "HOME" : "MOB";
+
+$data = [
+	[
+		"name" => $text,
+		"price" => intval($price),
+		"pipeline_id" => $config['pipeline_id'],
+		"_embedded" => [
+			"contacts" => [
+				[
+					"first_name" => $name,
+					"updated_by" => 0,
+					"custom_fields_values" => [
+						[
+							"field_code" => "PHONE",
+							"values" => [
+								[
+									"value" => $phone,
+									"enum_code" => $type
+								]
+							]
+						]
+					]
+				]
+			]
+		]
+	]
+];
+
+
+// echo json_encode($data); die();
 // $res = ['ok' => true];
 // echo json_encode($res, JSON_UNESCAPED_UNICODE);
 
-$data = json_decode(file_get_contents(__DIR__.'/../api/amocrm_config.json'), true);
-
-$subdomain = $data['domain']; 
+$subdomain = $config['domain']; 
 
 $errors = [
 	400 => 'Bad request',
@@ -26,15 +61,14 @@ $errors = [
 	503 => 'Service unavailable',
 ];
 
-echo "<pre>";
-
 $access_token = file_get_contents("../adminapi/___access___token__AMO");
-echo $access_token;
 
-$link = 'https://' . $subdomain . '.amocrm.ru/api/v4/leads'; //Формируем URL для запроса
+// $link = 'https://' . $subdomain . '.amocrm.ru/api/v4/leads'; //Формируем URL для запроса
+$link = 'https://' . $subdomain . '.amocrm.ru/api/v4/leads/complex';
 
 $headers = [
-	'Authorization: Bearer ' . $access_token
+	'Authorization: Bearer ' . $access_token,
+	'Content-Type: application/json'
 ];
 
 $curl = curl_init(); //Сохраняем дескриптор сеанса cURL
@@ -44,6 +78,8 @@ curl_setopt($curl,CURLOPT_USERAGENT,'amoCRM-oAuth-client/1.0');
 curl_setopt($curl,CURLOPT_URL, $link);
 curl_setopt($curl,CURLOPT_HTTPHEADER, $headers);
 curl_setopt($curl,CURLOPT_HEADER, false);
+curl_setopt($curl,CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($curl,CURLOPT_POSTFIELDS, json_encode($data));
 curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, 1);
 curl_setopt($curl,CURLOPT_SSL_VERIFYHOST, 2);
 $out = curl_exec($curl); //Инициируем запрос к API и сохраняем ответ в переменную
@@ -67,6 +103,5 @@ catch(\Exception $e)
 
 $response = json_decode($out, true);
 
-var_dump($response);
-
-echo "</pre>";
+$res = ['ok' => true];
+echo json_encode($res, JSON_UNESCAPED_UNICODE);

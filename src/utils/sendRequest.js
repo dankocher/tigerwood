@@ -12,7 +12,7 @@ const sendRequest = async ({name, phone, type, data}) => {
                 text += " " + data.t.options.find(c => c.id === data.color_type).value;
             }
             if (data.price) {
-                text += ` (${data.price}}`;
+                text += ` (${data.price})`;
                 if (data.t && data.t.USD_BYN) {
                     const USD_BYN = Number(data.t.USD_BYN);
                     const dollars = data.price.replace(/\D/g, '');

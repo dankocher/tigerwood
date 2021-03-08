@@ -10,8 +10,9 @@ if ($pass === sha1($_REQUEST['pass'])) {
     $zip = new ZipArchive;
     if ($zip->open('build.zip') === TRUE) {
         xcopy("../api", "./temp/api/");
-        $zip->extractTo('files/');
+        $zip->extractTo('../');
         $zip->close();
+        xcopy("./temp/api/", "../api");
         echo 'Ready<br>';
     } else {
         echo 'Error<br>';
