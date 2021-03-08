@@ -72,6 +72,8 @@
     cursor: pointer;
     width: calc(100% - 20px);
     box-sizing: border-box;
+    flex-direction: column;
+    color: gray;
     &:hover {
       opacity: 0.8;
     }

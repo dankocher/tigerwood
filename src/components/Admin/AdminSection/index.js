@@ -259,6 +259,7 @@ export default class AdminSection extends React.Component {
                                             </video>
                                             <div className="-hover-pic-container">
                                                 <img className={'hover-pic'} src={addVideo} alt=""/>
+                                                700x522
                                             </div>
                                         </div>
                                     </DropZone>
@@ -272,6 +273,7 @@ export default class AdminSection extends React.Component {
                                             <img className={'-picture -preview'} src={api_location + "/video/" + t.preview || addPicture} alt=""/>
                                             <div className="-hover-pic-container">
                                                 <img className={'hover-pic'} src={addPicture} alt=""/>
+                                                700x522
                                             </div>
                                         </div>
                                     </DropZone>

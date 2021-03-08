@@ -42,6 +42,7 @@ class ShowRumItem extends React.Component {
                         <img className={'show-rum-picture'} src={api_location + "/show-rum/" + show_rum.picture || addPicture} alt=""/>
                         <div className="-hover-pic-container">
                             <img className={'hover-pic'} src={addPicture} alt=""/>
+                            702x526
                         </div>
                     </div>
                 </DropZone>

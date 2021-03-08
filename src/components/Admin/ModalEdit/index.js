@@ -62,6 +62,7 @@ class ModalEdit extends React.Component {
                                         <img className={'-picture'} src={api_location + "/pictures/" + t.picture || addPicture} alt=""/>
                                         <div className="-hover-pic-container">
                                             <img className={'hover-pic'} src={addPicture} alt=""/>
+                                            484x810
                                         </div>
                                     </div>
                                 </DropZone>
@@ -80,6 +81,7 @@ class ModalEdit extends React.Component {
                                         </video>
                                         <div className="-hover-pic-container">
                                             <img className={'hover-pic'} src={addVideo} alt=""/>
+                                            700x522
                                         </div>
                                     </div>
                                 </DropZone>
@@ -93,6 +95,7 @@ class ModalEdit extends React.Component {
                                         <img className={'-picture'} src={api_location + "/video/" + t.preview || addPicture} alt=""/>
                                         <div className="-hover-pic-container">
                                             <img className={'hover-pic'} src={addPicture} alt=""/>
+                                            700x522
                                         </div>
                                     </div>
                                 </DropZone>

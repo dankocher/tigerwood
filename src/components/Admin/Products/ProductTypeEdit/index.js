@@ -82,7 +82,8 @@ class ProductTypeEdit extends React.Component {
             </SortableContainer>
             <DropZone onUpload={this.addPicture} path={"products"}>
                 <div className="add-picture">
-                    <img src={addPicture} alt=""/>
+                    <div><img src={addPicture} alt=""/></div>
+                    <div>591x591</div>
                 </div>
             </DropZone>
         </div>

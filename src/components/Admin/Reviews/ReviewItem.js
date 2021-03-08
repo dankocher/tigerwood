@@ -78,6 +78,7 @@ class ReviewItem extends React.Component {
                 <DropZone onUpload={this.addPicture} path={"reviews"}>
                     <div className="add-picture">
                         <img src={addPicture} alt=""/>
+                        415x738
                     </div>
                 </DropZone>
             </div>
