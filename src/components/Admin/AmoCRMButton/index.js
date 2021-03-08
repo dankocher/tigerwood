@@ -52,21 +52,27 @@ class AmoCRMButton extends React.Component {
             <table>
                 <tbody>
                 <tr>
+                    <td></td>
+                    <td>
+                        <b>Настройки для amoCRM</b><br/><br/>
+                    </td>
+                </tr>
+                <tr>
                     <td>Домен:</td>
                     <td>
                         <input type="text" className="-host" name="domain" value={domain} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
                 </tr>
                 <tr>
-                    <td>ID интеграции:</td>
-                    <td>
-                        <input type="text" className="-host" name="client_id" value={client_id} onChange={this.onChange} onBlur={this.saveToServer}/>
-                    </td>
-                </tr>
-                <tr>
                     <td>Секретный ключ:</td>
                     <td>
                         <input type="text" className="-host" name="client_secret" value={client_secret} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ID интеграции:</td>
+                    <td>
+                        <input type="text" className="-host" name="client_id" value={client_id} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
                 </tr>
                 <tr>

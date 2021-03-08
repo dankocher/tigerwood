@@ -1,14 +1,12 @@
 import React from 'react';
 import './styles/App.scss';
 import {Header, Sections} from "./components";
-import Test from "./Test";
 import ajax, {api_location, isDeploy} from "./ajax";
 import Document from "./components/Document";
 import Modal from "./components/Modal";
-import disableScroll from 'disable-scroll';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import Admin from "./components/Admin";
 import parseBoolean from "./utils/parseBoolean";
+import {disableScroll, enableScroll} from "./utils/scrollUtilities";
 
 // import Grids from "./components/Grids";
 
@@ -105,20 +103,9 @@ class App extends React.Component {
         this.setState({modal});
 
         if(modal.show) {
-            // if (this.state.isMobile) {
-            //     disableBodyScroll(document.body);
-            // } else {
-            //     disableScroll.on();
-            // }
-            // document.body.style.top = window.scrollY + "px";
-            // document.body.className = "non-scroll";
-            // document.querySelector("#root .App .header").style.marginRight = "17px";
-            document.body.style.overflowY = "hidden";
+            disableScroll();
         } else {
-            // enableBodyScroll(document.body)
-            // disableScroll.off();
-            // document.body.className = ""
-            document.body.style.overflowY = "auto";
+            enableScroll();
         }
     }
 

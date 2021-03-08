@@ -3,6 +3,7 @@ import "./styles.scss";
 import ProductItem from "./ProductItem";
 import {sortableContainer} from 'react-sortable-hoc';
 import ProductEdit from "./ProductEdit";
+import {disableScroll, enableScroll} from "../../../utils/scrollUtilities";
 
 export default class Products extends React.Component {
 
@@ -19,9 +20,9 @@ export default class Products extends React.Component {
     onSelect = selected => {
         this.setState({selected})
         if (selected === null) {
-            document.body.style.overflowY = "auto";
+            enableScroll();
         } else {
-            document.body.style.overflowY = "hidden";
+            disableScroll();
         }
     }
 

@@ -28,6 +28,7 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   background-color: #F1F1F1;
+  overflow-y: overlay;
   &.non-scroll {
     position: fixed;
     overflow-y:scroll;
@@ -46,4 +47,21 @@ code {
 
 * {
   outline: none;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #88888880;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

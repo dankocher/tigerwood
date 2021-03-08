@@ -33,6 +33,7 @@ import JoditEditor from "jodit-react";
 import api, {host} from "../apiAdmin";
 import ajaxAdmin from "../ajaxAdmin";
 import AmoCRMButton from "../AmoCRMButton";
+import {disableScroll, enableScroll} from "../../../utils/scrollUtilities";
 
 export default class AdminSection extends React.Component {
 
@@ -131,12 +132,12 @@ export default class AdminSection extends React.Component {
 
     editDocument = async editDocument => {
         if(editDocument !== null) {
-            document.body.style.overflowY = "hidden";
+            disableScroll();
             let doc = await ajax("/documents/" + editDocument + ".json");
             this.temporalDocument = doc.text;
             this.setState({documentValue: doc.text, editDocument})
         } else {
-            document.body.style.overflowY = "auto";
+            enableScroll();
             this.setState({editDocument: null})
         }
     }
@@ -285,7 +286,7 @@ export default class AdminSection extends React.Component {
                             <td>
                                 <DropZone onUpload={(name) => this.changeTranslate("filename", name)} path={""} notRename={true}>
                                     <div className="--add-picture -preview">
-                                        Перетащите файлы сюда
+                                        Перетащите файл сюда
                                         <div className="-hover-pic-container">
                                             <img className={'hover-pic'} src={addFile} alt=""/>
                                         </div>
