@@ -97,9 +97,11 @@ try
 }
 catch(\Exception $e)
 {
-	die('Ошибка: ' . $e->getMessage() . PHP_EOL . 'Код ошибки: ' . $e->getCode());
+	// die('Ошибка: ' . $e->getMessage() . PHP_EOL . 'Код ошибки: ' . $e->getCode());
+		$res = ['ok' => false, "error" => 'Ошибка: ' . $e->getMessage() . PHP_EOL . 'Код ошибки: ' . $e->getCode()];
+		echo json_encode($res, JSON_UNESCAPED_UNICODE);
+	die();
 }
-
 
 $response = json_decode($out, true);
 

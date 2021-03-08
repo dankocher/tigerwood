@@ -24,10 +24,15 @@ const sendRequest = async ({name, phone, type, data}) => {
         }
     }
 
-
     // console.log({name, phone, text, price})
 
     let res = await ajaxAdmin(api.sendRequest, {name, phone, text, price});
+    if (res.ok) {
+        return true;
+    } else {
+        alert(res.error);
+        return false;
+    }
 }
 
 export default sendRequest;
