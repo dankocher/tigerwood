@@ -27,6 +27,7 @@
         opacity: 0;
       }
       &.not-animated {
+        transition: unset !important;
         opacity: 1 !important;
       }
     }
