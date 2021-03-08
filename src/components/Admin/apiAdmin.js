@@ -1,7 +1,7 @@
 import {isProduction} from "../../ajax";
 
 const host = {
-    uri: isProduction ? "/" : "http://localhost/"
+    uri: isProduction ? window.location.origin + "/" : "http://localhost/"
     // uri: "https://mf.goodstudio.by"
 };
 
