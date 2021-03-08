@@ -4,11 +4,12 @@ import ajax, {api_location, isDeploy} from "./ajax";
 import parseBoolean from "./utils/parseBoolean";
 import {disableScroll, enableScroll} from "./utils/scrollUtilities";
 import {Header, Sections} from "./components";
+import Admin from "./components/Admin";
 // const Header = React.lazy(() => import("./components/Header/Header"));
 // const Sections = React.lazy(() => import("./components/Sections/Sections"));
 const Document = React.lazy(() => import("./components/Document"));
 const Modal = React.lazy(() => import("./components/Modal"));
-const Admin = React.lazy(() => import('./components/Admin'));
+// const Admin = React.lazy(() => import('./components/Admin'));
 
 class App extends React.Component {
 
@@ -34,16 +35,17 @@ class App extends React.Component {
 
 
     componentDidMount() {
-        this.getTranslates();
-        this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
         window.addEventListener('scroll', this.handleScroll);
+        this.preload();
+    }
+
+    preload = () => {
+        this.getTranslates();
+        this.updateWindowDimensions();
         let path = window.location.pathname;
         if (path === "/admin") {
             return;
-        }
-        if (isDeploy) {
-            path = path.replace("/tigerwood", "");
         }
         switch (path) {
             case "/": return this.setState({currentPage: ""});
@@ -51,25 +53,25 @@ class App extends React.Component {
             case "/contract_terms": return this.setState({currentPage: "contract_terms"});
             case "/delivery": return this.setState({currentPage: "delivery"});
             case "/payments": return this.setState({currentPage: "payments"});
-
             default:
                 window.location = isDeploy ? "/tigerwood" : "/"
         }
+
     }
     getTranslates = async () => {
         let translates = await ajax(`/translates/ru.json`);
-        this.preload(translates.preload);
+        // this.preload(translates.preload);
         this.setState({translates});
     }
 
-    preload = (pictures) => {
-        if(pictures) {
-            pictures.forEach((picture) => {
-                const img = new Image();
-                img.src = api_location + "/" + picture;
-            });
-        }
-    }
+    // preload = (pictures) => {
+    //     if(pictures) {
+    //         pictures.forEach((picture) => {
+    //             const img = new Image();
+    //             img.src = api_location + "/" + picture;
+    //         });
+    //     }
+    // }
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
         window.removeEventListener('scroll', this.handleScroll);
@@ -113,7 +115,7 @@ class App extends React.Component {
 
   render() {
     const {isMobile, width, height, scrollDirection, translates, currentPage, modal} = this.state;
-    if (translates === null) return null;
+    if (translates === null) return <div className={"app-preloading"}/>;
 
     const animate = parseBoolean(translates.header.site_animations);
     // const animate = false;

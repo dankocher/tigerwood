@@ -1,7 +1,10 @@
 @import "./fonts";
 @import "./theme";
 @import "tanimate";
-
+.app-preloading {
+  width: 100vw;
+  height: 100vh;
+}
 .App {
   text-align: center;
   width: 100%;
