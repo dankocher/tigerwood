@@ -91,7 +91,7 @@ $errors = [
 $access_token = file_get_contents("../adminapi/___access___token__AMO");
 
 // $link = 'https://' . $subdomain . '.amocrm.ru/api/v4/leads'; //Формируем URL для запроса
-$link = 'https://' . $subdomain . '.amocrm.ru/api/v4/leads/complex?with=source_id';
+$link = 'https://' . $subdomain . '.amocrm.ru/api/v4/leads/complex';
 
 $headers = [
 	'Authorization: Bearer ' . $access_token,
