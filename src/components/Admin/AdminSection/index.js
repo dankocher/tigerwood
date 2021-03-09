@@ -215,6 +215,21 @@ export default class AdminSection extends React.Component {
                                                onChange={this.changeTranslate}/>}
                 <table className="translates">
                     <tbody>
+                    {
+                        ["section_7", "modal"].indexOf(section) === -1 ? null :
+                        <tr className="translate">
+                            <td>Тег для CRM</td>
+                            <td>
+                                {/*{alias === "video" ? <span>Видео нужно вручную скопировать в папку <b>api/video</b> на сервере и вставить название в след. поле</span> : null}*/}
+                                {/*<textarea value={t[alias]} onChange={(e) => this.changeTranslate(alias, e.target.value)}/>*/}
+                                <AutoResizeTextarea className={"translate-text"}
+                                                    value={(t.tag || "").toString()}
+                                                    onChange={(value) => this.changeTranslate("tag", value)}
+                                                    minHeight={20}
+                                                    maxHeight={500}/>
+                            </td>
+                        </tr>
+                    }
                     {   t.site_animations === undefined ? null :
                         <tr className={"translate"}>
                             <td>site_animations</td>
@@ -227,7 +242,7 @@ export default class AdminSection extends React.Component {
                         Object.keys(t).map(alias => (
                             alias === "modal" || alias === "modal_video"
                             || alias === "options" || alias === "default_option" || alias === "video" || alias === "preview"
-                            || alias === "filename" || alias === "site_animations"
+                            || alias === "filename" || alias === "site_animations" || alias === "tag"
                                 ? null :
                                 <tr key={alias} className="translate">
                                     <td>{alias}</td>

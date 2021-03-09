@@ -35,9 +35,21 @@ class ModalEdit extends React.Component {
             <div className="modal-name">Модальное окно</div>
             <table className="translates">
                 <tbody>
+                <tr className="translate">
+                    <td>Тег для CRM</td>
+                    <td>
+                        {/*{alias === "video" ? <span>Видео нужно вручную скопировать в папку <b>api/video</b> на сервере и вставить название в след. поле</span> : null}*/}
+                        {/*<textarea value={t[alias]} onChange={(e) => this.changeTranslate(alias, e.target.value)}/>*/}
+                        <AutoResizeTextarea className={"translate-text"}
+                                            value={(t.tag || "").toString()}
+                                            onChange={(value) => this.changeTranslate("tag", value)}
+                                            minHeight={20}
+                                            maxHeight={500}/>
+                    </td>
+                </tr>
                 {
                     Object.keys(t).map(alias => (
-                        alias === "filename" || alias === "picture" || alias === "preview" || alias === "video" ? null :
+                        alias === "filename" || alias === "picture" || alias === "preview" || alias === "video" || alias === "tag" ? null :
                             <tr key={alias} className="translate">
                                 <td>{alias}</td>
                                 <td>

@@ -66,6 +66,7 @@ class ReviewItem extends React.Component {
         const {review, t} = this.props;
         return <div className={'review-item-content'}>
             <input value={review.name || ""} placeholder={"Название"} onChange={e => this.onChangeParam("name", e.target.value)}/>
+            <input value={review.tag || ""} placeholder={"ID комплекса"} onChange={e => this.onChangeParam("tag", e.target.value)}/>
             <div className="-r-content">
                 <SortablePicturesContainer onSortEnd={this.sortPictures} lockAxis={"x"} axis={"x"} useDragHandle>
                     {

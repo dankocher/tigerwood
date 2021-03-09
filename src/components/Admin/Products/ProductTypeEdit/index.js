@@ -10,6 +10,14 @@ import apiAdmin from "../../apiAdmin";
 
 class ProductTypeEdit extends React.Component {
 
+    onChangeParam = (param, value) => {
+        let data = {
+            ...this.props.data,
+            [param]: value
+        }
+
+        this.props.onChange(this.props.type, data)
+    }
 
     changePrice = e => {
         let value = e.target.value;
@@ -73,6 +81,7 @@ class ProductTypeEdit extends React.Component {
                     <input value={data.price.replace(/\D/g,'')} onChange={this.changePrice}/>
                 }USD</div>
             </div>
+            <input value={data.tag || ""} placeholder={"ID комплекса"} onChange={e => this.onChangeParam("tag", e.target.value)}/>
             <SortableContainer onSortEnd={this.sortPictures} useDragHandle lockAxis={"y"}>
                 {
                     pictures.map((p, i) => (
