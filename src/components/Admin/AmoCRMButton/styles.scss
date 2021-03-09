@@ -5,7 +5,36 @@
   input {
     width: 600px;
   }
-  button {
-
+  .-buttons {
+    height: 30px;
+    display: inline-flex;
+    button {
+      cursor: pointer;
+      height: 100%;
+      font-size: 16px;
+    }
+    .status {
+      //height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 3px;
+      padding: 1px 5px;
+      font-size: 16px;
+      border-radius: 3px;
+      &.-work {
+        border: 1px solid #24D26D;
+        background-color: #24D26D80;
+        color: green;
+        font-weight: bold;
+      }
+      &.-error {
+        border-radius: 3px;
+        border: 1px solid #EB5757;
+        background-color: #EB575780;
+        color: red;
+        font-weight: bold;
+      }
+    }
   }
 }

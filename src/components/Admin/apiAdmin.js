@@ -12,6 +12,7 @@ const api = {
     saveJson: {method: "POST", uri: "adminapi/save_json.php"},
     deletePicture: {method: "POST", uri: "adminapi/delete_picture.php"},
     sendRequest: {method: "POST", uri: "api/send_request.php"},
+    checkStatus: {method: "POST", uri: "adminapi/check_status.php"},
 }
 
 export default api;

@@ -15,16 +15,28 @@ class AmoCRMButton extends React.Component {
         client_secret: "",
         redirect_uri: "",
         pipeline_id: "",
+        status: null,
+        error: ""
     }
 
     componentDidMount() {
         this.getConfig()
+        this.checkService();
     }
 
     getConfig = async () => {
         let res = await ajax("/amocrm_config.json");
         const {domain, client_id, client_secret, redirect_uri, pipeline_id} = res;
         this.setState({domain, client_id, client_secret, redirect_uri, pipeline_id});
+    }
+
+    checkService = async () => {
+        let res = await ajaxAdmin(api.checkStatus);
+        if (res.ok) {
+            this.setState({status: true});
+        } else {
+            this.setState({status: false, error: res.error});
+        }
     }
 
     connect = () => {
@@ -39,7 +51,9 @@ class AmoCRMButton extends React.Component {
     }
 
     saveToServer = async () => {
-        let res = await ajaxAdmin(api.saveJson, {file: "amocrm_config.json", data: {...this.state}})
+        const {domain, client_id, client_secret, redirect_uri, pipeline_id} = this.state;
+
+        let res = await ajaxAdmin(api.saveJson, {file: "amocrm_config.json", data: {domain, client_id, client_secret, redirect_uri, pipeline_id}})
     }
 
     onChange = async (e) => {
@@ -48,7 +62,7 @@ class AmoCRMButton extends React.Component {
     }
 
     render() {
-        const {domain, client_id, client_secret, redirect_uri, pipeline_id} = this.state;
+        const {domain, client_id, client_secret, redirect_uri, pipeline_id, status, error} = this.state;
         return <div className="-amo-section">
             <table>
                 <tbody>
@@ -91,7 +105,11 @@ class AmoCRMButton extends React.Component {
                 <tr>
                     <td></td>
                     <td>
-                        <button onClick={this.connect}>Пройти верификацию</button>
+                        <div className={'-buttons'}>
+                            <button onClick={this.connect}>Пройти верификацию</button>
+                            {status === null ? <span className={"status"}>Идет проверка...</span> :
+                                <span className={`status ${status ? '-work' : '-error'}`}>{status === true ? "Интеграция работает!" : error}</span>}
+                        </div>
                     </td>
                 </tr>
                 </tbody>
