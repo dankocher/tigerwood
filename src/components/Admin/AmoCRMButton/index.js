@@ -15,6 +15,8 @@ class AmoCRMButton extends React.Component {
         client_secret: "",
         redirect_uri: "",
         pipeline_id: "",
+        source_id: "",
+        source: "",
         status: null,
         error: ""
     }
@@ -26,8 +28,8 @@ class AmoCRMButton extends React.Component {
 
     getConfig = async () => {
         let res = await ajax("/amocrm_config.json");
-        const {domain, client_id, client_secret, redirect_uri, pipeline_id} = res;
-        this.setState({domain, client_id, client_secret, redirect_uri, pipeline_id});
+        const {domain, client_id, client_secret, redirect_uri, pipeline_id, source_id, source} = res;
+        this.setState({domain, client_id, client_secret, redirect_uri, pipeline_id, source_id, source});
     }
 
     checkService = async () => {
@@ -51,9 +53,9 @@ class AmoCRMButton extends React.Component {
     }
 
     saveToServer = async () => {
-        const {domain, client_id, client_secret, redirect_uri, pipeline_id} = this.state;
+        const {domain, client_id, client_secret, redirect_uri, pipeline_id, source_id, source} = this.state;
 
-        let res = await ajaxAdmin(api.saveJson, {file: "amocrm_config.json", data: {domain, client_id, client_secret, redirect_uri, pipeline_id}})
+        let res = await ajaxAdmin(api.saveJson, {file: "amocrm_config.json", data: {domain, client_id, client_secret, redirect_uri, pipeline_id, source_id, source}})
     }
 
     onChange = async (e) => {
@@ -62,7 +64,7 @@ class AmoCRMButton extends React.Component {
     }
 
     render() {
-        const {domain, client_id, client_secret, redirect_uri, pipeline_id, status, error} = this.state;
+        const {domain, client_id, client_secret, redirect_uri, pipeline_id, status, source_id, source, error} = this.state;
         return <div className="-amo-section">
             <table>
                 <tbody>
@@ -76,6 +78,18 @@ class AmoCRMButton extends React.Component {
                     <td>Домен:</td>
                     <td>
                         <input type="text" className="-host" name="domain" value={domain} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Название источника:</td>
+                    <td>
+                        <input type="text" className="-host" name="source" value={source} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ID источника:</td>
+                    <td>
+                        <input type="text" className="-host" name="source_id" value={source_id} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
                 </tr>
                 <tr>
