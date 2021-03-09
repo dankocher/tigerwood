@@ -1,6 +1,6 @@
 @import "../../../../styles/theme";
 
-$product-height: 347px;
+$product-height: 397px;
 $product-name: 47px;
 $product-button: 58px;
 $product-image: $product-height - $product-name - $product-button - 10px;
@@ -44,7 +44,7 @@ $product-image: $product-height - $product-name - $product-button - 10px;
       padding: 10px 0;
       box-sizing: border-box;
       img {
-        height: 190px;
+        height: 270px;
       }
     }
 
@@ -96,7 +96,7 @@ $product-image: $product-height - $product-name - $product-button - 10px;
         padding-left: 20px;
         font-size: 18px;
         line-height: 26px;
-        max-height: 170px;
+        max-height: 220px;
         overflow: hidden;
       }
       .-p-d-price {
