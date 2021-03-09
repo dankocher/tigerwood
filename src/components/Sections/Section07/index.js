@@ -37,7 +37,7 @@ export default class Section extends React.Component {
             name_warn: false,
         });
         const {header_1, header_2, header_3} = this.props.t;
-        sendRequest({name, phone, data: {title: `${header_1} ${header_2} ${header_3}`.replace(/\n/gmi, "")}})
+        sendRequest({name, phone, data: {title: `${header_1} ${header_2} ${header_3}`.replace(/\n/gmi, ""), ...this.props.t}})
         window.open(api_location + "/" + this.props.t.filename)
     }
 
