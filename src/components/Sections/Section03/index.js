@@ -130,6 +130,7 @@ export default class Section extends React.Component {
                                                      price: product[selected].price,
                                                      modules: product.modules,
                                                      pictures: product[selected].pictures || [product[selected].picture],
+                                                     tag: product[selected].tag,
                                                      t
                                                 }}
                                                  index={i} t={t}/>))

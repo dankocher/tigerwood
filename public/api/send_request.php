@@ -12,7 +12,7 @@ $config = json_decode(file_get_contents(__DIR__.'/../api/amocrm_config.json'), t
 
 $name = $data['name'];
 $phone = $data['phone'];
-$text = $data['text'];
+$tag = isset($data['tag']) ? $data['tag'] : $config['source'];
 $price = $data['price'];
 
 function startsWith($haystack, $needle) {
@@ -23,9 +23,27 @@ $type = startsWith($phone, "+375 17") || startsWith($phone, "+375 (17)") ? "HOME
 
 $data = [
 	[
-		"name" => $text,
+		"name" => $config['source'],
 		"price" => intval($price),
 		"pipeline_id" => intval($config['pipeline_id']),
+		"custom_fields_values" => [
+			[
+				"field_id" => intval($config['product_field_id']),
+				"values" => [ 
+					[
+						"value" => $config['product_field_value']
+					] 
+				]
+			],
+			[
+				"field_id" => intval($config['source_field_id']),
+				"values" => [ 
+					[
+						"value" => $config['source_filed_value']
+					] 
+				]
+			]
+		],
 		"_embedded" => [
 			"contacts" => [
 				[
@@ -42,6 +60,11 @@ $data = [
 							]
 						]
 					]
+				]
+			],
+			"tags" => [
+				[
+					"name" => $tag
 				]
 			]
 		]
@@ -68,7 +91,7 @@ $errors = [
 $access_token = file_get_contents("../adminapi/___access___token__AMO");
 
 // $link = 'https://' . $subdomain . '.amocrm.ru/api/v4/leads'; //Формируем URL для запроса
-$link = 'https://' . $subdomain . '.amocrm.ru/api/v4/leads/complex';
+$link = 'https://' . $subdomain . '.amocrm.ru/api/v4/leads/complex?with=source_id';
 
 $headers = [
 	'Authorization: Bearer ' . $access_token,

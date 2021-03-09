@@ -15,7 +15,8 @@ class AmoCRMButton extends React.Component {
         client_secret: "",
         redirect_uri: "",
         pipeline_id: "",
-        source_id: "",
+        product_field_id: "",
+        product_field_value: "",
         source: "",
         status: null,
         error: ""
@@ -28,8 +29,7 @@ class AmoCRMButton extends React.Component {
 
     getConfig = async () => {
         let res = await ajax("/amocrm_config.json");
-        const {domain, client_id, client_secret, redirect_uri, pipeline_id, source_id, source} = res;
-        this.setState({domain, client_id, client_secret, redirect_uri, pipeline_id, source_id, source});
+        this.setState({...res});
     }
 
     checkService = async () => {
@@ -53,9 +53,9 @@ class AmoCRMButton extends React.Component {
     }
 
     saveToServer = async () => {
-        const {domain, client_id, client_secret, redirect_uri, pipeline_id, source_id, source} = this.state;
+        const {domain, client_id, client_secret, redirect_uri, pipeline_id, product_field_id, product_field_value, source} = this.state;
 
-        let res = await ajaxAdmin(api.saveJson, {file: "amocrm_config.json", data: {domain, client_id, client_secret, redirect_uri, pipeline_id, source_id, source}})
+        let res = await ajaxAdmin(api.saveJson, {file: "amocrm_config.json", data: {...this.state}})
     }
 
     onChange = async (e) => {
@@ -64,7 +64,7 @@ class AmoCRMButton extends React.Component {
     }
 
     render() {
-        const {domain, client_id, client_secret, redirect_uri, pipeline_id, status, source_id, source, error} = this.state;
+        const {domain, client_id, client_secret, redirect_uri, pipeline_id, status, product_field_id, product_field_value, error, source, source_field_id, source_filed_value} = this.state;
         return <div className="-amo-section">
             <table>
                 <tbody>
@@ -75,7 +75,8 @@ class AmoCRMButton extends React.Component {
                     </td>
                 </tr>
                 <tr>
-                    <td>Домен:</td>
+                    <td>
+                        Домен:</td>
                     <td>
                         <input type="text" className="-host" name="domain" value={domain} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
@@ -87,14 +88,38 @@ class AmoCRMButton extends React.Component {
                     </td>
                 </tr>
                 <tr>
-                    <td>ID источника:</td>
                     <td>
-                        <input type="text" className="-host" name="source_id" value={source_id} onChange={this.onChange} onBlur={this.saveToServer}/>
+                        ID поле источника:</td>
+                    <td>
+                        <hr/>
+                        <input type="text" className="-host" name="source_field_id" value={source_field_id} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
                 </tr>
                 <tr>
-                    <td>ID воронки:</td>
+                    <td>Название источника:</td>
                     <td>
+                        <input type="text" className="-host" name="source_filed_value" value={source_filed_value} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ID поле продукта:</td>
+                    <td>
+                        <hr/>
+                        <input type="text" className="-host" name="product_field_id" value={product_field_id} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Тип продукта:</td>
+                    <td>
+                        <input type="text" className="-host" name="product_field_value" value={product_field_value} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ID воронки:</td>
+                    <td>
+                        <hr/>
                         <input type="text" className="-host" name="pipeline_id" value={pipeline_id} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
                 </tr>
