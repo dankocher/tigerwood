@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   .-pictures {
-    height: 70%;
+    height: 60%;
     width: 100%;
     display: flex;
     flex: 1;
@@ -93,6 +93,7 @@
       justify-content: flex-start;
       align-items: flex-start;
       align-content: flex-start;
+      flex-wrap: wrap;
       width: 100%;
       .-name {
         font-family: $font-Nunito-ExtraBold;
@@ -135,6 +136,7 @@
       box-sizing: border-box;
       white-space: pre-wrap;
       padding-right: 80px;
+      flex-wrap: wrap;
       i {
         margin-right: 14px;
       }
