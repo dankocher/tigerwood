@@ -4,6 +4,7 @@ import "./styles.scss";
 import ButtonArrow from "../../ButtonArrow";
 import {api_location} from "../../../ajax";
 import sendRequest from "../../../utils/sendRequest";
+import picture from "./images/s7-pic.png"
 
 const SECTION_NUMBER = "07"
 
@@ -55,6 +56,7 @@ export default class Section extends React.Component {
 
         return (
             <div className={`section --s${SECTION_NUMBER} ${this.props.animated}`}>
+                <img src={picture} className={"-s7-picture"} alt=""/>
                 <div className={`---content`}>
                     <div className="-s7-header">
                         <div className="-header-1 slideInDown delay1">{t.header_1}</div>
