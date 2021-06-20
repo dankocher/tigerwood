@@ -7,6 +7,7 @@ import LeftMenu from "./LeftMenu";
 import AdminSection from "./AdminSection";
 import arrayMove from "array-move";
 import ajax from "../../ajax";
+import AmoCRMButton from "./AmoCRMButton";
 
 const SESSION_NAME = "tgw_session";
 const SECTION_NAME = "tgw_section";
@@ -168,7 +169,7 @@ class Admin extends React.Component {
         const {session, section, showButtonSave, products, reviews, show_rums} = this.state;
 
         return <div className="Admin">
-            {   !session ?
+            {   session ?
                 <Login onLogin={this.checkSession}/>
                 :
                 <div className={"admin-panel"}>
@@ -183,6 +184,7 @@ class Admin extends React.Component {
                                     {section === "products" || section === "reviews" || section === "show-rums" ?
                                         <button className="add-item" onClick={this.add}>Добавить</button> : null
                                     }
+                                    <AmoCRMButton hideInputs={true}/>
                                 </div>
                                 <div className="right-side">
                                     {showButtonSave ? <button onClick={() => this.saveToServer()}>Сохранить</button> : null}

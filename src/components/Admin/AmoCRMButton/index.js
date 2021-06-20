@@ -65,82 +65,91 @@ class AmoCRMButton extends React.Component {
 
     render() {
         const {domain, client_id, client_secret, redirect_uri, pipeline_id, status, product_field_id, product_field_value, error, source, source_field_id, source_filed_value} = this.state;
+        if (this.props.hideInputs) {
+            return <div className="-amo-section" style={{backgroundColor: "transparent"}}>
+                <div className={'-buttons'}>
+                    {status ? null : <button onClick={this.connect}>Пройти верификацию</button>}
+                    {status === null ? <span className={"status"}>Идет проверка...</span> :
+                        <span className={`status ${status ? '-work' : '-error'}`}>{status === true ? "Интеграция работает!" : error}</span>}
+                </div>
+            </div>
+        }
         return <div className="-amo-section">
             <table>
                 <tbody>
-                <tr>
-                    <td></td>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <b>Настройки для amoCRM</b><br/><br/>
+                        </td>
+                    </tr>
+                    <tr>
                     <td>
-                        <b>Настройки для amoCRM</b><br/><br/>
+                    Домен:</td>
+                    <td>
+                    <input type="text" className="-host" name="domain" value={domain} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
-                </tr>
-                <tr>
-                    <td>
-                        Домен:</td>
-                    <td>
-                        <input type="text" className="-host" name="domain" value={domain} onChange={this.onChange} onBlur={this.saveToServer}/>
-                    </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>Название источника:</td>
                     <td>
-                        <input type="text" className="-host" name="source" value={source} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    <input type="text" className="-host" name="source" value={source} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>
-                        ID поле источника:</td>
+                    ID поле источника:</td>
                     <td>
-                        <hr/>
-                        <input type="text" className="-host" name="source_field_id" value={source_field_id} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    <hr/>
+                    <input type="text" className="-host" name="source_field_id" value={source_field_id} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>Название источника:</td>
                     <td>
-                        <input type="text" className="-host" name="source_filed_value" value={source_filed_value} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    <input type="text" className="-host" name="source_filed_value" value={source_filed_value} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>
-                        ID поле продукта:</td>
+                    ID поле продукта:</td>
                     <td>
-                        <hr/>
-                        <input type="text" className="-host" name="product_field_id" value={product_field_id} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    <hr/>
+                    <input type="text" className="-host" name="product_field_id" value={product_field_id} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>Тип продукта:</td>
                     <td>
-                        <input type="text" className="-host" name="product_field_value" value={product_field_value} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    <input type="text" className="-host" name="product_field_value" value={product_field_value} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>
-                        ID воронки:</td>
+                    ID воронки:</td>
                     <td>
-                        <hr/>
-                        <input type="text" className="-host" name="pipeline_id" value={pipeline_id} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    <hr/>
+                    <input type="text" className="-host" name="pipeline_id" value={pipeline_id} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>Секретный ключ:</td>
                     <td>
-                        <input type="text" className="-host" name="client_secret" value={client_secret} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    <input type="text" className="-host" name="client_secret" value={client_secret} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>ID интеграции:</td>
                     <td>
-                        <input type="text" className="-host" name="client_id" value={client_id} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    <input type="text" className="-host" name="client_id" value={client_id} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
                     <td>URL переадрезации:</td>
                     <td>
-                        <input type="text" className="-host" name="redirect_uri" value={redirect_uri} onChange={this.onChange} onBlur={this.saveToServer}/>
+                    <input type="text" className="-host" name="redirect_uri" value={redirect_uri} onChange={this.onChange} onBlur={this.saveToServer}/>
                     </td>
-                </tr>
+                    </tr>
                 <tr>
                     <td></td>
                     <td>
