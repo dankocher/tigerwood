@@ -47,8 +47,8 @@ class App extends React.Component {
             return;
         }
         switch (path) {
-            case "/": return this.setState({currentPage: "congratulations"});
-            // case "/": return this.setState({currentPage: ""});
+            // case "/": return this.setState({currentPage: "congratulations"});
+            case "/": return this.setState({currentPage: ""});
             case "/ordering": return this.setState({currentPage: "ordering"});
             case "/contract_terms": return this.setState({currentPage: "contract_terms"});
             case "/delivery": return this.setState({currentPage: "delivery"});
