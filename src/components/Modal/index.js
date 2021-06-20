@@ -81,7 +81,7 @@ class Modal extends React.Component {
 
         const {type, data} = this.props;
 
-        sendRequest({name, phone, type, data})
+        let sent = sendRequest({name, phone, type, data})
 
         // const crm = new AmoCRMButton({
         //     domain: 'tigerwoodby',
@@ -105,8 +105,10 @@ class Modal extends React.Component {
         // // const response = await crm.request( 'GET', '/api/v4/account' );
         // // console.log(response)
 
-        this.hideModal();
-        this.props.onFinish();
+        if (sent) {
+            this.hideModal();
+            this.props.onFinish();
+        }
     }
 
     onChange = e => {
