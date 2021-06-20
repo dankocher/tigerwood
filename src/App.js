@@ -7,6 +7,7 @@ import {Header, Sections} from "./components";
 import Admin from "./components/Admin";
 import Document from "./components/Document";
 import Modal from "./components/Modal";
+import Congratulations from "./components/Congratulations";
 
 class App extends React.Component {
 
@@ -26,6 +27,7 @@ class App extends React.Component {
                 type: "product", // picture, video, product, review
                 data: null,
             },
+
             version: 0
         }
     }
@@ -45,7 +47,8 @@ class App extends React.Component {
             return;
         }
         switch (path) {
-            case "/": return this.setState({currentPage: ""});
+            case "/": return this.setState({currentPage: "congratulations"});
+            // case "/": return this.setState({currentPage: ""});
             case "/ordering": return this.setState({currentPage: "ordering"});
             case "/contract_terms": return this.setState({currentPage: "contract_terms"});
             case "/delivery": return this.setState({currentPage: "delivery"});
@@ -128,7 +131,8 @@ class App extends React.Component {
         {/*<div className="screen-size">{`${width}x${height}`}</div>*/}
 
 
-        <Header isMobile={isMobile} width={width} t={translates.header} showModal={this.showModal}/>
+        <Header isMobile={isMobile} width={width} t={translates.header} showModal={this.showModal}
+                currenPage={currentPage}/>
         { currentPage === "" ?
             <Sections isMobile={isMobile} width={width}
                       animate={animate}
@@ -139,6 +143,16 @@ class App extends React.Component {
                       showModal={this.showModal}
             />
             :
+            currentPage === 'congratulations' ?
+            <Congratulations
+                isMobile={isMobile} width={width}
+                animateOnlyFirstTime={animateOnlyFirstTime}
+                animateFromBottom={animateFromBottom}
+                scrollDirection={scrollDirection}
+                onFinish={() => this.setState({currentPage: ""})}
+                t={translates}
+            />
+                :
             <Document doc={currentPage}
                       isMobile={isMobile} width={width}
                       animateOnlyFirstTime={animateOnlyFirstTime}
@@ -151,7 +165,8 @@ class App extends React.Component {
             <Modal type={modal.type} data={modal.data}
                    t={translates.modal}
                    isMobile={isMobile} width={width}
-                   showModal={this.showModal}/>
+                   showModal={this.showModal}
+                   onFinish={() => this.setState({currentPage: "congratulations"})}/>
         }
         {/*<Test/>*/}
 

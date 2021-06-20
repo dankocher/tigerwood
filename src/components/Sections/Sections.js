@@ -8,7 +8,12 @@ class Sections extends React.Component {
         return (
             <div className={`sections`}>
                 <div className="content">
-                    {this.props.t.sections.map(i => <Section number={i} {...this.props}/>)}
+                    {
+                        this.props.number ?
+                            <Section number={this.props.number} {...this.props}/>
+                            :
+                            this.props.t.sections.map(i => <Section number={i} {...this.props}/>)
+                    }
                 </div>
             </div>
         );

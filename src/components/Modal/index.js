@@ -56,6 +56,9 @@ class Modal extends React.Component {
     }
 
     send = async () => {
+        this.hideModal();
+        return this.props.onFinish();
+
         const {phone, name} = this.state;
         let warn = false;
         if (phone === "" || !phone.match(/^\+375 \((17|29|33|44|25)\) [0-9]{3} [0-9]{2} [0-9]{2}$/)) {
@@ -102,8 +105,8 @@ class Modal extends React.Component {
         // // const response = await crm.request( 'GET', '/api/v4/account' );
         // // console.log(response)
 
-
         this.hideModal();
+        this.props.onFinish();
     }
 
     onChange = e => {

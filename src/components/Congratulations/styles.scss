@@ -1,0 +1,194 @@
+@import "../../styles/theme";
+
+.congratulations {
+  padding-top: 100px;
+  background-color: white;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  .congratulations-container {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: -100px;
+    margin-top: 100px;
+
+    .congratulations-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      .c-content {
+        padding: 0 75px;
+        display: flex;
+        max-width: 1366px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 590px;
+        .content-text {
+          background: url("./images/bg.svg") no-repeat;
+          background-size: 560px;
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding-top: 150px;
+
+          .title {
+            white-space: pre;
+            font-family: $font-Nunito-ExtraBold;
+            text-align: left;
+            font-size: 30px;
+            line-height: 41px;
+            color: #921FED;
+          }
+
+          .description {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: $font-Nunito-Regular;
+            text-align: left;
+            font-size: 18px;
+            line-height: 25px;
+          }
+
+        }
+
+        .picture-container {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+          .picture {
+            width: 560px;
+            height: 560px;
+          }
+
+        }
+        .button-back {
+          width: 136px;
+          height: 60px;
+          border: 2px solid #FF7A00;
+          box-sizing: border-box;
+          border-radius: 30px;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+          cursor: pointer;
+          margin-top: 60px;
+          &:hover {
+            opacity: 0.8;
+          }
+          .button-title {
+            margin-left: 6px;
+            white-space: pre;
+            font-family: $font-Nunito-Regular;
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 18px;
+            line-height: 25px;
+            text-align: left;
+            margin-top: 3px;
+            user-select: none;
+          }
+        }
+      }
+
+    }
+  }
+
+}
+
+
+@media only screen and (max-width: 1216px) {
+  .congratulations {
+
+    .congratulations-container {
+
+      .congratulations-content {
+
+        .c-content {
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 960px) {
+  .congratulations {
+
+    .congratulations-container {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      .congratulations-content {
+
+        .c-content {
+          padding: 0 0px;
+          flex-direction: column;
+          align-content: center;
+          align-items: center;
+          height: auto;
+          padding-bottom: 20px;
+          .content-text {
+            min-height: 360px;
+            margin-top: -120px;
+
+            width: 100%;
+            padding-top: 50px;
+
+            .title {
+              padding: 0 20px;
+              font-size: 21px;
+              line-height: 29px;
+            }
+
+            .description {
+              padding: 0 20px;
+              font-size: 16px;
+              line-height: 22px;
+            }
+
+          }
+
+          .picture-container {
+            width: 100%;
+            margin-top: -100px;
+            box-sizing: border-box;
+            .picture {
+              width: 100%;
+              max-width: 598px;
+              box-sizing: border-box;
+              height: auto;
+              padding: 20px;
+            }
+          }
+
+
+          .button-back {
+            margin-top: 0px;
+            width: calc(100% - 40px);
+            max-width: 600px;
+            min-height: 60px;
+            //margin: 0 20px !important;
+            box-sizing: border-box;
+            height: 60px;
+            .button-title {
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

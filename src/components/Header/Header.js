@@ -8,7 +8,7 @@ class Header extends React.Component {
     render() {
 
         return (
-            <div className={`header`}>
+            <div className={`header${this.props.currenPage === 'congratulations' ? ' no-border' : ""}`}>
                 <div className="h-content">
                     <LeftSide {...this.props}/>
                     <RightSide {...this.props}/>
