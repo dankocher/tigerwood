@@ -56,8 +56,8 @@ class Modal extends React.Component {
     }
 
     send = async () => {
-        this.hideModal();
-        return this.props.onFinish();
+        // this.hideModal();
+        // return this.props.onFinish();
 
         const {phone, name} = this.state;
         let warn = false;
