@@ -169,7 +169,7 @@ class Admin extends React.Component {
         const {session, section, showButtonSave, products, reviews, show_rums} = this.state;
 
         return <div className="Admin">
-            {   session ?
+            {   !session ?
                 <Login onLogin={this.checkSession}/>
                 :
                 <div className={"admin-panel"}>
