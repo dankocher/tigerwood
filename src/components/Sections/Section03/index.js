@@ -43,6 +43,31 @@ export default class Section extends React.Component {
     getProducts = async () => {
         this.allProducts = await ajax(`/products.json`);
         this.filterProducts();
+        window.dataLayer = [];
+        let products = [];
+
+        for (const p of this.allProducts) {
+            if (p.natural) {
+                products.push({
+                    name: p.name + " Натуральный цвет",
+                    price: p.natural.price
+                })
+            }
+            if (p.color) {
+                products.push({
+                    name: p.name + " Цветной яркий",
+                    price: p.color.price
+                })
+            }
+        }
+
+        window.dataLayer.push({
+            ecommerce: {
+                detail : {
+                    products
+                }
+            }
+        });
     }
 
     filterProducts = (selectedModule) => {
