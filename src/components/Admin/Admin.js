@@ -20,7 +20,7 @@ class Admin extends React.Component {
         let session = localStorage.getItem(SESSION_NAME);
         let section = localStorage.getItem(SECTION_NAME) || "products";
         this.state = {
-            session: "test",
+            session,
             section,
             showButtonSave: false,
             products: [],
