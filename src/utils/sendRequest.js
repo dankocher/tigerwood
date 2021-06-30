@@ -3,6 +3,7 @@ import api from "../components/Admin/apiAdmin";
 
 const sendRequest = async ({name, phone, type, data}) => {
 
+    console.log(data)
     let text = data.title;
     let price = 0;
     if (data.name) {
@@ -26,7 +27,7 @@ const sendRequest = async ({name, phone, type, data}) => {
 
     // console.log({name, phone, text, price})
 
-    let res = await ajaxAdmin(api.sendRequest, {name, phone, price, tag: data.tag});
+    let res = await ajaxAdmin(api.sendRequest, {name, phone, price, tag: data.tag, text});
     if (res.ok) {
         return true;
     } else {

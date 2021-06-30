@@ -9,14 +9,28 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 
 $config = json_decode(file_get_contents(__DIR__.'/../api/amocrm_config.json'), true);
+$mail_config = json_decode(file_get_contents(__DIR__.'/mail_config.json'), true);
 
 $name = $data['name'];
 $phone = $data['phone'];
 $tag = isset($data['tag']) ? $data['tag'] : $config['source'];
+$text = isset($data['text']) ? $data['text'] : $config[''];
 $price = $data['price'];
 
 function startsWith($haystack, $needle) {
     return substr_compare($haystack, $needle, 0, strlen($needle)) === 0;
+}
+
+if ($mail_config['email'] !== "") {
+    $to = $mail_config['email'];
+    $subject = $mail_config['subject'];
+
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+    $message = $name."<br>".$phone."<br>".$text."<br>".$tag."<br>".$price."<br>";
+
+    mail($to, $subject, $message, $headers);
 }
 
 $type = startsWith($phone, "+375 17") || startsWith($phone, "+375 (17)") ? "HOME" : "MOB";
@@ -29,18 +43,18 @@ $data = [
 		"custom_fields_values" => [
 			[
 				"field_id" => intval($config['product_field_id']),
-				"values" => [ 
+				"values" => [
 					[
 						"value" => $config['product_field_value']
-					] 
+					]
 				]
 			],
 			[
 				"field_id" => intval($config['source_field_id']),
-				"values" => [ 
+				"values" => [
 					[
 						"value" => $config['source_filed_value']
-					] 
+					]
 				]
 			]
 		],
@@ -76,7 +90,7 @@ $data = [
 // $res = ['ok' => true];
 // echo json_encode($res, JSON_UNESCAPED_UNICODE);
 
-$subdomain = $config['domain']; 
+$subdomain = $config['domain'];
 
 $errors = [
 	400 => 'Bad request',
@@ -126,8 +140,8 @@ catch(\Exception $e)
 {
 	// die('Ошибка: ' . $e->getMessage() . PHP_EOL . 'Код ошибки: ' . $e->getCode());
 	$res = [
-		'ok' => false, 
-		"error" => 'Ошибка: ' . $e->getMessage() . PHP_EOL . 'Код ошибки: ' . $e->getCode(), 
+		'ok' => false,
+		"error" => 'Ошибка: ' . $e->getMessage() . PHP_EOL . 'Код ошибки: ' . $e->getCode(),
 		"data" => $data
 	];
 	echo json_encode($res, JSON_UNESCAPED_UNICODE);

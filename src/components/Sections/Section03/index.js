@@ -43,7 +43,6 @@ export default class Section extends React.Component {
     getProducts = async () => {
         this.allProducts = await ajax(`/products.json`);
         this.filterProducts();
-        window.dataLayer = [];
         let products = [];
 
         for (const p of this.allProducts) {
@@ -60,14 +59,19 @@ export default class Section extends React.Component {
                 })
             }
         }
+        // window.dataLayer = [];
 
-        window.dataLayer.push({
-            ecommerce: {
-                detail : {
-                    products
-                }
+        if (window.dataLayer) {
+            if (!window.dataLayer.find(d => (d.ecommerce))) {
+                window.dataLayer.push({
+                    ecommerce: {
+                        detail: {
+                            products
+                        }
+                    }
+                });
             }
-        });
+        }
     }
 
     filterProducts = (selectedModule) => {
