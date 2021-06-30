@@ -31,7 +31,7 @@ const sendRequest = async ({name, phone, type, data}) => {
     if (res.ok) {
         return true;
     } else {
-        alert(res.error);
+        // alert(res.error);
         return false;
     }
 }

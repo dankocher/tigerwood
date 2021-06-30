@@ -9,7 +9,6 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 
 $config = json_decode(file_get_contents(__DIR__.'/../api/amocrm_config.json'), true);
-$mail_config = json_decode(file_get_contents(__DIR__.'/../adminapi/mail_config.json'), true);
 
 $name = $data['name'];
 $phone = $data['phone'];
@@ -21,18 +20,21 @@ function startsWith($haystack, $needle) {
     return substr_compare($haystack, $needle, 0, strlen($needle)) === 0;
 }
 
-if ($mail_config['email'] !== "") {
-    $to = $mail_config['email'];
-    $subject = $mail_config['subject'];
+try {
+    if (isset($config['email']) && $config['email'] !== "") {
+        $to = $config['email'];
+        $subject = $config['subject'];
 
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
-    $message = $name."<br>".$phone."<br>".$text."<br>".$tag."<br>".$price."<br>";
+        $message = $name."<br>".$phone."<br>".$text."<br>".$tag."<br>".$price."<br>";
 
-    mail($to, $subject, $message, $headers);
+        mail($to, $subject, $message, $headers);
+    }
+} catch(Exception $e) {
+
 }
-
 $type = startsWith($phone, "+375 17") || startsWith($phone, "+375 (17)") ? "HOME" : "MOB";
 
 $data = [

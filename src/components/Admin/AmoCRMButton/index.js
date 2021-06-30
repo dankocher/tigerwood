@@ -10,6 +10,8 @@ const AmoCRM = require( 'amocrm-js' );
 class AmoCRMButton extends React.Component {
 
     state = {
+        email: "",
+        subject: "",
         domain: "",
         client_id: "",
         client_secret: "",
@@ -53,7 +55,7 @@ class AmoCRMButton extends React.Component {
     }
 
     saveToServer = async () => {
-        const {domain, client_id, client_secret, redirect_uri, pipeline_id, product_field_id, product_field_value, source} = this.state;
+        const {domain, client_id, client_secret, redirect_uri, pipeline_id, product_field_id, product_field_value, source, email, subject} = this.state;
 
         let res = await ajaxAdmin(api.saveJson, {file: "amocrm_config.json", data: {...this.state}})
     }
@@ -64,7 +66,7 @@ class AmoCRMButton extends React.Component {
     }
 
     render() {
-        const {domain, client_id, client_secret, redirect_uri, pipeline_id, status, product_field_id, product_field_value, error, source, source_field_id, source_filed_value} = this.state;
+        const {email, subject, domain, client_id, client_secret, redirect_uri, pipeline_id, status, product_field_id, product_field_value, error, source, source_field_id, source_filed_value} = this.state;
         if (this.props.hideInputs) {
             return <div className="-amo-section" style={{backgroundColor: "transparent"}}>
                 <div className={'-buttons'}>
@@ -77,6 +79,31 @@ class AmoCRMButton extends React.Component {
         return <div className="-amo-section">
             <table>
                 <tbody>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <b>Настройки Email</b><br/><br/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Email:</td>
+                        <td>
+                            <input type="text" className="-host" name="email" value={email} onChange={this.onChange} onBlur={this.saveToServer}/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Тема:</td>
+                        <td>
+                            <input type="text" className="-host" name="subject" value={subject} onChange={this.onChange} onBlur={this.saveToServer}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={2}><hr/></td>
+                    </tr>
                     <tr>
                         <td></td>
                         <td>
