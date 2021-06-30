@@ -9,7 +9,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 
 $config = json_decode(file_get_contents(__DIR__.'/../api/amocrm_config.json'), true);
-$mail_config = json_decode(file_get_contents(__DIR__.'/mail_config.json'), true);
+$mail_config = json_decode(file_get_contents(__DIR__.'/../adminapi/mail_config.json'), true);
 
 $name = $data['name'];
 $phone = $data['phone'];
